@@ -1,0 +1,9 @@
+<div *ngIf="!isAuthenticated">
+    <router-outlet></router-outlet>
+</div>
+<!-- Set parts -->
+<div *ngIf="isAuthenticated" class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
+    <router-outlet></router-outlet>            
+</div> 
+<!-- Separate -->
+
