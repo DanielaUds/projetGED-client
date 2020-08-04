@@ -5,7 +5,6 @@ import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs/Subscription';
 import { MessageService } from '../../../services/message.service';
 import { NotificationService } from '../../../services/notification.service';
-import { TranslateService } from '@ngx-translate/core';
 import { Lang } from '../../../services/config/lang';
 import { InternationalizationService } from '../../../services/features/internationalization.service';
 
@@ -53,17 +52,29 @@ export class LoginComponent implements OnInit {
       })
       .subscribe(success => {
         const ui = {
-          PRIEST: 'priests',
-          CATECHIST: 'catechists',
-          CATECHUMEN: 'cathecumenes',
-          PARISHIONAL: 'parishionals',
-          OTHER: 'others',
+          VISITOR: 'visitors',
+          EMPLOYEE: 'employees',
+          ADMINISTRATOR: 'administrators',
           SUPERADMIN: 'superadmins'
         };
         const user = this.authService.getUserInfos();
         if (success) {
           this.notificationService.success(this.translations.Login.ConnectedWithSuccess);
-          this.router.navigate(['/private/' + ui.PARISHIONAL]);
+          switch(user.job) {
+            case 'VISITOR': 
+              this.router.navigate(['/private/' + ui.VISITOR]);
+              break;
+            case 'EMPLOYEE': 
+              this.router.navigate(['/private/' + ui.EMPLOYEE]);
+              break;
+            case 'ADMINISTRATOR': 
+              console.log('Admin')
+              this.router.navigate(['/private/' + ui.ADMINISTRATOR]);
+              break;
+            case 'SUPERADMIN': 
+              this.router.navigate(['/private/' + ui.SUPERADMIN]);
+              break;
+          }
         } else {
           this.notificationService.danger(this.translations.Login.ErrorIncorrectLoginOrPwd);
         }

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './containers/index/index.component';
-import { OtherGuard } from '../auth/guards/other.guard';
 import { SuperadminGuard } from '../auth/guards/superadmin.guard';
+import { EmployeeGuard } from '../auth/guards/employee.guard';
+import { VisitorGuard } from '../auth/guards/visitor.guard';
+import { AdministratorGuard } from '../auth/guards/administrator.guard';
 import { LoginComponent } from '../auth/containers/login/login.component';
 
 const routes: Routes = [
@@ -13,7 +15,6 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
-        // canActivate: [AuthGuard] /* */
       },
       {
         path: 'superadmins',
@@ -21,6 +22,27 @@ const routes: Routes = [
           () => import('./containers/superadmin/superadmin.module').then(m => m.SuperadminModule),
         canActivate: [SuperadminGuard],
         canLoad: [SuperadminGuard] /* */
+      },
+      {
+        path: 'employees',
+        loadChildren:
+          () => import('./containers/employee/employee.module').then(m => m.EmployeeModule),
+        canActivate: [EmployeeGuard],
+        canLoad: [EmployeeGuard] /* */
+      },
+      {
+        path: 'visitors',
+        loadChildren:
+          () => import('./containers/visitor/visitor.module').then(m => m.VisitorModule),
+        canActivate: [VisitorGuard],
+        canLoad: [VisitorGuard] /* */
+      },
+      {
+        path: 'administrators',
+        loadChildren:
+          () => import('./containers/administrator/administrator.module').then(m => m.AdministratorModule),
+        canActivate: [AdministratorGuard],
+        canLoad: [AdministratorGuard] /* */
       }
     ]
   }

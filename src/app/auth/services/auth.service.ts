@@ -17,7 +17,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(user: { login: string, password: string }): Observable<boolean> {
+  login(user: { login: string, password: string }): Observable<any> {
     return this.http.post<any>(`${config.apiUrl}/auth/token`, user)
       .pipe(
         tap(tokens => this.doLoginUser(user.login, tokens)),

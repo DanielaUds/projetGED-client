@@ -1,0 +1,18 @@
+<div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
+    <div class="app-header header-shadow">
+        <!-- Header -->
+        <app-nav-bar></app-nav-bar>
+    </div>
+    <div class="app-main">
+        <div class="app-sidebar sidebar-shadow">
+            <!-- Left Menu -->
+            <app-left-side></app-left-side>
+        </div>
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="app-wrapper-footer">
+            </div>
+        </div>
+</div>

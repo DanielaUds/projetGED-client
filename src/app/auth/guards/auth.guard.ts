@@ -12,15 +12,13 @@ export class AuthGuard implements CanActivate {
   canActivate() {
     if (this.authService.isLoggedIn()) {
       const ui = {
-        PRIEST: 'priests',
-        CATECHIST: 'catechists',
-        CATECHUMEN: 'cathecumenes',
-        PARISHIONER: 'parishionals',
-        OTHER: 'others',
-        SUPERADMIN: 'superadmins',
+        VISITOR: 'visitors',
+        EMPLOYEE: 'employees',
+        ADMINISTRATOR: 'administrators',
+        SUPERADMIN: 'superadmins'
       };
       const user = this.authService.getUserInfos();
-      this.router.navigate(['/' + ui[user.user_type]]);
+      this.router.navigate(['/' + ui[user.job]]);
     }
     return !this.authService.isLoggedIn();
   }
