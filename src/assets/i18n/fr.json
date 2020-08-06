@@ -24,6 +24,37 @@
 		"ConnectedWithSuccess": "Connecté avec succès",
 		"AllFieldsAreRequired": "Tous les champs sont requis",
 		"ErrorIncorrectLoginOrPwd": "Login ou mot de passe incorrect"
+	},
+	"SignUp":{
+		"WelcomeBack": "Bienvenue,",
+		"Login": "Login",
+		"Nom": "Nom",
+		"Prenom": "Prenom",
+		"AdresseEmail": "Adresse e-mail",
+		"ChoixGendre": "Choisir votre genre",
+		"DateNais": "Date de naissance",
+		"LieuNais": "Lieu de naissance",
+		"NumTel": "Numero de telephone",
+		"Langue": "Choisir votre langue",
+		"PhotoProfil": "Choisir une photo de profile",
+		"Formulaire": "Remplir le formulaire ci-dessous pour creer votre",
+		"Compte": "compte",
+		"Password" : "Mot de passe",
+		"ConfirmPwd" : "Confirmez le mot de passe",
+		"Connection" : "Connectez-vous ici",
+		"CreeCompte": "Creer votre compte ici",
+		"NomPlaceHolder": "Veuillez saisir votre nom",
+		"PrenomPlaceHolder": "Veuillez saisir votre prenom",
+		"AdresseEmailPlaceHolder": "example:bebubuebu@sample.com",
+		"FemaleGenderOptionPlaceHolder": "Feminin",
+		"MaleGenderOptionPlaceHolder": "Masculin",
+		"LieuNaisPlaceHolder": "Veuillez saisir votre lieu de naissance",
+		"NumTelPlaceHolder": "exemple: 691971542..",
+		"EnglishLanguageOptionPlaceHolder": "Anglais",
+		"FrenchLanguageOptionPlaceHolder": "Francais",
+		"LoginPlaceHolder": "Votre login",
+		"PasswordPlaceHolder": "Veuillez saisir le mot de passe de votre compte",
+		"ConfirmPasswordPlaceHolder": "Saisir a nouveau le mot de passe"
 	}
 }
 	

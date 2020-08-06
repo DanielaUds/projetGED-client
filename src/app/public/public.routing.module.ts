@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './containers/index/index.component';
 import { RandomNumberComponent } from './containers/random-number/random-number.component';
+import { SignUpComponent } from './containers/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './containers/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -12,6 +14,14 @@ const routes: Routes = [
         path: 'random-number',
         component: RandomNumberComponent
         // canActivate: [AuthGuard] /* */
+      },
+      {
+        path: 'sign-up',
+        component: SignUpComponent
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
       }
     ]
   }

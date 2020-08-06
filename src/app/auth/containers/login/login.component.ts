@@ -81,6 +81,10 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  goTo(url: string) {
+    this.router.navigate([url]);
+  }
+
   changeLanguage(value) {
     this.currentLanguage = value;
     this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });

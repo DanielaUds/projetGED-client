@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RandomNumberComponent } from './containers/random-number/random-number.component';
+import { VisitorHomeComponent } from './containers/visitor-home/visitor-home.component';
 import { VisitorRoutingModule } from './visitor.routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NavBarComponent } from './containers/index/nav-bar/nav-bar.component';
@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     IndexComponent,
-    RandomNumberComponent,
+    VisitorHomeComponent,
     NavBarComponent,
     LeftSideComponent
   ],

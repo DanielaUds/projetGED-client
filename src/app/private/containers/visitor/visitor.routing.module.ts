@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RandomNumberComponent } from './containers/random-number/random-number.component';
+import { VisitorHomeComponent } from './containers/visitor-home/visitor-home.component';
 import { IndexComponent } from './containers/index/index.component';
 
 const routes: Routes = [
@@ -9,8 +9,8 @@ const routes: Routes = [
     component: IndexComponent,
     children: [
       {
-        path: 'random-number',
-        component: RandomNumberComponent,
+        path: 'workspace',
+        component: VisitorHomeComponent,
       },
     ]
   }

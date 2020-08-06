@@ -10,22 +10,10 @@ import { Router } from '@angular/router';
 })
 export class RandomNumberComponent implements OnInit {
 
-  randomNumber: Observable<number>;
-
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    alert('Lecture des infos utilisateurs');
-    console.log(this.authService.getUserInfos());
-  }
-
-  logout() {
-    this.authService.logout()
-      .subscribe(success => {
-        if (success) {
-          this.router.navigate(['/private/login']);
-        }
-      });
+  ngOnInit(): void {
+    
   }
 
 }

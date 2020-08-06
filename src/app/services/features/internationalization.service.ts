@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { config } from '../../config';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -9,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class InternationalizationService {
 
-  constructor(private http: HttpClient, private translate: TranslateService) {}
+  constructor(private translate: TranslateService) {}
 
   updateLanguage(value: string, callback) {
     this.translate.getTranslation(value).subscribe((res: any) => {

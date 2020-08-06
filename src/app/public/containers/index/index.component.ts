@@ -12,9 +12,7 @@ export class IndexComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    this.router.navigate(['/public/random-number']);
-  }
+  ngOnInit() {}
 
   logout() {
     this.authService.logout()

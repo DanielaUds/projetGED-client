@@ -25,16 +25,32 @@ export class IndexComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.user = this.authService.getUserInfos();
+   this.user = this.authService.getUserInfos();
     console.log(this.user);
     this.isAuthenticated = this.user ? true : false;
 
     const ui = {
-      OTHER: 'others',
+      VISITOR: 'visitors',
+      EMPLOYEE: 'employees',
+      ADMINISTRATOR: 'administrators',
       SUPERADMIN: 'superadmins'
     };
-    if (this.user && this.user.types) {
-      this.router.navigate(['/private/superadmins']);
+    if (this.user && this.user.job) {
+      switch(this.user.job) {
+        case 'VISITOR': 
+          this.router.navigate(['/private/' + ui.VISITOR]);
+          break;
+        case 'EMPLOYEE': 
+          this.router.navigate(['/private/' + ui.EMPLOYEE]);
+          break;
+        case 'ADMINISTRATOR': 
+          console.log('Admin')
+          this.router.navigate(['/private/' + ui.ADMINISTRATOR]);
+          break;
+        case 'SUPERADMIN': 
+          this.router.navigate(['/private/' + ui.SUPERADMIN]);
+          break;
+      }
     } else {
       this.router.navigate(['/private/login']);
     }

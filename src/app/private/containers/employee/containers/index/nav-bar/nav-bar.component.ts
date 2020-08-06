@@ -51,9 +51,9 @@ export class NavBarComponent implements OnInit {
   }
 
   showUserFirstAndLastName() {
-    return this.user.infos.first_name.split(' ')[0] + ' ' + this.user.infos.last_name.split(' ')[0];
+    return this.user.first_name.split(' ')[0] + ' ' + this.user.last_name.split(' ')[0];
   }
-  
+
   /* Reactive translation */
   changeLanguage(value) {
     this.currentLanguage = value;

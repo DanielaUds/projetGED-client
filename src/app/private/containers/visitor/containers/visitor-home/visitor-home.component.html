@@ -1,0 +1,178 @@
+<div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+        <div class="row">
+            <div class="app-page-title" style="margin: 0%; width: 100%;">
+                <div class="page-title-wrapper">
+                    <div class="page-title-heading">
+                        <div class="page-title-icon">
+                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            </i>
+                        </div>
+                        <div><span class="text-success"><h4>Bienvenue</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                            <div class="page-title-subheading">
+                                A partir de cette interface vous pouvez suivre l'evolution
+                                des documents que vous avez soumis et consulter l'historique
+                                des documents soumis dans le passe
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card d-md-flex d-sm-block bg-white align-items-center col-sm-12 col-md-10 col-lg-8 page-column">
+                <div class="mx-auto app-login-box mt-5 col-sm-12 col-md-10 col-lg-9">
+                    <div>
+                        First part
+                    </div>
+                </div>
+            </div>
+            <div class="card d-md-flex d-sm-block bg-white col-sm-12 col-md-2 col-lg-4 text-dark" style="padding: 5px;">
+        
+                <div class="card card-shadow-dark card-border" style="width: 100%;">
+                    <div class="dropdown-menu-header justify-content-center align-items-center">
+                        <div class="dropdown-menu-header-inner bg-premium-dark" style="height: 200px;">
+                            <div class="menu-header-image"
+                                style="background-image: url('assets/images/dropdown-header/city2.jpg'); height: 200px;">
+                            </div>
+                            <div class="menu-header-content">
+                                <div class="avatar-icon-wrapper avatar-icon-lg">
+                                    <div class="avatar-icon rounded btn-hover-shine"><img [src]="avatarPath"
+                                            alt="Avatar"></div>
+                                </div>
+                                <div>
+                                    <h5 class="menu-header-title">
+                                        {{ user.first_name ? user.first_name : '' }}
+                                        {{ user.last_name ? user.last_name : '' }}</h5>
+                                    <h6 class="menu-header-subtitle"> </h6>
+                                </div>
+                                <div class="menu-header-btn-pane mt-3">
+                                    <button class="btn-wide btn-shadow btn-pill btn btn-danger">
+                                        Modifier mon profile </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ps ps--active-y">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-smile text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Nom</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-heading">
+                                                    {{ user.first_name ? user.first_name : 'Completer votre profil' }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-smile text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Prenom</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.last_name ? user.last_name : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-mail text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Email</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.email ? user.email : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-call text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                Numero de telephone</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.tel ? user.tel : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-note2 text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    date de naissance</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.birth_date ? user.birth_date : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-home text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Lieu de naissance</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.birth_place ? user.birth_place : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-pen text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Langue parlee</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                               {{ displayUserLanguage()}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="ps__rail-x" style="left: 0px; bottom: -9px;">
+                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps__rail-y" style="top: 9px; height: 200px; right: 0px;">
+                                <div class="ps__thumb-y" tabindex="0" style="top: 5px; height: 121px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

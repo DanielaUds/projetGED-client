@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../../../../../../auth/services/auth.service';
-import { MessageService } from '../../../../../../services/message.service';
-import { NotificationService } from '../../../../../../services/notification.service';
 declare var $;
 @Component({
   selector: 'app-left-side',
@@ -17,23 +14,20 @@ export class LeftSideComponent implements OnInit {
   translations: any = null;
   activeMenu: any = {
     menu0: 1,
-    menu1: 1,
-    menu2: 1,
-    menu3: 1,
-    menu4: 1,
-    menu5: 1,
-    menu6: 1,
-    menu7: 1,
-    menu8: 1,
-    menu9: 1
+    menu1: 1
   };
 
   constructor(
-    private authService: AuthService,
-    private messageService: MessageService,
-    private notificationService: NotificationService,
     private router: Router) {
     }
+
+  compute0() {
+    this.activeMenu.menu0 === 1 ? this.activeMenu.menu0 = 0 : this.activeMenu.menu0 = 1;
+  }
+
+  compute1() {
+    this.activeMenu.menu1 === 1 ? this.activeMenu.menu1 = 0 : this.activeMenu.menu1= 1;
+  }
 
   showChildren(parent) {
     const uls = $(parent);
@@ -56,7 +50,7 @@ export class LeftSideComponent implements OnInit {
   }
 
   goTo(component) {
-    this.router.navigate(['/private/superadmins/' + component]);
+    this.router.navigate(['/private/visitors/' + component]);
   }
 
 }
