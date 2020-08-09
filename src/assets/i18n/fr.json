@@ -56,5 +56,13 @@
 		"PasswordPlaceHolder": "Veuillez saisir le mot de passe de votre compte",
 		"ConfirmPasswordPlaceHolder": "Saisir a nouveau le mot de passe"
 	}
+	,
+	"Forgotpwd": {
+		"Forgotpassword": "Mot de passe oublie?",
+		"Form": "Utilisez le formulaire ci-dessous pour le retrouver.",
+		"EmailPlaceholder": "Email ici...",
+		"Recoverpwd": "Reinitialiser le mot de passe",
+		"Sign-in": "Se connecter"
+	}
 }
 	

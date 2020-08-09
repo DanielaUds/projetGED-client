@@ -13,21 +13,13 @@ export class LeftSideComponent implements OnInit {
   subscription: Subscription;
   translations: any = null;
   activeMenu: any = {
-    menu0: 1,
+    menu0: 5,
     menu1: 1
   };
 
   constructor(
     private router: Router) {
     }
-
-  compute0() {
-    this.activeMenu.menu0 === 1 ? this.activeMenu.menu0 = 0 : this.activeMenu.menu0 = 1;
-  }
-
-  compute1() {
-    this.activeMenu.menu1 === 1 ? this.activeMenu.menu1 = 0 : this.activeMenu.menu1= 1;
-  }
 
   showChildren(parent) {
     const uls = $(parent);

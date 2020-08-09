@@ -1,0 +1,105 @@
+<div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+        <div class="row">
+            <div class="app-page-title" style="margin: 0%; width: 100%;">
+                <div class="page-title-wrapper">
+                    <div class="page-title-heading">
+                        <div class="page-title-icon">
+                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            </i>
+                        </div>
+                        <div><span class="text-success"><h4>Dossiers en cours de traitement</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                            <div class="page-title-subheading">
+                                A partir de cette interface vous pouvez visualiser
+                                l'ensemble de vos dossiers qui sont en cours de traitement 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card d-md-flex d-sm-block bg-white col-sm-12 col-md-12 col-lg-12 page-column">
+                <div class="alert alert-warning fade show mt-3" role="alert" style="text-align: justify;">
+                    <span class="font-icon-wrapper font-icon-md mr-2">
+                        <i class="pe-7s-shield" size="medium"> </i>
+                    </span>
+                    <strong><u>Note sur la securite:</u> </strong>  toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite
+                </div>
+
+                <!---->
+                <div class="tabs-animation">
+                    <div class="main-card mb-3 card">
+                        <div class="card-header">
+                            <i class="header-icon pe-7s-shield icon-gradient bg-love-kiss"> </i>
+                            Dossiers en cours de traitement
+                        </div>
+                        <div class="card-body">
+                
+                            <table id="example2" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>badge</th>
+                                        <th>nom</th>
+                                        <th>pieces jointe</th>
+                                        <th>date de soumission</th>
+                                        <th class="text-center">pourcentage</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of data,let i = index" id="tr{{ item.id }}">
+                                        <td style="width: 4%">{{ i+1 }}</td>
+                                        <td style="width: 6%;" class="text-center">
+                                            <span class="badge badge-success">acpt</span>
+                                        </td>
+                                        <td style="width: 16%">{{ item?.name }}</td>
+                                        <td style="width: 11%">{{ item?.file_number }} piece(s) jointe</td>
+                                        <td style="width: 19%">{{ parser(item?.created_at) }}</td>
+                                        <td style="width: 27%" class="text-center">
+                                            <div class="widget-content p-0">
+                                                <div class="widget-content-outer">
+                                                    <div class="widget-content-wrapper">
+                                                        <div class="widget-content-left pr-2">
+                                                            <div class="widget-numbers fsize-1 text-danger">71%</div>
+                                                        </div>
+                                                        <div class="widget-content-right w-100">
+                                                            <div class="progress-bar-xs progress">
+                                                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td style="width: 18%" class="text-center">
+                                            <div role="group" class="btn-group-sm btn-group">
+                                                <button class="mr-2 btn-icon btn-shadow btn btn-primary" ><i class="pe-7s-pen btn-icon-wrapper"> </i></button>
+                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
+                                                <button class="mr-2 btn-icon btn-icon-only btn btn-danger" (click)="delete(item)"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot *ngIf="loading && (!data || !data.length)">
+                                    <td colspan="7" class="text-center">
+                                        <div class="spinner-border spinner-sm">
+                                            <span class="sr-only">Patientez svp...</span>
+                                        </div>
+                                    </td>
+                                </tfoot>
+                                <tfoot *ngIf="!loading && (!data || !data.length)">
+                                    <td colspan="7" class="text-center">
+                                        Liste vide
+                                    </td>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>                
+                <!---->
+            </div>
+        </div>
+    </div>
+</div>

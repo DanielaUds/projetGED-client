@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { Subscription } from 'rxjs/Subscription';
-import { MessageService } from '../../../services/message.service';
 import { NotificationService } from '../../../services/notification.service';
 import { Lang } from '../../../services/config/lang';
 import { InternationalizationService } from '../../../services/features/internationalization.service';
@@ -14,19 +12,23 @@ import { InternationalizationService } from '../../../services/features/internat
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm: FormGroup;
-  subscription: Subscription;
   translations: any = null;
   currentLanguage = Lang.currentLang;
+  handleError: any = null;
+  isLoading = false;
+  isError = false;
+  isSuccess = false;
+  message = { title: '', content: '' };
+  isSubmitted = false;
 
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private internationalizationService: InternationalizationService,
-    private messageService: MessageService,
     private notificationService: NotificationService,
-    private router: Router
-  ) {}
+    private router: Router) {}
 
   ngOnInit() {
     this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
@@ -41,10 +43,21 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.isError = false;
+    this.isSuccess = false;
+    this.isLoading = false;
+    this.isSubmitted = true;
+    this.handleError = null;
+
     if (this.f.invalid) {
-      this.notificationService.danger(this.translations.Login.AllFieldsAreRequired);
+      this.message.title = 'Erreur'
+      this.message.content = this.translations.Login.AllFieldsAreRequired;
+      this.isError = true;
+      this.notificationService.danger(this.message.content);
+      return;
     }
 
+    this.isLoading = true;
     this.authService
       .login({
         login: this.f.login.value,
@@ -59,7 +72,10 @@ export class LoginComponent implements OnInit {
         };
         const user = this.authService.getUserInfos();
         if (success) {
-          this.notificationService.success(this.translations.Login.ConnectedWithSuccess);
+          this.message.title = 'Success'
+          this.message.content = this.translations.Login.ConnectedWithSuccess;
+          this.isSuccess = true;
+          this.notificationService.success(this.message.content);
           switch(user.job) {
             case 'VISITOR': 
               this.router.navigate(['/private/' + ui.VISITOR]);
@@ -75,10 +91,21 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/private/' + ui.SUPERADMIN]);
               break;
           }
+          this.isLoading = false;
         } else {
-          this.notificationService.danger(this.translations.Login.ErrorIncorrectLoginOrPwd);
+          this.message.title = 'Erreur'
+          this.message.content = this.translations.Login.ErrorIncorrectLoginOrPwd;
+          this.isError = true;
+          this.notificationService.danger(this.message.content);
+          this.isLoading = false;
         }
       });
+  }
+
+  cancel() {
+    this.isError = false;
+    this.isSuccess = false;
+    this.message = { title: '', content: '' };
   }
 
   goTo(url: string) {

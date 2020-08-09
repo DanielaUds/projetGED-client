@@ -59,6 +59,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.isSuccess = false;
     this.isLoading = false;
     this.isSubmitted = true;
+    this.handleError = null;
 
     if (this.form.invalid) {
       this.message.title = 'Erreur'
@@ -110,7 +111,5 @@ export class ForgotPasswordComponent implements OnInit {
     this.currentLanguage = value;
     this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
   }
-  goToo(url: string) {
-    this.router.navigate([url]);
-  }
+  
 }

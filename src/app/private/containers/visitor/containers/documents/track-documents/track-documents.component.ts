@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthService } from '../../../../../auth/services/auth.service';
-import { config } from '../../../../../config';
+import { AuthService } from '../../../../../../auth/services/auth.service';
+import { config } from '../../../../../../config';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NotificationService } from '../../../../../services/notification.service';
-import { Lang } from '../../../../../services/config/lang';
-import { InternationalizationService } from '../../../../../services/features/internationalization.service';
-import { FolderService } from './../../services/folder.service';
+import { NotificationService } from '../../../../../../services/notification.service';
+import { Lang } from '../../../../../../services/config/lang';
+import { InternationalizationService } from '../../../../../../services/features/internationalization.service';
+import { FolderService } from './../../../services/folder.service';
 
 @Component({
-  selector: 'app-visitor-home',
-  templateUrl: './visitor-home.component.html',
-  styleUrls: ['./visitor-home.component.css']
+  selector: 'app-track-documents',
+  templateUrl: './track-documents.component.html',
+  styleUrls: ['./track-documents.component.css']
 })
-export class VisitorHomeComponent implements OnInit {
+export class TrackDocumentsComponent implements OnInit {
 
   user = null;
   avatarPath = '';
@@ -63,10 +63,11 @@ export class VisitorHomeComponent implements OnInit {
         if(this.allFolders && this.allFolders.length > 0) 
           this.filterFolders();
         console.log(this.allFolders);
+        this.notificationService.success("Les dossiers ont ete charges");
       })
       .catch((err) => {
         console.log(err);
-        this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
+        this.notificationService.danger("Les dossiers n'ont pas pu etre charges");
       });
     } else {
       this.notificationService.danger("Votre session a expiree veuillez vous connecter");
@@ -85,8 +86,55 @@ export class VisitorHomeComponent implements OnInit {
     console.log('Dossiers rejetes: ', this.rejectedFolders);
   }
 
-  gotToDoc(url) {
-    this.router.navigate(['private/visitors/documents' + url]);
+  onSubmit() {
+    this.isError = false;
+    this.isSuccess = false;
+    this.isLoading = false;
+    this.isSubmitted = true;
+    this.handleError = null;
+    if (this.track_id === null || this.track_id === '') {
+      this.message.title = 'Erreur'
+      this.message.content = 'Vous devez saisir le numero du dossier si vous souhaitez tracker un de vos dossiers';
+      this.isError = true;
+      this.notificationService.danger(this.message.content);
+      return;
+    }
+    let result = parseInt(this.track_id);
+    console.log(result);
+    if(!result) {
+      this.message.title = 'Erreur'
+      this.message.content = 'L\'identifiant du dossier que vous souhaitez tracker est un nombre. Veuillez saisir un nombre';
+      this.isError = true;
+      this.notificationService.danger(this.message.content);
+      return;
+    }
+    this.track_id = result + '';
+    this.isLoading = true;
+    this.folderService.findByTrackId(this.track_id)
+    .then(resp => { 
+      console.log(resp);
+      this.tracked_folder = resp;
+      this.message.title = 'Success'
+      this.message.content = 'Nous avons pu retrouver votre dossier, vous pouvez a present consulter son etat d\avancement consulter l\'evolution';
+      this.isSuccess = true;
+      this.notificationService.success(this.message.content);
+    })
+    .catch(err => {
+      this.isError = true;
+      this.message.title = 'Erreur'
+      this.message.content = 'Nous n\'avons pas reussi a retrouver votre dossier. Ceci peut etre du au fait que le numero du dossier sois incorrect ou un probleme de connexion a internet. Veuillez verifier ces parametres puis reessayer ';
+      this.isError = true;
+      this.notificationService.danger(this.message.content);
+    })
+    .finally(() => {
+      this.isLoading = false;
+    });
+  }
+
+  cancel() {
+    this.isError = false;
+    this.isSuccess = false;
+    this.message = { title: '', content: '' };
   }
 
   displayUserLanguage() {

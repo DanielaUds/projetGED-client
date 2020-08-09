@@ -110,6 +110,7 @@ export class SignUpComponent implements OnInit {
     this.isSuccess = false;
     this.isLoading = false;
     this.isSubmitted = true;
+    this.handleError = null;
 
     if (this.registerForm.invalid) {
       this.message.title = 'Erreur'
@@ -159,6 +160,9 @@ export class SignUpComponent implements OnInit {
         this.notificationService.success(this.message.content);
       })
       .catch(err => {
+        this.message.title = 'Erreur'
+        this.message.content = 'Une erreur inconnue est survenue, veuillez verifier les informations saisis dans le formulaire';
+        this.notificationService.danger(this.message.content);
         this.isError = true;
         const errs = err.error.errors;
         console.log(err);

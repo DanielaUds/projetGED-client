@@ -1,0 +1,78 @@
+<div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+        <div class="row">
+            <div class="app-page-title" style="margin: 0%; width: 100%;">
+                <div class="page-title-wrapper">
+                    <div class="page-title-heading">
+                        <div class="page-title-icon">
+                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            </i>
+                        </div>
+                        <div><span class="text-success"><h4>Suivie de dossier</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                            <div class="page-title-subheading">
+                                A partir de cette interface vous pouvez suivre l'evolution
+                                d'un document que vous avez soumis
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card d-md-flex d-sm-block bg-white align-items-center col-sm-12 col-md-12 col-lg-12 page-column">
+                <div class="alert alert-warning fade show mt-3" role="alert" style="text-align: justify;">
+                    <span class="font-icon-wrapper font-icon-md mr-2">
+                        <i class="pe-7s-shield" size="medium"> </i>
+                    </span>
+                    <strong><u>Note sur la securite:</u> </strong>  toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite
+                </div>
+                <div class="mx-auto app-login-box mt-2 col-sm-12 col-md-10 col-lg-9">
+                    <div class="card page-title-subheading bg-premium-dark" style="text-align: justify; padding: 2%;color: white;">
+                        Pour consulter l'etat d'avancement d'un de vos dossier, vous devez saisir son numero
+                    </div>
+                    <div class="card" style="background-color: gainsboro; height: 280px;">
+                        <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show" role="alert" style="text-align: justify;">
+                            <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                            <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                            <div *ngIf="isSuccess" class="alert alert-success alert-dismissible fade show" role="alert" style="text-align: justify;">
+                            <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                            <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div *ngIf="!track_id && !isSuccess && !isError" class="alert alert-info fade show text-center" role="alert" style="text-align: justify;">
+                            <i class="pe-7s-info mr-2"> </i>Saisir le numero du dossier juste en dessous
+                        </div>
+                        <form (submit)="onSubmit()">
+                            <div class="form-row">
+                                <div class="col-md-12 mt-3">
+                                    <input [(ngModel)]="track_id" name="track_id" class="form-control" type="text" placeholder="Saisir le numero de votre dossier ici" style="width: 70%; margin: auto;">
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div style="width: 100%; text-align: center; justify-content: center; align-items: center;">
+                                    <button [disabled]="isLoading"
+                                        class="btn btn-wide btn-shadow btn-hover-shine btn-success btn-sm"
+                                        style="width: 70%; justify-content: center; align-items: center; flex: 1; margin-right: 12.5%;">
+                                        <span *ngIf="!isLoading" style="font-size: medium; padding: 0px; margin: 5px;">
+                                            Voir l'etat d'avancement du dossier </span>
+                                        <div *ngIf="isLoading" style="padding: 15px; margin-left: 50%;">
+                                            <div class="ball-scale-multiple">
+                                                <div style="background-color: white;"></div>
+                                                <div style="background-color: white;"></div>
+                                                <div style="background-color: white;"></div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>    
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

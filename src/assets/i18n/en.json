@@ -45,5 +45,12 @@
 		"LoginPlaceHolder": "Please enter your login",
 		"PasswordPlaceHolder": "Please enter your password",
 		"ConfirmPasswordPlaceHolder": "Confirm password"
+	},
+	"Forgotpwd": {
+		"Forgotpassword": "Forgot your Password?",
+		"Form": "Use the form below to recover it.",
+		"EmailPlaceholder": "Email here...",
+		"Recoverpwd": "Recover Password",
+		"Sign-in": "Sign in existing account"
 	}
 }

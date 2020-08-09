@@ -20,139 +20,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="card d-md-flex d-sm-block bg-white align-items-center col-sm-12 col-md-10 col-lg-9 page-column">
-    
-                <div class="mb-3 mt-3 card" style="width: 100%;">
-                    <div class="card-header-tab card-header">
-                        <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
-                            <i class="header-icon lnr-charts icon-gradient bg-happy-green"> </i>
-                            Statistiques sur vos activites
-                        </div>
-                    </div>
-                    <div class="no-gutters row">
-                        <div class="col-sm-6 col-md-4 col-xl-4">
-                            <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
-                                <div class="icon-wrapper rounded-circle">
-                                    <div class="icon-wrapper-bg opacity-10 bg-success"></div>
-                                    <i class="lnr-laptop-phone text-dark opacity-8"></i></div>
-                                <div class="widget-chart-content">
-                                    <div class="widget-subheading">Total dossiers en traitement</div>
-                                    <div class="widget-numbers text-success">{{ onWorkingFolders ? onWorkingFolders.length : 0 }}</div>
-                                </div>
-                            </div>
-                            <div class="divider m-0 d-md-none d-sm-block"></div>
-                        </div>
-                        <div class="col-sm-12 col-md-4 col-xl-4">
-                            <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
-                                <div class="icon-wrapper rounded-circle">
-                                    <div class="icon-wrapper-bg opacity-9 bg-secondary"></div>
-                                    <i class="lnr-screen text-white"></i></div>
-                                <div class="widget-chart-content">
-                                    <div class="widget-subheading">Total dossiers soumis</div>
-                                    <div class="widget-numbers text-secondary"><span>{{ allFolders ? allFolders.length : 0 }}</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-xl-4">
-                            <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
-                                <div class="icon-wrapper rounded-circle">
-                                    <div class="icon-wrapper-bg opacity-9 bg-danger"></div>
-                                    <i class="lnr-trash text-white"></i></div>
-                                <div class="widget-chart-content">
-                                    <div class="widget-subheading">Total dossiers rejetes</div>
-                                    <div class="widget-numbers"><span>{{ rejectedFolders ? rejectedFolders.length : 0 }}</span></div>
-                                </div>
-                            </div>
-                            <div class="divider m-0 d-md-none d-sm-block"></div>
-                        </div>
-                    </div>
+            <div class="card d-md-flex d-sm-block bg-white align-items-center col-sm-12 col-md-10 col-lg-8 page-column">
+                <div class="alert alert-warning fade show mt-3" role="alert" style="text-align: justify;">
+                    <span class="font-icon-wrapper font-icon-md mr-2">
+                        <i class="pe-7s-shield" size="medium"> </i>
+                    </span>
+                    <strong><u>Note sur la securite:</u> </strong>  toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite
                 </div>
-
-                <div class="row" style="width: 100%;">
-                    <div class="col-md-6 col-lg-3">
-                        <a href="javascript:void(0)" (click)="gotToDoc('/accepted-documents')" style="cursor: pointer;">
-                            <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-success border-success card">
-                                <div class="widget-chat-wrapper-outer">
-                                    <div class="widget-chart-content">
-                                        <div class="widget-title opacity-5 text-uppercase">Traitements({{ onWorkingFolders ? onWorkingFolders.length : 0 }})</div>
-                                        <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
-                                            <div class="widget-chart-flex align-items-center">
-                                                <div>
-                                                    <span class="opacity-10 text-success pr-2">
-                                                        <i class="fa fa-angle-up"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <a href="javascript:void(0)" (click)="gotToDoc('/pending-documents')" style="cursor: pointer;">
-                            <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-warning border-warning card">
-                                <div class="widget-chat-wrapper-outer">
-                                    <div class="widget-chart-content">
-                                        <div class="widget-title opacity-5 text-uppercase">Dossiers attente({{ pendingFolders ? pendingFolders.length : 0 }})</div>
-                                        <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
-                                            <div class="widget-chart-flex align-items-center">
-                                                <div>
-                                                    <span class="opacity-10 text-warning pr-2">
-                                                        <i class="fa fa-angle-up"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <a href="javascript:void(0)" (click)="gotToDoc('/archived-documents')" style="cursor: pointer;">
-                            <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-primary border-primary card">
-                                <div class="widget-chat-wrapper-outer">
-                                    <div class="widget-chart-content">
-                                        <div class="widget-title opacity-5 text-uppercase">Dossiers archives({{ treatedFolders ? treatedFolders.length : 0 }})</div>
-                                        <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
-                                            <div class="widget-chart-flex align-items-center">
-                                                <div>
-                                                    <span class="opacity-10 text-primary pr-2">
-                                                        <i class="fa fa-angle-up"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <a href="javascript:void(0)" (click)="gotToDoc('/rejected-documents')" style="cursor: pointer;">
-                            <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-danger border-danger card">
-                                <div class="widget-chat-wrapper-outer">
-                                    <div class="widget-chart-content">
-                                        <div class="widget-title opacity-5 text-uppercase">Dossiers rejetes({{ rejectedFolders ? rejectedFolders.length : 0 }})</div>
-                                        <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
-                                            <div class="widget-chart-flex align-items-center">
-                                                <div>
-                                                    <span class="opacity-10 text-danger pr-2">
-                                                        <i class="fa fa-angle-up"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="mx-auto app-login-box mt-2 col-sm-12 col-md-10 col-lg-9">
+                    
                 </div>
-
             </div>
-            <div class="card d-md-flex d-sm-block bg-white col-sm-12 col-md-2 col-lg-3 text-dark" style="padding: 5px;">
+            <div class="card d-md-flex d-sm-block bg-white col-sm-12 col-md-2 col-lg-4 text-dark" style="padding: 5px;">
         
                 <div class="card card-shadow-dark card-border" style="width: 100%;">
                     <div class="dropdown-menu-header justify-content-center align-items-center">
