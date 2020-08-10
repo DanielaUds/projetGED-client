@@ -52,5 +52,94 @@
 		"EmailPlaceholder": "Email here...",
 		"Recoverpwd": "Recover Password",
 		"Sign-in": "Sign in existing account"
+	},
+
+	"VisitorHome": {
+		"ArchivedFolders": "Archived Folders",
+		"ServerUnavailable": "Server unavailable please check your internet connection",
+		"WaitingFolders": "Pending Folders",
+		"onWorkingFolders": "Files being processed",
+		"rejectedFolders": "Rejected Folders",
+		"editProfile": "Edit my profil",
+		"Name": "Name",
+		"Surname": "Surname",
+		"PhoneNumber": "Phone Number",
+		"BirthDate": "Date of birth",
+		"BirthPlace": "Place of birth",
+		"SpokenLang": "Spoken language",
+		"allRejectedFolders": "Total folders rejected",
+		"allSubmittedFolders": "Total folders submitted",
+		"allOnWorkingFolders": "Total folders being processed",
+		"ActivityStat": "Statistics on your activities",
+		"IntroDescription": "From this interface you can follow the progress of the documents you have submitted and consult the history of the documents submitted in the past.",
+		"Welcome": "Welcome",
+		"WorkSpace": "Here is your workspace",
+		"CompleteProfile": "Complete your profile"
+
+	},
+	"AcceptedDocument": {
+		"Foldersintreatment": "Files being processed",
+		"Workspace": "This is your worspace",
+		"ViewAllFoldersInterface": "From this interface you can view all of your files that are being processed",
+		"NoteSecurite1": "Security Note:",
+		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
+		"Name": "Name",
+		"JointFiles": "Attachments",
+		"SubmissionDate": "Date of submission",
+		"Percentage": "Percentage",
+		"PleaseWait": "Please wait ...",
+		"EmptyList": "Empty list"
+		
+	},
+	"ArchivedDocument": {
+		"ArchivedFiles": "Processed and archived files",
+		"Workspace": "This is your worspace",
+		"ViewAllFoldersInterface": "From this interface you can view all of your files that are being processed",
+		"NoteSecurite1": "Security Note:",
+		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
+		"ArchivedFolders": "Archived files",
+		"Name": "Name",
+		"Description": "Description",
+		"JointFiles": "Attachments",
+		"SubmissionDate": "Date of submission",
+		"Actions": "Actions",
+		"PleaseWait": "Please wait ...",
+		"EmptyList": "Empty list"
+		
+	},
+	"PendingDocument": {
+		"PendingFiles": "Files awaiting treatment",
+		"Workspace": "This is your worspace",
+		"ViewAllFoldersInterface": "From this interface you can view all the files you have submitted but which are awaiting processing.",
+		"NoteSecurite1": "Security Note:",
+		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
+		"PendingFolders": "Files awaiting processing",
+		"Name": "Name",
+		"Description": "Description",
+		"JointFiles": "Attachments",
+		"SubmissionDate": "Date of submission",
+		"Actions": "Actions",
+		"PleaseWait": "Please wait ...",
+		"EmptyList": "Empty list"
+		
+	},
+	"RejectedDocument": {
+		"RejectedFiles": "Rejected files",
+		"Workspace": "This is your workspace",
+		"ViewAllFoldersInterface": "From this interface you can view all the files you have submitted but which have been rejected for one reason or another",
+		"NoteSecurite1": "Security Note:",
+		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
+		"RejectedFolders": "Rejected files",
+		"Name": "Name",
+		"Description": "Description",
+		"JointFiles": "Attachments",
+		"SubmissionDate": "Date of submission",
+		"Actions": "Actions",
+		"PleaseWait": "Please wait ...",
+		"EmptyList": "Empty list"
+		
 	}
+
+
+	
 }

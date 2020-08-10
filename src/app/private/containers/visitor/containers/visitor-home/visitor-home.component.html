@@ -8,11 +8,9 @@
                             <i class="pe-7s-phone icon-gradient bg-premium-dark">
                             </i>
                         </div>
-                        <div><span class="text-success"><h4>Bienvenue</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                        <div><span class="text-success"><h4>{{ 'VisitorHome.Welcome' | translate }}</h4></span> <strong><h5>{{ 'VisitorHome.WorkSpace' | translate }}</h5></strong>
                             <div class="page-title-subheading">
-                                A partir de cette interface vous pouvez suivre l'evolution
-                                des documents que vous avez soumis et consulter l'historique
-                                des documents soumis dans le passe
+                                {{ 'VisitorHome.IntroDescription' | translate }}
                             </div>
                         </div>
                     </div>
@@ -26,7 +24,7 @@
                     <div class="card-header-tab card-header">
                         <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
                             <i class="header-icon lnr-charts icon-gradient bg-happy-green"> </i>
-                            Statistiques sur vos activites
+                            {{ 'VisitorHome.ActivityStat' | translate }}
                         </div>
                     </div>
                     <div class="no-gutters row">
@@ -36,7 +34,7 @@
                                     <div class="icon-wrapper-bg opacity-10 bg-success"></div>
                                     <i class="lnr-laptop-phone text-dark opacity-8"></i></div>
                                 <div class="widget-chart-content">
-                                    <div class="widget-subheading">Total dossiers en traitement</div>
+                                    <div class="widget-subheading">{{ 'VisitorHome.allOnWorkingFolders' | translate }}</div>
                                     <div class="widget-numbers text-success">{{ onWorkingFolders ? onWorkingFolders.length : 0 }}</div>
                                 </div>
                             </div>
@@ -48,7 +46,7 @@
                                     <div class="icon-wrapper-bg opacity-9 bg-secondary"></div>
                                     <i class="lnr-screen text-white"></i></div>
                                 <div class="widget-chart-content">
-                                    <div class="widget-subheading">Total dossiers soumis</div>
+                                    <div class="widget-subheading">{{ 'VisitorHome.allSubmittedFolders' | translate }}</div>
                                     <div class="widget-numbers text-secondary"><span>{{ allFolders ? allFolders.length : 0 }}</span></div>
                                 </div>
                             </div>
@@ -59,7 +57,7 @@
                                     <div class="icon-wrapper-bg opacity-9 bg-danger"></div>
                                     <i class="lnr-trash text-white"></i></div>
                                 <div class="widget-chart-content">
-                                    <div class="widget-subheading">Total dossiers rejetes</div>
+                                    <div class="widget-subheading">{{ 'VisitorHome.allRejectedFolders' | translate }}</div>
                                     <div class="widget-numbers"><span>{{ rejectedFolders ? rejectedFolders.length : 0 }}</span></div>
                                 </div>
                             </div>
@@ -74,7 +72,7 @@
                             <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-success border-success card">
                                 <div class="widget-chat-wrapper-outer">
                                     <div class="widget-chart-content">
-                                        <div class="widget-title opacity-5 text-uppercase">Traitements({{ onWorkingFolders ? onWorkingFolders.length : 0 }})</div>
+                                        <div class="widget-title opacity-5 text-uppercase">{{ 'VisitorHome.onWorkingFolders' | translate }}({{ onWorkingFolders ? onWorkingFolders.length : 0 }})</div>
                                         <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
                                             <div class="widget-chart-flex align-items-center">
                                                 <div>
@@ -94,7 +92,7 @@
                             <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-warning border-warning card">
                                 <div class="widget-chat-wrapper-outer">
                                     <div class="widget-chart-content">
-                                        <div class="widget-title opacity-5 text-uppercase">Dossiers attente({{ pendingFolders ? pendingFolders.length : 0 }})</div>
+                                        <div class="widget-title opacity-5 text-uppercase">{{ 'VisitorHome.WaitingFolders' | translate }}({{ pendingFolders ? pendingFolders.length : 0 }})</div>
                                         <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
                                             <div class="widget-chart-flex align-items-center">
                                                 <div>
@@ -114,7 +112,7 @@
                             <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-primary border-primary card">
                                 <div class="widget-chat-wrapper-outer">
                                     <div class="widget-chart-content">
-                                        <div class="widget-title opacity-5 text-uppercase">Dossiers archives({{ treatedFolders ? treatedFolders.length : 0 }})</div>
+                                        <div class="widget-title opacity-5 text-uppercase">{{ 'VisitorHome.ArchivedFolders' | translate }}({{ treatedFolders ? treatedFolders.length : 0 }})</div>
                                         <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
                                             <div class="widget-chart-flex align-items-center">
                                                 <div>
@@ -134,7 +132,7 @@
                             <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-danger border-danger card">
                                 <div class="widget-chat-wrapper-outer">
                                     <div class="widget-chart-content">
-                                        <div class="widget-title opacity-5 text-uppercase">Dossiers rejetes({{ rejectedFolders ? rejectedFolders.length : 0 }})</div>
+                                        <div class="widget-title opacity-5 text-uppercase">{{ 'VisitorHome.rejectedFolders' | translate }}({{ rejectedFolders ? rejectedFolders.length : 0 }})</div>
                                         <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
                                             <div class="widget-chart-flex align-items-center">
                                                 <div>
@@ -174,7 +172,8 @@
                                 </div>
                                 <div class="menu-header-btn-pane mt-3">
                                     <button class="btn-wide btn-shadow btn-pill btn btn-danger mr-auto">
-                                        Modifier mon profile </button>
+                                        {{ 'VisitorHome.editProfile' | translate }} 
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -189,11 +188,11 @@
                                                     class="pe-7s-smile text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    Nom</div>
+                                                    {{ 'VisitorHome.Name' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
                                                 <div class="widget-heading">
-                                                    {{ user.first_name ? user.first_name : 'Completer votre profil' }}</div>
+                                                    {{ user.first_name ? user.first_name : ('VisitorHome.CompleteProfile' | translate) }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -205,10 +204,10 @@
                                                     class="pe-7s-smile text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    Prenom</div>
+                                                    {{ 'VisitorHome.Surname' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
-                                                {{ user.last_name ? user.last_name : 'Completer votre profil' }}
+                                                {{ user.last_name ? user.last_name : ('VisitorHome.CompleteProfile' | translate) }}
                                             </div>
                                         </div>
                                     </div>
@@ -223,7 +222,7 @@
                                                     Email</div>
                                             </div>
                                             <div class="widget-content-right">
-                                                {{ user.email ? user.email : 'Completer votre profil' }}
+                                                {{ user.email ? user.email : ('VisitorHome.CompleteProfile' | translate) }}
                                             </div>
                                         </div>
                                     </div>
@@ -235,10 +234,10 @@
                                                     class="pe-7s-call text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                Numero de telephone</div>
+                                                    {{ 'VisitorHome.PhoneNumber' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
-                                                {{ user.tel ? user.tel : 'Completer votre profil' }}
+                                                {{ user.tel ? user.tel : ('VisitorHome.CompleteProfile' | translate) }}
                                             </div>
                                         </div>
                                     </div>
@@ -250,10 +249,10 @@
                                                     class="pe-7s-note2 text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    date de naissance</div>
+                                                    {{ 'VisitorHome.BirthDate' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
-                                                {{ user.birth_date ? user.birth_date : 'Completer votre profil' }}
+                                                {{ user.birth_date ? user.birth_date : ('VisitorHome.CompleteProfile' | translate) }}
                                             </div>
                                         </div>
                                     </div>
@@ -265,10 +264,10 @@
                                                     class="pe-7s-home text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    Lieu de naissance</div>
+                                                    {{ 'VisitorHome.BirthPlace' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
-                                                {{ user.birth_place ? user.birth_place : 'Completer votre profil' }}
+                                                {{ user.birth_place ? user.birth_place : ('VisitorHome.CompleteProfile' | translate) }}
                                             </div>
                                         </div>
                                     </div>
@@ -280,7 +279,7 @@
                                                     class="pe-7s-pen text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    Langue parlee</div>
+                                                    {{ 'VisitorHome.SpokenLang' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
                                                {{ displayUserLanguage()}}

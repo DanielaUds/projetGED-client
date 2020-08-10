@@ -8,10 +8,9 @@
                             <i class="pe-7s-phone icon-gradient bg-premium-dark">
                             </i>
                         </div>
-                        <div><span class="text-success"><h4>Dossiers en cours de traitement</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                        <div><span class="text-success"><h4>{{ 'AcceptedDocument.Foldersintreatment' | translate }}</h4></span> <strong><h5>{{ 'AcceptedDocument.Workspace' | translate }}</h5></strong>
                             <div class="page-title-subheading">
-                                A partir de cette interface vous pouvez visualiser
-                                l'ensemble de vos dossiers qui sont en cours de traitement 
+                                {{ 'AcceptedDocument.ViewAllFoldersInterface' | translate }}
                             </div>
                         </div>
                     </div>
@@ -24,7 +23,7 @@
                     <span class="font-icon-wrapper font-icon-md mr-2">
                         <i class="pe-7s-shield" size="medium"> </i>
                     </span>
-                    <strong><u>Note sur la securite:</u> </strong>  toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite
+                    <strong><u>{{ 'AcceptedDocument.NoteSecurite1' | translate }}</u> </strong>  {{ 'AcceptedDocument.NoteSecurite2' | translate }}
                 </div>
 
                 <!---->
@@ -32,7 +31,7 @@
                     <div class="main-card mb-3 card">
                         <div class="card-header">
                             <i class="header-icon pe-7s-shield icon-gradient bg-love-kiss"> </i>
-                            Dossiers en cours de traitement
+                            {{ 'AcceptedDocument.Foldersintreatment' | translate }}
                         </div>
                         <div class="card-body">
                 
@@ -41,10 +40,10 @@
                                     <tr>
                                         <th>#</th>
                                         <th>badge</th>
-                                        <th>nom</th>
-                                        <th>pieces jointe</th>
-                                        <th>date de soumission</th>
-                                        <th class="text-center">pourcentage</th>
+                                        <th>{{ 'AcceptedDocument.Name' | translate }}</th>
+                                        <th>{{ 'AcceptedDocument.JointFiles' | translate }}</th>
+                                        <th>{{ 'AcceptedDocument.SubmissionDate' | translate }}</th>
+                                        <th class="text-center">{{ 'AcceptedDocument.Percentage' | translate }}</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -85,13 +84,13 @@
                                 <tfoot *ngIf="loading && (!data || !data.length)">
                                     <td colspan="7" class="text-center">
                                         <div class="spinner-border spinner-sm">
-                                            <span class="sr-only">Patientez svp...</span>
+                                            <span class="sr-only">{{ 'AcceptedDocument.PleaseWait' | translate }}</span>
                                         </div>
                                     </td>
                                 </tfoot>
                                 <tfoot *ngIf="!loading && (!data || !data.length)">
                                     <td colspan="7" class="text-center">
-                                        Liste vide
+                                        {{ 'AcceptedDocument.EmptyList' | translate }}
                                     </td>
                                 </tfoot>
                             </table>

@@ -63,6 +63,92 @@
 		"EmailPlaceholder": "Email ici...",
 		"Recoverpwd": "Reinitialiser le mot de passe",
 		"Sign-in": "Se connecter"
+	},
+	"VisitorHome": {
+		"ArchivedFolders": "Dossiers Archivés",
+		"ServerUnavailable": "Serveur indisponible veuillez verifier votre connexion a internet",
+		"WaitingFolders": "Dossiers en Attente",
+		"onWorkingFolders": "Dossiers en Traitements",
+		"rejectedFolders": "Dossiers rejetés",
+		"editProfile": "Modifier mon profile",
+		"Name": "Nom",
+		"Surname": "Prénom",
+		"PhoneNumber": "Numéro de téléphone",
+		"BirthDate": "Date de naissance",
+		"BirthPlace": "Lieu de naissance",
+		"SpokenLang": "Langue parlée",
+		"allRejectedFolders": "Total dossiers rejetés",
+		"allSubmittedFolders": "Total dossiers soumis",
+		"allOnWorkingFolders": "Total dossiers en traitement",
+		"ActivityStat": "Statistiques sur vos activites",
+		"IntroDescription": "A partir de cette interface vous pouvez suivre l'evolution des documents que vous avez soumis et consulter l'historique des documents soumis dans le passé",
+		"Welcome": "Bienvenue",
+		"WorkSpace": "Ceci est votre espace de travail",
+		"CompleteProfile": "Completer votre profil"
+
+	},
+	"AcceptedDocument": {
+		"Foldersintreatment": "Dossiers en cours de traitement",
+		"Workspace": "Ceci est votre espace de travail",
+		"ViewAllFoldersInterface": "A partir de cette interface vous pouvez visualiser l'ensemble de vos dossiers qui sont en cours de traitement",
+		"NoteSecurite1": "Note sur la securite:",
+		"NoteSecurite2": "toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite",
+		"Name": "Nom",
+		"JointFiles": "Pieces jointes",
+		"SubmissionDate": "Date de soumission",
+		"Percentage": "Pourcentage",
+		"PleaseWait": "Patientez svp...",
+		"EmptyList": "Liste vide"
+		
+	},
+	"ArchivedDocument": {
+		"ArchivedFiles": "Dossiers traites et archives",
+		"Workspace": "Ceci est votre espace de travail",
+		"ViewAllFoldersInterface": "A partir de cette interface vous pouvez visualiser l'ensemble de vos dossiers qui ont ete traites",
+		"NoteSecurite1": "Note sur la securite:",
+		"NoteSecurite2": "toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite",
+		"ArchivedFolders": "Dossiers archive",
+		"Name": "Nom",
+		"Description": "Description",
+		"JointFiles": "Pieces jointes",
+		"SubmissionDate": "Date de soumission",
+		"Actions": "Actions",
+		"PleaseWait": "Patientez svp...",
+		"EmptyList": "Liste vide"
+		
+	},
+	"PendingDocument": {
+		"PendingFiles": "Dossiers en attente de traitements",
+		"Workspace": "Ceci est votre espace de travail",
+		"ViewAllFoldersInterface": " A partir de cette interface vous pouvez visualiser l'ensemble des dossiers que vous avez soumis mais qui sont en attente de traitement",
+		"NoteSecurite1": "Note sur la securite:",
+		"NoteSecurite2": "toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite",
+		"PendingFolders": "Dossiers en attente de traitement",
+		"Name": "Nom",
+		"Description": "Description",
+		"JointFiles": "Pieces jointes",
+		"SubmissionDate": "Date de soumission",
+		"Actions": "Actions",
+		"PleaseWait": "Patientez svp...",
+		"EmptyList": "Liste vide"
+		
+	},
+	"RejectedDocument": {
+		"RejectedFiles": "Dossiers rejetes",
+		"Workspace": "Ceci est votre espace de travail",
+		"ViewAllFoldersInterface": "  A partir de cette interface vous pouvez visualiser l'ensemble des dossiers que vous avez soumis mais qui ont ete rejetes pour une raison ou une autre",
+		"NoteSecurite1": "Note sur la securite:",
+		"NoteSecurite2": "toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite",
+		"RejectedFolders": "Dossiers rejetes",
+		"Name": "Nom",
+		"Description": "Description",
+		"JointFiles": "Pieces jointes",
+		"SubmissionDate": "Date de soumission",
+		"Actions": "Actions",
+		"PleaseWait": "Patientez svp...",
+		"EmptyList": "Liste vide"
+		
 	}
+
 }
 	

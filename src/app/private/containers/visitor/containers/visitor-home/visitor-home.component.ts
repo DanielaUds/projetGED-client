@@ -66,7 +66,7 @@ export class VisitorHomeComponent implements OnInit {
       })
       .catch((err) => {
         console.log(err);
-        this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
+        this.notificationService.danger(this.translations.VisitorHome.ServerUnavailable);
       });
     } else {
       this.notificationService.danger("Votre session a expiree veuillez vous connecter");

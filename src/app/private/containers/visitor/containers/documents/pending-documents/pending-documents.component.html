@@ -8,11 +8,9 @@
                             <i class="pe-7s-phone icon-gradient bg-premium-dark">
                             </i>
                         </div>
-                        <div><span class="text-success"><h4>Dossiers en attente de traitement</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                        <div><span class="text-success"><h4>{{ 'PendingDocument.PendingFiles' | translate }}</h4></span> <strong><h5>{{ 'PendingDocument.Workspace' | translate }}</h5></strong>
                             <div class="page-title-subheading">
-                                A partir de cette interface vous pouvez visualiser
-                                l'ensemble des dossiers que vous avez soumis mais
-                                qui sont en attente de traitement
+                                {{ 'PendingDocument.ViewAllFoldersInterface' | translate }}
                             </div>
                         </div>
                     </div>
@@ -25,7 +23,7 @@
                     <span class="font-icon-wrapper font-icon-md mr-2">
                         <i class="pe-7s-shield" size="medium"> </i>
                     </span>
-                    <strong><u>Note sur la securite:</u> </strong>  toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite
+                    <strong><u>{{ 'PendingDocument.NoteSecurite1' | translate}}</u> </strong> {{ 'PendingDocumentt.NoteSecurite2' | translate}}
                 </div>
 
                 <!---->
@@ -33,7 +31,7 @@
                     <div class="main-card mb-3 card">
                         <div class="card-header">
                             <i class="header-icon pe-7s-shield icon-gradient bg-love-kiss"> </i>
-                            Dossiers en attente de traitement
+                            {{ 'PendingDocument.PendingFolders' | translate}}
                         </div>
                         <div class="card-body">
                 
@@ -42,11 +40,11 @@
                                     <tr>
                                         <th>#</th>
                                         <th>badge</th>
-                                        <th>nom</th>
-                                        <th>description</th>
-                                        <th>pieces jointe</th>
-                                        <th>date de soumission</th>
-                                        <th>Actions</th>
+                                        <th>{{ 'PendingDocument.Name' | translate}}</th>
+                                        <th>{{ 'PendingDocument.Description' | translate}}</th>
+                                        <th>{{ 'PendingDocument.JointFiles' | translate}}</th>
+                                        <th>{{ 'PendingDocument.SubmissionDate' | translate}}</th>
+                                        <th>{{ 'PendingDocument.Actions' | translate}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,13 +69,13 @@
                                 <tfoot *ngIf="loading && (!data || !data.length)">
                                     <td colspan="7" class="text-center">
                                         <div class="spinner-border spinner-sm">
-                                            <span class="sr-only">Patientez svp...</span>
+                                            <span class="sr-only">{{ 'PendingDocument.PleaseWait' | translate}}</span>
                                         </div>
                                     </td>
                                 </tfoot>
                                 <tfoot *ngIf="!loading && (!data || !data.length)">
                                     <td colspan="7" class="text-center">
-                                        Liste vide
+                                        {{ 'PendingDocument.EmptyList' | translate}}
                                     </td>
                                 </tfoot>
                             </table>
