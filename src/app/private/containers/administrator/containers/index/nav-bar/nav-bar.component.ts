@@ -54,6 +54,10 @@ export class NavBarComponent implements OnInit {
     return this.user.first_name.split(' ')[0] + ' ' + this.user.last_name.split(' ')[0];
   }
 
+  gotToHome() {
+    this.router.navigate(['/private/administrators/']);
+  }
+
   /* Reactive translation */
   changeLanguage(value) {
     this.currentLanguage = value;

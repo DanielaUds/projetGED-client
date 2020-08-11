@@ -8,6 +8,7 @@ import { NotificationService } from '../../../../../services/notification.servic
 import { Lang } from '../../../../../services/config/lang';
 import { InternationalizationService } from '../../../../../services/features/internationalization.service';
 import { FolderService } from './../../services/folder.service';
+import { UserService } from './../../../../../services/person/user.service'
 
 @Component({
   selector: 'app-visitor-home',
@@ -37,21 +38,17 @@ export class VisitorHomeComponent implements OnInit {
 
   constructor(
     private authService: AuthService, 
-    private formBuilder: FormBuilder,
     private internationalizationService: InternationalizationService,
     private notificationService: NotificationService,
     private router: Router,
-    private folderService: FolderService) {}
+    private folderService: FolderService,
+    private userService: UserService) {}
 
   ngOnInit() {
     this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
     this.user = this.authService.getUserInfos();
+    this.avatarPath = this.user.avatar;
     this.getUserFolders();
-    this.initAvatar();
-  }
-
-  initAvatar() {
-    this.avatarPath = this.user.avatar ? config.apiUrl + '/' + this.user.avatar : '';
   }
 
   getUserFolders() {

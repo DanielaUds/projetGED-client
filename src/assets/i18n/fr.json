@@ -148,6 +148,15 @@
 		"PleaseWait": "Patientez svp...",
 		"EmptyList": "Liste vide"
 		
+	},
+	"CreateFolder": {
+		"Welcome": "Bienvenue",
+		"WorkSpace": "Ceci est votre espace de travail",
+		"RegisterView": "Cette interface est le point d'entrée de tous les documents dans le systeme, vous devez donc vous assurer de la cohérence de données entrées dans cette partie. Les dossiers enregistrés feront l'objet de multiples traitements à travers les differents services de votre structure.",
+		"FillForm": "Remplir le formulaire ci-dessous pour enregistrer un ",
+		"Folder": "dossier",
+		"OnGepad": "sur GEPAD",
+		"SelectFile": "Après avoir selectionné le type de dossier, visualiser ses caractéristiques à la droite de votre écran"
 	}
 
 }

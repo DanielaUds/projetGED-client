@@ -15,6 +15,10 @@ export class UserService {
     return this.http.post(`${config.apiUrl}/persons/users/${id}`, formData).toPromise();
   }
 
+  getAvatar(user_id): Promise<any> {
+    return this.http.get(`${config.apiUrl}/persons/users/avatar/${user_id}`).toPromise();
+  }
+
   post(formData): Promise<any> {
     return this.http.post(`${config.apiUrl}/persons/users`, formData).toPromise();
   }

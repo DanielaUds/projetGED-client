@@ -125,7 +125,7 @@
 	},
 	"RejectedDocument": {
 		"RejectedFiles": "Rejected files",
-		"Workspace": "This is your workspace",
+		"Workspace": "Here is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all the files you have submitted but which have been rejected for one reason or another",
 		"NoteSecurite1": "Security Note:",
 		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
@@ -138,7 +138,16 @@
 		"PleaseWait": "Please wait ...",
 		"EmptyList": "Empty list"
 		
+	},
+	"CreateFolder": {
+		"Welcome": "Welcome",
+		"WorkSpace": "Here is your workspace",
+		"RegisterView": "This interface is the entry point for all documents into the system, so you must ensure the consistency of data entered in this part. The registered folders will be the subject of multiple treatments through the various departments of your structure.",
+		"FillForm": "Fill out the form below to register a ",
+		"Folder": "folder",
+		"OnGepad": "on GEPAD"
 	}
+
 
 
 	

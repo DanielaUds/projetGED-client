@@ -62,6 +62,10 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/private/parishionals/' + url]);
   }
 
+  gotToHome() {
+    this.router.navigate(['/private/superadmins/']);
+  }
+
   /* Reactive translation */
   changeLanguage(value) {
     this.currentLanguage = value;
