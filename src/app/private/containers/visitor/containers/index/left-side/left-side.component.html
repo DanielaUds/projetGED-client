@@ -37,7 +37,7 @@
                 <li class="mm-active">
                     <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.dossiers')">
                         <i class="metismenu-icon pe-7s-rocket"></i>
-                        Mes dossiers
+                        {{ "VisitorLeftSide.MyFiles" | translate }}
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
                     <ul class="dossiers mm-collapse">
@@ -45,35 +45,35 @@
                             <a href="javascript:void(0);" (click)="activeMenu.menu0=5;goTo('/documents/track-documents')"
                                 class="{{ activeMenu.menu0 == 5 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>Suivre l'evolution
+                                </i>{{ "VisitorLeftSide.FollowEvolution" | translate }}
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0);" (click)="activeMenu.menu0=2;goTo('/documents/accepted-documents')"
                                 class="{{ activeMenu.menu0 == 2 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>Dossiers en traitement
+                                </i>{{ "VisitorLeftSide.filesInTreatment" | translate }}
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0);" (click)="activeMenu.menu0=1;goTo('/documents/pending-documents')"
                                 class="{{ activeMenu.menu0 == 1 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>Dossiers en attente
+                                </i>{{ "VisitorLeftSide.PendingFiles" | translate }}
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0);" (click)="activeMenu.menu0=3;goTo('/documents/rejected-documents')"
                                 class="{{ activeMenu.menu0 == 3 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>Dossiers rejetes
+                                </i>{{ "VisitorLeftSide.RejectedFiles" | translate }}
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0);" (click)="activeMenu.menu0=4;goTo('/documents/archived-documents')"
                                 class="{{ activeMenu.menu0 == 4 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>Dossier archives
+                                </i>{{ "VisitorLeftSide.ArchivedFiles" | translate }}
                             </a>
                         </li>
                     </ul>
@@ -81,7 +81,7 @@
                 <li class="mm-active">
                     <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.profil')">
                         <i class="metismenu-icon pe-7s-rocket"></i>
-                        Profil
+                        {{ "VisitorLeftSide.Profile" | translate }}
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
                     <ul class="profil mm-collapse">
@@ -89,7 +89,7 @@
                             <a href="javascript:void(0);" (click)="activeMenu.menu1=1;goTo('/profil/modify-my-informations')"
                                 class="{{ activeMenu.menu1 == 1 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>Modifier mes infos
+                                </i>{{ "VisitorLeftSide.ModifyProfile" | translate }}
                             </a>
                         </li>
                     </ul>

@@ -72,13 +72,13 @@
                                     style="background-image: url('assets/images/dropdown-header/city2.jpg');"></div>
                                 <div class="menu-header-content text-center text-white">
                                     <h6 class="menu-header-subtitle mt-0">
-                                        {{ 'Choisir la langue' | translate }}
+                                        {{ 'NavBarAdmin.ChooseLanguage' | translate }}
                                     </h6>
                                 </div>
                             </div>
                         </div>
                         <h6 tabindex="-1" class="dropdown-header">
-                            {{ 'Langues' | translate }}
+                            {{ 'NavBarAdmin.Languages' | translate }}
                         </h6>
                         <button type="button" tabindex="0" class="dropdown-item" (click)="changeLanguage('en')">
                             <span class="mr-3 opacity-8 flag large US"></span>
@@ -119,13 +119,13 @@
                                                             <div class="widget-heading">{{ showUserFirstAndLastName() }}
                                                             </div>
                                                             <div class="widget-subheading opacity-8">
-                                                                {{ 'Profile' | translate }}
+                                                                {{ 'NavBarAdmin.Profile' | translate }}
                                                             </div>
                                                         </div>
                                                         <div class="widget-content-right mr-2">
                                                             <button class="btn-pill btn-shadow btn-shine btn btn-focus"
                                                                 (click)="logout()">
-                                                                {{ 'Se Déconnecter' | translate }}
+                                                                {{ 'NavBarAdmin.SignOut' | translate }}
                                                             </button>
                                                         </div>
                                                     </div>
@@ -141,7 +141,7 @@
                                 {{ showUserFirstAndLastName() }}
                             </div>
                             <div class="widget-subheading" title="{{ 'Parishionals.Parishional' | translate }}">
-                                {{ 'Profile' | translate }}
+                                {{ 'NavBarAdmin.Profile' | translate }}
                             </div>
                         </div>
                     </div>

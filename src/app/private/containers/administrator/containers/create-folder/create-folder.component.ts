@@ -56,11 +56,9 @@ export class CreateFolderComponent implements OnInit {
     this.folderTypeService.get()
     .then(resp => {
       this.folderTypes = resp;
-      console.log(resp);
-      this.notificationService.success('les tpe de dossiers ont ete charges');
+      this.notificationService.success('les type de dossiers ont ete charges');
     }).catch(err => {
-      console.log(err);
-      this.notificationService.danger('les tpe de dossiers n\'ont pas ete charges');
+      this.notificationService.danger('les type de dossiers n\'ont pas ete charges');
     }) 
   }
 
@@ -68,19 +66,21 @@ export class CreateFolderComponent implements OnInit {
     const folder_type_id = parseInt(event.target.value);
     let folder_type = this.folderTypes.find(type => (type.id === folder_type_id));
     this.selectedFolderType = folder_type;
+    this.initFileTypeValidationAttributes();
     this.computeInfoMessage(folder_type);
     this.initForm(folder_type);
     this.fileTypesNumber = this.selectedFolderType.file_types.length;
     this.buildingFolderPoucentage = 0;
     this.filesList = [];
-    //this.renderCheckBox();
   }
 
-  renderCheckBox() {
+  initFileTypeValidationAttributes() {
     this.selectedFolderType.file_types.forEach(type => {
-      const selector = 'check_' + type.id;
-      document.getElementById(selector)['checked'] = false;
+      type.isError = false;
+      type.isSuccess = false;
+      type.checked = false;
     });
+    console.log(this.selectedFolderType);
   }
 
   computeInfoMessage(folder_type: any) {
@@ -124,7 +124,7 @@ export class CreateFolderComponent implements OnInit {
       files_validator = {};
     }
     form_validator['files'] = this.files;
-    form_validator['folder_type'] = new FormControl('', [Validators.required]);
+    form_validator['folder_type'] = ['', [Validators.required]];
     form_validator['description'] = ['', [Validators.required]];
     form_validator['user_email'] = ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]];
     this.form = this.formBuilder.group(form_validator);
@@ -153,18 +153,19 @@ export class CreateFolderComponent implements OnInit {
         } else {
           this.insertFile(item);
         }
-        document.getElementById(ckeckBoxId)['checked'] = true;
+        this.renderFileTypeStatusSuccess(id);
         this.renderBuildingFolderPoucentage();
       } else return;
     } else return;
   }
 
   validateFile(file: File, file_type_id: number) {
-    const file_type = this.selectedFolderType.file_types.find(
+    let file_type = this.selectedFolderType.file_types.find(
       type => (
         type.id === file_type_id
       )
     );
+    const MAX_FILE_SIZE = file_type.max_size;
 
     let pattern: any[] = [];
     if(file_type.file_type === 'PDF') {
@@ -172,30 +173,65 @@ export class CreateFolderComponent implements OnInit {
     } else if(file_type.file_type === 'PHOTO'){
       pattern = ['image/png', 'image/jpg','image/jpeg'];
     }
-  
+
     if(!pattern.includes(file.type)) {
+      console.log('File type error 1: ', file_type);
+      console.log('Selected Folder type: ', this.selectedFolderType);
+      this.renderFileTypeStatusError(file_type_id);
       this.isError = true;
-      this.message.title = 'Erreur';
-      this.message.content = 'Le format de fichier choisit est incorrect. Vous devez choisir un format de fichier correct pour ce type de fichier. Lisez la description a la droite de votre ecran pour plus de details';
+      this.message.title = this.translations.CreateFolderJS.Error;
+      this.message.content = this.translations.CreateFolderJS.ErrorNotif1;
       this.notificationService.danger(this.message.content);
       this.buildingFolderPoucentage = 0;
       return false;
     }
 
-    const MAX_FILE_SIZE = file_type.max_size;
-    console.log(file_type);
     if(file.size > MAX_FILE_SIZE) {
+      console.log('File type error 2: ', file_type);
       const FILE_SIZE_IN_MO = this.computeSize(file.size);
       const MAX_FILE_SIZE_IN_MO = this.computeSize(MAX_FILE_SIZE);
+      this.renderFileTypeStatusError(file_type_id);
       this.isError = true;
-      this.message.title = 'Erreur';
-      this.message.content = 'La taille du fichier choisi est trop grande (' + FILE_SIZE_IN_MO + '). Vous devez choisir un fichier ayant une taille inferieure a ' + MAX_FILE_SIZE_IN_MO;
+      this.message.title = this.translations.CreateFolderJS.Error;
+      this.message.content = this.translations.CreateFolderJS.ErrorNotif21  + FILE_SIZE_IN_MO +  this.translations.CreateFolderJS.ErrorNotif22  + MAX_FILE_SIZE_IN_MO;
       this.notificationService.danger(this.message.content);
       this.buildingFolderPoucentage = 0;
       return false;
     }
 
     return true;
+  }
+
+  renderFileTypeStatusError(file_type_id: number) {
+    let tmp = this.selectedFolderType.file_types.find(type =>
+      (type.id === file_type_id)
+    );
+    tmp.isError = true;
+    tmp.isSuccess = false;
+    tmp.checked = false;
+    let index = this.selectedFolderType.file_types.findIndex(type =>
+      (type.id === file_type_id)
+    );
+    this.selectedFolderType.file_types[index] = tmp;
+  }
+
+  renderFileTypeStatusSuccess(file_type_id: number) {
+    let tmp = this.selectedFolderType.file_types.find(type =>
+      (type.id === file_type_id)
+    );
+    tmp.isError = false;
+    tmp.isSuccess = true;
+    tmp.checked = true;
+    let index = this.selectedFolderType.file_types.findIndex(type =>
+      (type.id === file_type_id)
+    );
+    this.selectedFolderType.file_types[index] = tmp;
+    this.isError = false;
+    this.isSuccess = false;
+    this.message = {
+      title: '',
+      content: ''
+    };
   }
 
   checkIfFileExist(id: string) {
@@ -273,8 +309,8 @@ export class CreateFolderComponent implements OnInit {
     this.handleError = null;
 
     if (this.form.invalid) {
-      this.message.title = 'Erreur'
-      this.message.content = 'Formulaire mal remplit, veuillez completer les champs obligatoires';
+      this.message.title = this.translations.CreateFolderJS.Error;
+      this.message.content = this.translations.CreateFolderJS.WrongFill;
       this.isError = true;
       this.notificationService.danger(this.message.content);
       return;
@@ -298,7 +334,7 @@ export class CreateFolderComponent implements OnInit {
     this.userService.post(formData)
       .then(resp => {
         console.log(resp);
-        this.message.title = 'Success'
+        this.message.title = this.translations.CreateFolderJS.Success;
         this.message.content = 'Votre compte a ete cree avec success, veuillez vous connectez pour acceder a votre espace prive';
         this.isSuccess = true;
         this.notificationService.success(this.message.content);

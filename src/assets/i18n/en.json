@@ -73,13 +73,13 @@
 		"ActivityStat": "Statistics on your activities",
 		"IntroDescription": "From this interface you can follow the progress of the documents you have submitted and consult the history of the documents submitted in the past.",
 		"Welcome": "Welcome",
-		"WorkSpace": "Here is your workspace",
+		"WorkSpace": "This is your workspace",
 		"CompleteProfile": "Complete your profile"
 
 	},
 	"AcceptedDocument": {
 		"Foldersintreatment": "Files being processed",
-		"Workspace": "This is your worspace",
+		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all of your files that are being processed",
 		"NoteSecurite1": "Security Note:",
 		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
@@ -93,7 +93,7 @@
 	},
 	"ArchivedDocument": {
 		"ArchivedFiles": "Processed and archived files",
-		"Workspace": "This is your worspace",
+		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all of your files that are being processed",
 		"NoteSecurite1": "Security Note:",
 		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
@@ -109,7 +109,7 @@
 	},
 	"PendingDocument": {
 		"PendingFiles": "Files awaiting treatment",
-		"Workspace": "This is your worspace",
+		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all the files you have submitted but which are awaiting processing.",
 		"NoteSecurite1": "Security Note:",
 		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
@@ -125,7 +125,7 @@
 	},
 	"RejectedDocument": {
 		"RejectedFiles": "Rejected files",
-		"Workspace": "Here is your workspace",
+		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all the files you have submitted but which have been rejected for one reason or another",
 		"NoteSecurite1": "Security Note:",
 		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
@@ -141,14 +141,55 @@
 	},
 	"CreateFolder": {
 		"Welcome": "Welcome",
-		"WorkSpace": "Here is your workspace",
-		"RegisterView": "This interface is the entry point for all documents into the system, so you must ensure the consistency of data entered in this part. The registered folders will be the subject of multiple treatments through the various departments of your structure.",
-		"FillForm": "Fill out the form below to register a ",
+		"WorkSpace": "This is your workspace",
+		"RegisterView": "This interface is the entry point for all documents into the system, so you must ensure the consistency of data entered in this part. The registered files will be subject to multiple treatments through the various departments of your structure.",
+		"FillForm": "Fill out the form below to register a",
 		"Folder": "folder",
-		"OnGepad": "on GEPAD"
+		"OnGepad": "on GEPAD",
+		"Note": "Note:",
+		"FileSelection": "After selecting the type of folder, view its characteristics on the right of your screen",
+		"Select": "Choose the folder type",
+		"SelectFolderType": "select the type of folder to be created",
+		"ConstitutionFolder": "Constitution of the folder",
+		"PieceJointes": "attachment(s)",
+		"DossierPret": "Your file is ready:",
+		"DescriptionDossier": "Enter the description of the contents of the folder",
+		"PlaceholderDescription": "Please write a precise description of the contents of this folder",
+		"UserEmailAddr": "Enter the email address of the concerned user",
+		"NoteUserEmailAddr": "You must enter the email address which this user has choose when creating his account, so we can automatically generate a code allowing him to follow the progress of the folder thus created.",
+		"PlaceHolderUserEmail": "example: toto@gmail.com",
+		"Cancel": "Cancel",
+		"Create": "Create the folder",
+		"AssociatedFolders": "To this type of folder is associated",
+		"InfoFileSize": "The maximum size of attachment(s) associated with this type of folder",
+		"Is": "is",
+		"Caracteristics": "Caracteristics:",
+		"AssociatedFiles": "Files to be associated with the type of folder chosen:",
+		"Name": "Name: ",
+		"Format": "Format: ",
+		"MaxFileSize": "Maximum size of the file: "
+	},
+	"LeftSide": {
+		"TodayOne": "Today 1",
+		"TodayTwo": "Today 2",
+		"TodayThree": "Today 3",
+		"TodayFour": "Today 4"
+	},
+	"VisitorLeftSide": {
+		"MyFiles": "My Files",
+		"FollowEvolution": "Track Evolution",
+		"filesInTreatment": "Folders in processing",
+		"PendingFiles": "Pending Folders",
+		"RejectedFiles": "Rejected Folders",
+		"ArchivedFiles": "Archived Folders",
+		"Profile": "Profile",
+		"ModifyProfile": "Edit my info"
+	},
+	"NavBarAdmin": {
+		"ChooseLanguage": "Choose your language",
+		"Languages": "Languages",
+		"Profile": "Profile",
+		"SignOut": "Sign Out"
 	}
 
-
-
-	
 }
