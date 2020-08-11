@@ -4,8 +4,9 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { NotificationService } from '../../../../../services/notification.service';
 import { InternationalizationService } from '../../../../../services/features/internationalization.service';
 import { Lang } from '../../../../../services/config/lang';
-import { UserService } from '../../../../../services/person/user.service'
-import { FolderTypeService } from '../../services/folder-type.service'
+import { UserService } from '../../../../../services/person/user.service';
+import { FolderTypeService } from '../../services/folder-type.service';
+import { FolderService } from '../../services/folder.service';
 
 @Component({
   selector: 'app-create-folder',
@@ -33,6 +34,8 @@ export class CreateFolderComponent implements OnInit {
   filesList: any[] = [];
   buildingFolderPoucentage: number = 0;
   fileTypesNumber: number = 0;
+  folderOwner: any;
+  folder: any;
 
   // language
   currentLanguage = Lang.currentLang;
@@ -44,7 +47,8 @@ export class CreateFolderComponent implements OnInit {
     private notificationService: NotificationService,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private folderTypeService: FolderTypeService) { }
+    private folderTypeService: FolderTypeService,
+    private folderService: FolderService) { }
 
   ngOnInit() {
     this.changeLanguage(this.currentLanguage);
@@ -300,7 +304,8 @@ export class CreateFolderComponent implements OnInit {
   cancelInfo() {
     this.info = null;
   }
-
+  
+  /*
   onSubmit() {
     this.isError = false;
     this.isSuccess = false;
@@ -352,6 +357,100 @@ export class CreateFolderComponent implements OnInit {
         this.isLoading = false;
       });
   }
+  */
+
+  onSubmit() {
+    if(!this.selectedFolderType) {
+      this.message.title = 'Erreur'
+      this.message.content = 'Vous devez choisir un type de dossier a cree et les pieces jointes associees';
+      this.notificationService.danger(this.message.content);
+      this.isError = true;
+      return;
+    }
+    if(this.selectedFolderType) {
+      if((this.filesList.length >= 0) && (this.filesList.length < this.selectedFolderType.file_types.length)) {
+        this.message.title = 'Erreur'
+        this.message.content = 'Vous devez choisir toutes les pieces jointes associees a ce dossier pour pouvoir le soumettre';
+        this.notificationService.danger(this.message.content);
+        this.isError = true;
+        return;
+      }
+    }
+    if(this.f.description.status === 'INVALID' && !this.f.description.value) {
+      this.message.title = 'Erreur'
+      this.message.content = 'La description du dossier est obligatoire. Vous devez saisir une description du contenu du dossier';
+      this.notificationService.danger(this.message.content);
+      this.isError = true;
+      return;
+    }
+    if(this.f.user_email.status === 'INVALID' && !this.f.user_email.value) {
+      this.message.title = 'Erreur'
+      this.message.content = 'Veuillez saisir l\'adresse email de l\'utilisateur concerne';
+      this.notificationService.danger(this.message.content);
+      this.isError = true;
+      return;
+    }
+    if(this.f.user_email.status === 'INVALID' && this.f.user_email.value) {
+      this.message.title = 'Erreur'
+      this.message.content = 'L\'adresse email saisie n\'est pas valide, votre saisit ne respecte pas le format des adresse email. Exemple: toto@gmail.com';
+      this.notificationService.danger(this.message.content);
+      this.isError = true;
+      return;
+    }
+    const email = this.f.user_email.value;
+    this.isSubmitted = true;
+    this.userService.getUserByEmail(email).then(
+      resp => {
+        this.notificationService.success('L\'utilisateur a bien ete retrouve');
+        this.folderOwner = resp;
+        let folderFormData: FormData;
+
+        folderFormData = this.buildFolderFormData(resp.id);
+        this.folderService.post(folderFormData).then(
+          resp => {
+            this.folder = resp;
+            this.filesList.forEach(
+              file => {
+                console.log(file);
+              }
+            )
+            console.log('La creation du dossier a reussie');
+          }
+        ).catch(
+          err => {
+            console.log('La creation du dossier a echouee!');
+            console.log(err);
+            const errs = err.error.errors;
+            this.handleError = errs;
+          }
+        ).finally(
+          () => {
+            this.isSubmitted = false;
+          }
+        )
+      }
+    ).catch(
+      err => {
+        console.log(err);
+        this.notificationService.danger('L\'utilisateur n\'a pas ete retrouve');
+        const errs = err.error.errors;
+        this.handleError = errs;
+      }
+    ).finally(
+      () => {
+        this.isSubmitted = false;
+      }
+    )
+  }
+
+  buildFolderFormData(user_id: number) {
+    let formData = new FormData();
+    formData.append('description', this.f.description.value);
+    formData.append('folder_type_id', this.selectedFolderType.id);
+    formData.append('user_id', user_id + '');
+    return formData;
+  }
+
 
   reinitialiseForm() {
     this.initForm();

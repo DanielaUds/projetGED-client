@@ -19,6 +19,10 @@ export class UserService {
     return this.http.get(`${config.apiUrl}/persons/users/avatar/${user_id}`).toPromise();
   }
 
+  getUserByEmail(email: string): Promise<any> {
+    return this.http.get(`${config.apiUrl}/persons/users/email/${email}`).toPromise();
+  }
+
   post(formData): Promise<any> {
     return this.http.post(`${config.apiUrl}/persons/users`, formData).toPromise();
   }
