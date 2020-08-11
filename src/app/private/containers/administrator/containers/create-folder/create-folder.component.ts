@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { NotificationService } from '../../../../../services/notification.service';
 import { InternationalizationService } from '../../../../../services/features/internationalization.service';
 import { Lang } from '../../../../../services/config/lang';
@@ -124,7 +124,7 @@ export class CreateFolderComponent implements OnInit {
       files_validator = {};
     }
     form_validator['files'] = this.files;
-    form_validator['folder_type'] = [[Validators.required]];
+    form_validator['folder_type'] = new FormControl('', [Validators.required]);
     form_validator['description'] = ['', [Validators.required]];
     form_validator['user_email'] = ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]];
     this.form = this.formBuilder.group(form_validator);
@@ -134,20 +134,68 @@ export class CreateFolderComponent implements OnInit {
     return this.form.controls;
   }
 
-  onSelectFile(event, id: string, ckeckBoxId: string) {
+  onSelectFile(event, id: number, ckeckBoxId: string) {
     let file: File = event.target.files[0];
-    const item = {
-      'id': id,
-      'file': file
+    let validationStatus: boolean = false;
+
+    if(file) {
+      validationStatus =this.validateFile(file, id);
+      if(validationStatus) {
+        let formattedId = this.formatId(id);
+        const item = {
+          'id': formattedId,
+          'file_type_id': id,
+          'file': file
+        }
+        let index = this.checkIfFileExist(formattedId);
+        if(index != -1) {
+          this.replaceFile(item, index);
+        } else {
+          this.insertFile(item);
+        }
+        document.getElementById(ckeckBoxId)['checked'] = true;
+        this.renderBuildingFolderPoucentage();
+      } else return;
+    } else return;
+  }
+
+  validateFile(file: File, file_type_id: number) {
+    const file_type = this.selectedFolderType.file_types.find(
+      type => (
+        type.id === file_type_id
+      )
+    );
+
+    let pattern: any[] = [];
+    if(file_type.file_type === 'PDF') {
+      pattern = ['application/pdf'];
+    } else if(file_type.file_type === 'PHOTO'){
+      pattern = ['image/png', 'image/jpg','image/jpeg'];
     }
-    let index = this.checkIfFileExist(id);
-    if(index != -1) {
-      this.replaceFile(item, index);
-    } else {
-      this.insertFile(item);
+  
+    if(!pattern.includes(file.type)) {
+      this.isError = true;
+      this.message.title = 'Erreur';
+      this.message.content = 'Le format de fichier choisit est incorrect. Vous devez choisir un format de fichier correct pour ce type de fichier. Lisez la description a la droite de votre ecran pour plus de details';
+      this.notificationService.danger(this.message.content);
+      this.buildingFolderPoucentage = 0;
+      return false;
     }
-    document.getElementById(ckeckBoxId)['checked'] = true;
-    this.renderBuildingFolderPoucentage();
+
+    const MAX_FILE_SIZE = file_type.max_size;
+    console.log(file_type);
+    if(file.size > MAX_FILE_SIZE) {
+      const FILE_SIZE_IN_MO = this.computeSize(file.size);
+      const MAX_FILE_SIZE_IN_MO = this.computeSize(MAX_FILE_SIZE);
+      this.isError = true;
+      this.message.title = 'Erreur';
+      this.message.content = 'La taille du fichier choisi est trop grande (' + FILE_SIZE_IN_MO + '). Vous devez choisir un fichier ayant une taille inferieure a ' + MAX_FILE_SIZE_IN_MO;
+      this.notificationService.danger(this.message.content);
+      this.buildingFolderPoucentage = 0;
+      return false;
+    }
+
+    return true;
   }
 
   checkIfFileExist(id: string) {
@@ -165,14 +213,6 @@ export class CreateFolderComponent implements OnInit {
 
   renderBuildingFolderPoucentage() {
     this.buildingFolderPoucentage = Math.round((this.filesList.length/this.fileTypesNumber) * 100);
-  }
-
-  previewAvatar() {
-    const reader = new FileReader();
-    reader.readAsDataURL(this.file);
-    reader.onload = () => {
-      this.avatarPreviewPath = reader.result as string;
-    };
   }
 
   chooseFile(index: number) {

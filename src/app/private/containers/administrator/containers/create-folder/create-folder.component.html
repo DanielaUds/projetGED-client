@@ -48,8 +48,7 @@
                                         <label class="">Choisir le type du dossier<span style="color: red;">*</span> :</label>
                                         <select class="form-control" formControlName='folder_type' (change)="onSelectFolderType($event)">
                                             <option value="default" disabled selected hidden>selectionner le type de dossier a constituer</option>
-                                            <option *ngFor="let item of folderTypes" value="{{ item?.id }}">{{ item?.name }}</option>
-                                        </select>
+                                            <option *ngFor="let item of folderTypes" value="{{ item?.id }}">{{ item?.name }}</option></select>
                                         <small class="form-text text-muted info-error info-error-danger"
                                             *ngIf="handleError?.folder_type">
                                             {{ handleError?.folder_type }}
@@ -76,7 +75,7 @@
                                                     type="file" 
                                                     [accept]="getValidator(item)" 
                                                     [id]="formatId(item.id)" 
-                                                    (change)="onSelectFile($event, formatId(item.id), formatCkeckBoxId(item.id))"
+                                                    (change)="onSelectFile($event, item.id, formatCkeckBoxId(item.id))"
                                                     style="display: none"/>
                                             </div>
                                         </div>
