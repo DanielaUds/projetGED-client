@@ -24,16 +24,16 @@
                         <strong>{{"CreateFolder.FillForm" | translate}}<span class="text-success"> {{"CreateFolder.Folder" | translate}} </span>{{"CreateFolder.OnGepad" | translate}}</strong>
                     </h6>
                     <div>
-                        <div class="alert alert-info fade show" role="alert">
+                        <div class="alert alert-info fade show text-justify" role="alert">
                             <strong><u>{{"CreateFolder.Note" | translate}}</u> </strong> {{"CreateFolder.FileSelection" | translate}}<i class="pe-7s-angle-right-circle"></i>
                         </div>
-                        <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show text-justify" role="alert">
                             <strong>{{ message?.title }}: </strong>{{ message?.content }}
                             <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div *ngIf="isSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <div *ngIf="isSuccess" class="alert alert-success alert-dismissible fade show text-justify" role="alert">
                             <strong>{{ message?.title }}: </strong>{{ message?.content }}
                             <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
@@ -75,7 +75,7 @@
                                                     type="file" 
                                                     [accept]="getValidator(item)" 
                                                     [id]="formatId(item.id)" 
-                                                    (change)="onSelectFile($event, item.id, formatCkeckBoxId(item.id))"
+                                                    (change)="onSelectFile($event, item.id)"
                                                     style="display: none"/>
                                             </div>
                                         </div>
@@ -159,12 +159,12 @@
                                     </button>
                                 </div>
                                 <div class="text-center col-md-6 mb-4" style="width: 100%;">
-                                    <button [disabled]="isLoading"
+                                    <button [disabled]="isSubmitted"
                                         class="btn-wide btn-shadow btn-hover-shine btn btn-md btn-success"
                                         style="justify-content: center; align-items: center; flex: 1;">
-                                        <p *ngIf="!isLoading" style="font-size: medium; padding: 0px; margin: 2px;">
+                                        <p *ngIf="!isSubmitted" style="font-size: medium; padding: 0px; margin: 2px;">
                                             {{"CreateFolder.Create" | translate}} </p>
-                                        <div *ngIf="isLoading" style="padding: 15px; margin-left: 50%;">
+                                        <div *ngIf="isSubmitted" style="padding: 15px; margin-left: 50%;">
                                             <div class="ball-scale-multiple">
                                                 <div style="background-color: white;"></div>
                                                 <div style="background-color: white;"></div>

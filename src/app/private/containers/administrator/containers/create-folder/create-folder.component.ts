@@ -7,6 +7,8 @@ import { Lang } from '../../../../../services/config/lang';
 import { UserService } from '../../../../../services/person/user.service';
 import { FolderTypeService } from '../../services/folder-type.service';
 import { FolderService } from '../../services/folder.service';
+import { FileService } from '../../services/file.service';
+import { async } from 'rxjs/internal/scheduler/async';
 
 @Component({
   selector: 'app-create-folder',
@@ -48,7 +50,8 @@ export class CreateFolderComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private folderTypeService: FolderTypeService,
-    private folderService: FolderService) { }
+    private folderService: FolderService,
+    private fileService: FileService) { }
 
   ngOnInit() {
     this.changeLanguage(this.currentLanguage);
@@ -138,12 +141,12 @@ export class CreateFolderComponent implements OnInit {
     return this.form.controls;
   }
 
-  onSelectFile(event, id: number, ckeckBoxId: string) {
+  onSelectFile(event, id: number) {
     let file: File = event.target.files[0];
     let validationStatus: boolean = false;
 
     if(file) {
-      validationStatus =this.validateFile(file, id);
+      validationStatus = this.validateFile(file, id);
       if(validationStatus) {
         let formattedId = this.formatId(id);
         const item = {
@@ -179,8 +182,6 @@ export class CreateFolderComponent implements OnInit {
     }
 
     if(!pattern.includes(file.type)) {
-      console.log('File type error 1: ', file_type);
-      console.log('Selected Folder type: ', this.selectedFolderType);
       this.renderFileTypeStatusError(file_type_id);
       this.isError = true;
       this.message.title = this.translations.CreateFolderJS.Error;
@@ -191,7 +192,6 @@ export class CreateFolderComponent implements OnInit {
     }
 
     if(file.size > MAX_FILE_SIZE) {
-      console.log('File type error 2: ', file_type);
       const FILE_SIZE_IN_MO = this.computeSize(file.size);
       const MAX_FILE_SIZE_IN_MO = this.computeSize(MAX_FILE_SIZE);
       this.renderFileTypeStatusError(file_type_id);
@@ -409,9 +409,25 @@ export class CreateFolderComponent implements OnInit {
         this.folderService.post(folderFormData).then(
           resp => {
             this.folder = resp;
+            console.log(this.folder);
             this.filesList.forEach(
-              file => {
-                console.log(file);
+              item => {
+                const fileFormData = new FormData();
+                fileFormData.append('name', item.file.name);
+                fileFormData.append('file_size', item.file.size);
+                fileFormData.append('file_type_id', item.file_type_id + '');
+                fileFormData.append('folder_id', this.folder.id + '');
+                fileFormData.append('path', item.file);
+                this.fileService.post(fileFormData).then(
+                  resp => {
+                    console.log(resp);
+                  }
+                ).catch(
+                  err => {
+                    console.log(err);
+                    return;
+                  }
+                )
               }
             )
             console.log('La creation du dossier a reussie');
@@ -419,9 +435,14 @@ export class CreateFolderComponent implements OnInit {
         ).catch(
           err => {
             console.log('La creation du dossier a echouee!');
+            this.message.title = 'Erreur'
+            this.message.content = 'Une erreur inconnue est survenue lors de la creation du dossier. Veuillez consulter votre connexion a internet';
+            this.notificationService.danger(this.message.content);
+            this.isError = true;
             console.log(err);
             const errs = err.error.errors;
             this.handleError = errs;
+            return;
           }
         ).finally(
           () => {
@@ -431,10 +452,14 @@ export class CreateFolderComponent implements OnInit {
       }
     ).catch(
       err => {
+        this.message.title = 'Erreur'
+        this.message.content = 'Nous n\'avons pa pu retrouver l\'utilisateur d\'adresse email ' + this.f.user_email.value + '. Il se pourrait que l\'utilisateur associe n\'ait pas encore creer de compte dans notre systeme ou que la connexion internet a ete interrompue veuillez verifier puis reessayer !';
+        this.notificationService.danger(this.message.content);
+        this.isError = true;
         console.log(err);
-        this.notificationService.danger('L\'utilisateur n\'a pas ete retrouve');
         const errs = err.error.errors;
         this.handleError = errs;
+        return;
       }
     ).finally(
       () => {

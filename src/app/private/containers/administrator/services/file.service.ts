@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class FolderService {
+export class FileService {
 
   constructor(private http: HttpClient) {}
 
-  post(formData): Promise<any> {
-    return this.http.post(`${config.apiUrl}/folders`, formData).toPromise();
+  post(formData): Promise<any>{
+    return this.http.post(`${config.apiUrl}/folders/files`, formData).toPromise();
   }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../../../auth/services/auth.service';
-import { NotificationService } from '../../../../../../services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 import { InternationalizationService } from '../../../../../../services/features/internationalization.service';
 declare var $;

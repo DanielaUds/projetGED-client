@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { AuthService } from '../../../../auth/services/auth.service';
 import { MessageService } from '../../../../services/message.service';
-import { NotificationService } from '../../../../services/notification.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,12 +13,11 @@ export class NavBarComponent implements OnInit {
   isAuthenticated = false;
   subscription: Subscription;
   translations: any = null;
+  user: any = null;
 
   constructor(
     private authService: AuthService,
-    private messageService: MessageService,
-    private notificationService: NotificationService,
-    private router: Router) {
+    private messageService: MessageService) {
       this.subscription = this.messageService.getMessage().subscribe(message => {
         const data = JSON.parse(message.text);
         if (data.code === 'new-translation') {
@@ -33,6 +30,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
     console.log('Load data for component');
+    this.user = this.authService.getUserInfos();
   }
 
   logout() {

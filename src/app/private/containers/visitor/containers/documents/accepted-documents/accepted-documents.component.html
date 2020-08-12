@@ -49,14 +49,14 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let item of data,let i = index" id="tr{{ item.id }}">
-                                        <td style="width: 4%">{{ i+1 }}</td>
-                                        <td style="width: 6%;" class="text-center">
+                                        <td>{{ i+1 }}</td>
+                                        <td class="text-center">
                                             <span class="badge badge-success">acpt</span>
                                         </td>
-                                        <td style="width: 16%">{{ item?.name }}</td>
-                                        <td style="width: 11%">{{ item?.file_number }} piece(s) jointe</td>
-                                        <td style="width: 19%">{{ parser(item?.created_at) }}</td>
-                                        <td style="width: 27%" class="text-center">
+                                        <td>{{ display(item?.name) }}</td>
+                                        <td>{{ item?.file_number }} piece(s) jointe</td>
+                                        <td>{{ parser(item?.created_at) }}</td>
+                                        <td> class="text-center">
                                             <div class="widget-content p-0">
                                                 <div class="widget-content-outer">
                                                     <div class="widget-content-wrapper">
@@ -72,7 +72,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td style="width: 18%" class="text-center">
+                                        <td class="text-center">
                                             <div role="group" class="btn-group-sm btn-group">
                                                 <button class="mr-2 btn-icon btn-shadow btn btn-primary" ><i class="pe-7s-pen btn-icon-wrapper"> </i></button>
                                                 <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)"><i class="pe-7s-info btn-icon-wrapper"> </i></button>

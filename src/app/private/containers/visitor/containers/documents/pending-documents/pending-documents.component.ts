@@ -74,6 +74,10 @@ export class PendingDocumentsComponent implements OnInit {
     this.message = { title: '', content: '' };
   }
 
+  public display(str: string) {
+    return str.length > 20 ? str.substr(0, 17) + '...': str;
+  }
+
   public details(item: any) {
     return;
   }
