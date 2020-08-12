@@ -207,6 +207,23 @@
 		"Languages": "Langues",
 		"Profile": "Profil",
 		"SignOut": "Se Déconnecter"
+	},
+	"FolderTracking": {
+		"FolderFollowUp": "Suivie de dossier",
+		"WorkSpace": "Ceci est votre espace de travail",
+		"FolderFollowUpView": "A partir de cette interface vous pouvez suivre l'évolution d'un document que vous avez soumis",
+		"SecurityNote": "Note sur la securité:",
+		"allDataSecured": "toutes vos données sont securisées et nous vous garantissions leur suivie et leur accès en toute securité",
+		"toCheckStatus": "Pour consulter l'état d'avancement d'un de vos dossier, vous devez saisir son numéro",
+		"typeFolderId": "Saisir le numéro du dossier juste en dessous",
+		"typeFolderNumber": "Saisir le numéro de votre dossier ici",
+		"seeFolderProgression": "Voir l'état d'avancement du dossier"
+	},
+	"FolderTrackingJS": {
+		"Notif1": "Les dossiers ont ete charges",
+		"Notif2": "Les dossiers n'ont pas pu etre charges",
+		"Notif3": "Votre session a expiree veuillez vous connecter",
+		"Error": "Erreur"
 	}
 
 }

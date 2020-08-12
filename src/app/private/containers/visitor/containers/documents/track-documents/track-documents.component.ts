@@ -63,14 +63,14 @@ export class TrackDocumentsComponent implements OnInit {
         if(this.allFolders && this.allFolders.length > 0) 
           this.filterFolders();
         console.log(this.allFolders);
-        this.notificationService.success("Les dossiers ont ete charges");
+        this.notificationService.success(this.translations.FolderTrackingJS.Notif1);
       })
       .catch((err) => {
         console.log(err);
-        this.notificationService.danger("Les dossiers n'ont pas pu etre charges");
+        this.notificationService.danger(this.translations.FolderTrackingJS.Notif2);
       });
     } else {
-      this.notificationService.danger("Votre session a expiree veuillez vous connecter");
+      this.notificationService.danger(this.translations.FolderTrackingJS.Notif3);
       this.router.navigate(['/private/login']);
     }
   }
@@ -93,7 +93,7 @@ export class TrackDocumentsComponent implements OnInit {
     this.isSubmitted = true;
     this.handleError = null;
     if (this.track_id === null || this.track_id === '') {
-      this.message.title = 'Erreur'
+      this.message.title = this.translations.FolderTrackingJS.Error;
       this.message.content = 'Vous devez saisir le numero du dossier si vous souhaitez tracker un de vos dossiers';
       this.isError = true;
       this.notificationService.danger(this.message.content);

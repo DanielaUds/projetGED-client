@@ -190,6 +190,20 @@
 		"Languages": "Languages",
 		"Profile": "Profile",
 		"SignOut": "Sign Out"
+	},
+	"FolderTracking": {
+		"FolderFollowUp": "Folder follow-up",
+		"WorkSpace": "This is your workspace",
+		"FolderFollowUpView": "From this interface you can follow the evolution of a folder that you have submitted",
+		"SecurityNote": "Security note:",
+		"allDataSecured": "all your data are secure and we guarantee their monitoring and access in complete security",
+		"toCheckStatus": "To consult the progress of one of your folders, you must enter its number",
+		"typeFolderId": "Enter the folder number just below",
+		"typeFolderNumber": "Enter your folder number here",
+		"seeFolderProgression": "See folder's progress"
+	},
+	"FolderTrackingJS": {
+		"Error": "Error"
 	}
 
 }
