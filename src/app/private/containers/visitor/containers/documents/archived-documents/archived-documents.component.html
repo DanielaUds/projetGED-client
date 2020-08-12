@@ -59,9 +59,8 @@
                                         <td>{{ parser(item?.created_at) }}</td>
                                         <td class="text-center">
                                             <div role="group" class="btn-group-sm btn-group">
-                                                <button class="mr-2 btn-icon btn-shadow btn btn-primary" ><i class="pe-7s-pen btn-icon-wrapper"> </i></button>
-                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
-                                                <button class="mr-2 btn-icon btn-icon-only btn btn-danger" (click)="delete(item)"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)" title="cliquer pour voir les details"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
+                                                <button class="mr-2 btn-icon btn-icon-only btn btn-danger" (click)="delete(item)" title="cliquer pour supprimer"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
                                             </div>
                                         </td>
                                     </tr>

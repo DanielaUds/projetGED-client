@@ -74,7 +74,6 @@ export class CreateFolderComponent implements OnInit {
 
   onSelectFolderType(event: any) {
     const folder_type_id = parseInt(event.target.value);
-    console.log(event.target.value);
     let folder_type = this.folderTypes.find(type => (type.id === folder_type_id));
     this.selectedFolderType = folder_type;
     this.initFileTypeValidationAttributes();
@@ -83,7 +82,7 @@ export class CreateFolderComponent implements OnInit {
     this.fileTypesNumber = this.selectedFolderType.file_types.length;
     this.buildingFolderPoucentage = 0;
     this.filesList = [];
-    return '2';
+    console.log("Folder type :", this.selectedFolderType);
   }
 
   initFileTypeValidationAttributes() {
@@ -98,7 +97,7 @@ export class CreateFolderComponent implements OnInit {
     this.info = {
       title: folder_type.name,
       description: folder_type.description,
-      file_number: folder_type.file_number,
+      file_number: folder_type.file_types.length,
       max_file_size: this.computeSize(folder_type.max_file_size)
     }
   }
@@ -315,6 +314,7 @@ export class CreateFolderComponent implements OnInit {
       this.message.content = 'Vous devez choisir un type de dossier a cree et les pieces jointes associees';
       this.notificationService.danger(this.message.content);
       this.isError = true;
+      this.isSuccess = false;
       return;
     }
     if(this.selectedFolderType) {
@@ -351,7 +351,6 @@ export class CreateFolderComponent implements OnInit {
     this.isSubmitted = true;
     this.userService.getUserByEmail(email).then(
       resp => {
-        this.notificationService.success('L\'utilisateur a bien ete retrouve');
         this.folderOwner = resp;
         let folderFormData: FormData;
 
@@ -359,7 +358,6 @@ export class CreateFolderComponent implements OnInit {
         this.folderService.post(folderFormData).then(
           resp => {
             this.folder = resp;
-            console.log(this.folder);
             this.filesList.forEach(
               item => {
                 const fileFormData = new FormData();
@@ -370,7 +368,6 @@ export class CreateFolderComponent implements OnInit {
                 fileFormData.append('path', item.file);
                 this.fileService.post(fileFormData).then(
                   resp => {
-                    console.log(resp);
                     let index = this.filesList.findIndex(file => file === item);
                     const pattern = (this.filesList[index] === this.filesList[this.filesList.length - 1]);
                     if(pattern) {
@@ -379,6 +376,8 @@ export class CreateFolderComponent implements OnInit {
                       this.notificationService.success(this.message.content);
                       this.reinitialiseForm();
                       this.isSuccess = true;
+                      this.isError = false;
+                      this.isSubmitted = false;
                       return;
                     }
                   }
@@ -390,14 +389,13 @@ export class CreateFolderComponent implements OnInit {
                 )
               }
             )
-            console.log('La creation du dossier a reussie');
           }
         ).catch(
           err => {
-            console.log('La creation du dossier a echouee!');
             this.message.title = 'Erreur'
             this.message.content = 'Une erreur inconnue est survenue lors de la creation du dossier. Veuillez consulter votre connexion a internet';
             this.notificationService.danger(this.message.content);
+            this.isSubmitted = false;
             this.isError = true;
             console.log(err);
             const errs = err.error.errors;
@@ -416,14 +414,11 @@ export class CreateFolderComponent implements OnInit {
         this.message.content = 'Nous n\'avons pa pu retrouver l\'utilisateur d\'adresse email ' + this.f.user_email.value + '. Il se pourrait que l\'utilisateur associe n\'ait pas encore creer de compte dans notre systeme ou que la connexion internet a ete interrompue veuillez verifier puis reessayer !';
         this.notificationService.danger(this.message.content);
         this.isError = true;
+        this.isSubmitted = false;
         console.log(err);
         const errs = err.error.errors;
         this.handleError = errs;
         return;
-      }
-    ).finally(
-      () => {
-        this.isSubmitted = false;
       }
     )
   }
