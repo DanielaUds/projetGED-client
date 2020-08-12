@@ -86,6 +86,10 @@ export class VisitorHomeComponent implements OnInit {
     this.router.navigate(['private/visitors/documents' + url]);
   }
 
+  goTo(url) {
+    this.router.navigate([url]);
+  }
+
   displayUserLanguage() {
     if (this.user.language) {
       if (this.user.language === 'fr') {

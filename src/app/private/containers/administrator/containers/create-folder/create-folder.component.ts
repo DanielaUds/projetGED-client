@@ -63,14 +63,18 @@ export class CreateFolderComponent implements OnInit {
     this.folderTypeService.get()
     .then(resp => {
       this.folderTypes = resp;
-      this.notificationService.success('les type de dossiers ont ete charges');
     }).catch(err => {
-      this.notificationService.danger('les type de dossiers n\'ont pas ete charges');
+      this.message.title = 'Erreur'
+      this.message.content = 'Le serveur est indisponible veuillez verifier votre connexion au serveur puis actualiser la page';
+      this.notificationService.danger(this.message.content);
+      this.isError = true;
+      return;
     }) 
   }
 
   onSelectFolderType(event: any) {
     const folder_type_id = parseInt(event.target.value);
+    console.log(event.target.value);
     let folder_type = this.folderTypes.find(type => (type.id === folder_type_id));
     this.selectedFolderType = folder_type;
     this.initFileTypeValidationAttributes();
@@ -79,6 +83,7 @@ export class CreateFolderComponent implements OnInit {
     this.fileTypesNumber = this.selectedFolderType.file_types.length;
     this.buildingFolderPoucentage = 0;
     this.filesList = [];
+    return '2';
   }
 
   initFileTypeValidationAttributes() {
@@ -87,7 +92,6 @@ export class CreateFolderComponent implements OnInit {
       type.isSuccess = false;
       type.checked = false;
     });
-    console.log(this.selectedFolderType);
   }
 
   computeInfoMessage(folder_type: any) {
@@ -131,7 +135,7 @@ export class CreateFolderComponent implements OnInit {
       files_validator = {};
     }
     form_validator['files'] = this.files;
-    form_validator['folder_type'] = ['', [Validators.required]];
+    form_validator['folder_type'] = ['default', [Validators.required]];
     form_validator['description'] = ['', [Validators.required]];
     form_validator['user_email'] = ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)]];
     this.form = this.formBuilder.group(form_validator);
@@ -304,60 +308,6 @@ export class CreateFolderComponent implements OnInit {
   cancelInfo() {
     this.info = null;
   }
-  
-  /*
-  onSubmit() {
-    this.isError = false;
-    this.isSuccess = false;
-    this.isLoading = false;
-    this.isSubmitted = true;
-    this.handleError = null;
-
-    if (this.form.invalid) {
-      this.message.title = this.translations.CreateFolderJS.Error;
-      this.message.content = this.translations.CreateFolderJS.WrongFill;
-      this.isError = true;
-      this.notificationService.danger(this.message.content);
-      return;
-    }
-
-    this.isLoading = true;
-    const formData = new FormData();
-    const data = this.form;
-    for (const k in data) {
-      if (k) {
-        if (data[k].value === true || data[k].value === false) {
-          formData.append(k + '', data[k].value === true ? '1' : '0');
-        } else if (k === 'avatar') {
-          formData.append(k, this.file);
-        } else {
-          formData.append(k + '', data[k].value);
-        }
-      }
-    }
-    formData.append('job', 'VISITOR');
-    this.userService.post(formData)
-      .then(resp => {
-        console.log(resp);
-        this.message.title = this.translations.CreateFolderJS.Success;
-        this.message.content = 'Votre compte a ete cree avec success, veuillez vous connectez pour acceder a votre espace prive';
-        this.isSuccess = true;
-        this.notificationService.success(this.message.content);
-      })
-      .catch(err => {
-        this.message.title = 'Erreur'
-        this.message.content = 'Une erreur inconnue est survenue, veuillez verifier les informations saisis dans le formulaire';
-        this.notificationService.danger(this.message.content);
-        this.isError = true;
-        const errs = err.error.errors;
-        console.log(err);
-        this.handleError = errs;
-      })
-      .finally(() => {
-        this.isLoading = false;
-      });
-  }
-  */
 
   onSubmit() {
     if(!this.selectedFolderType) {
@@ -421,6 +371,16 @@ export class CreateFolderComponent implements OnInit {
                 this.fileService.post(fileFormData).then(
                   resp => {
                     console.log(resp);
+                    let index = this.filesList.findIndex(file => file === item);
+                    const pattern = (this.filesList[index] === this.filesList[this.filesList.length - 1]);
+                    if(pattern) {
+                      this.message.title = 'Success'
+                      this.message.content = 'Le dossier a ete creer avec success, un mail contenant le code du dossier a ete envoye a l\'utilisateur concerne';
+                      this.notificationService.success(this.message.content);
+                      this.reinitialiseForm();
+                      this.isSuccess = true;
+                      return;
+                    }
                   }
                 ).catch(
                   err => {

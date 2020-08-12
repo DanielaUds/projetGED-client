@@ -46,9 +46,9 @@
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
                                         <label class="">{{"CreateFolder.Select" | translate}}<span style="color: red;">*</span> :</label>
-                                        <select class="form-control" formControlName='folder_type' (change)="onSelectFolderType($event)">
+                                    <select class="form-control" formControlName='folder_type' (change)="onSelectFolderType($event)">
                                             <option value="default" disabled selected hidden>{{"CreateFolder.SelectFolderType" | translate}}</option>
-                                            <option *ngFor="let item of folderTypes" value="{{ item?.id }}">{{ item?.name }}</option></select>
+                                            <option *ngFor="let item of folderTypes" value="{{ item.id }}">{{ item.name }}</option></select>
                                         <small class="form-text text-muted info-error info-error-danger"
                                             *ngIf="handleError?.folder_type">
                                             {{ handleError?.folder_type }}
@@ -160,6 +160,7 @@
                                 </div>
                                 <div class="text-center col-md-6 mb-4" style="width: 100%;">
                                     <button [disabled]="isSubmitted"
+                                        type="submit"
                                         class="btn-wide btn-shadow btn-hover-shine btn btn-md btn-success"
                                         style="justify-content: center; align-items: center; flex: 1;">
                                         <p *ngIf="!isSubmitted" style="font-size: medium; padding: 0px; margin: 2px;">

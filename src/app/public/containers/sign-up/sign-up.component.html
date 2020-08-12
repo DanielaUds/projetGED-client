@@ -132,6 +132,7 @@
                                             class="">{{ 'SignUp.LieuNais' | translate }} :</label>
                                         <input placeholder="{{ 'SignUp.LieuNaisPlaceHolder' | translate }} "
                                             type="text"
+                                            formControlName="birth_place"
                                             class="form-control {{ form.birth_place.errors && isSubmitted ? 'invalid': '' }}">
                                         <small class="form-text text-muted info-error info-error-danger"
                                             *ngIf="handleError?.birth_place">
