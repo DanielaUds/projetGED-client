@@ -28,7 +28,7 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     console.log(this.authService.getUserInfos());
     this.isAuthenticated = this.authService.getUserInfos() ? true : false;
-    this.router.navigate(['/private/superadmins/request-problems']);
+    this.router.navigate(['/private/superadmins/create-user']);
   }
 
   logout() {

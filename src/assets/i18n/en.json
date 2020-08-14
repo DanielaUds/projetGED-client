@@ -39,7 +39,7 @@
 		"FemaleGenderOptionPlaceHolder": "Female",
 		"MaleGenderOptionPlaceHolder": "Male",
 		"LieuNaisPlaceHolder": "Please enter your place of birth",
-		"NumTelPlaceHolder": "example: 691971542",
+		"NumTelPlaceHolder": "example: 691871542",
 		"EnglishLanguageOptionPlaceHolder": "English",
 		"FrenchLanguageOptionPlaceHolder": "French",
 		"LoginPlaceHolder": "Please enter your login",
@@ -200,10 +200,21 @@
 		"toCheckStatus": "To consult the progress of one of your folders, you must enter its number",
 		"typeFolderId": "Enter the folder number just below",
 		"typeFolderNumber": "Enter your folder number here",
-		"seeFolderProgression": "See folder's progress"
+		"seeFolderProgression": "See folder's progress",
+		"percentageProgress": "FOLDER'S PERCENTAGE EVOLUTION",
+		"folderState": "Current state"
 	},
 	"FolderTrackingJS": {
-		"Error": "Error"
+		"Notif1": "The folders have been loaded",
+		"Notif2": "The folders haven't been loaded",
+		"Notif3": "Session timeout please login",
+		"Error": "Error",
+		"FillTrackId": "You must enter the folder number if you want to track one of your folders",
+		"WrongFill": "The ID of the folder you want to track is a number. Please enter a number",
+		"Success": "Success",
+		"SuccessMessage": "We were able to find your folder, you can now consult its progress and follow its evolution",
+		"ErrorMessage": "We have not been able to find your folder. This may be because the folder number is incorrect or a problem with the internet connection. Please check these settings then try again ",
+		"Languages": "Unknown language"
 	}
 
 }

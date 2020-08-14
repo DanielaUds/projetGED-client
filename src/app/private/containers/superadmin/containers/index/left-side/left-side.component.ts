@@ -17,15 +17,6 @@ export class LeftSideComponent implements OnInit {
   translations: any = null;
   activeMenu: any = {
     menu0: 1,
-    menu1: 1,
-    menu2: 1,
-    menu3: 1,
-    menu4: 1,
-    menu5: 1,
-    menu6: 1,
-    menu7: 1,
-    menu8: 1,
-    menu9: 1
   };
 
   constructor(

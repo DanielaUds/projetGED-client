@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NavBarComponent } from './containers/index/nav-bar/nav-bar.component';
 import { LeftSideComponent } from './containers/index/left-side/left-side.component';
 import { IndexComponent } from './containers/index/index.component';
+import { CreateUserComponent } from './containers/create-user/create-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IndexComponent,
     RandomNumberComponent,
     NavBarComponent,
-    LeftSideComponent
+    LeftSideComponent,
+    CreateUserComponent
   ],
   imports: [
     CommonModule,

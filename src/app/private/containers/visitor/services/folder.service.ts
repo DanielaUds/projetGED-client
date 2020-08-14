@@ -23,6 +23,10 @@ export class FolderService {
     return this.http.get<any>(`${config.apiUrl}/folders`).toPromise();
   }
 
+  public getPourcentage(formData: any): Promise<any> {
+    return this.http.post<any>(`${config.apiUrl}/folders/pourcent`, formData).toPromise();
+  }
+
   public getUserFolders(user_id: number) {
     return this.http.get<any>(`${config.apiUrl}/folders/user/${user_id}`).toPromise();
   }

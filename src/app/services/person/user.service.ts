@@ -27,6 +27,10 @@ export class UserService {
     return this.http.post(`${config.apiUrl}/persons/users`, formData).toPromise();
   }
 
+  createInternalUser(formData): Promise<any> {
+    return this.http.post(`${config.apiUrl}/persons/users/internal-user`, formData).toPromise();
+  }
+
   public get(url) {
     return this.http.get<any>(`${url}`)
       .pipe(map(data => data));

@@ -35,65 +35,17 @@
             <ul class="vertical-nav-menu metismenu">
                 <li class="app-sidebar__heading">Menu</li>
                 <li class="mm-active">
-                    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.today8')">
+                    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.today1')">
                         <i class="metismenu-icon pe-7s-rocket"></i>
-                        {{"LeftSide.TodayOne" | translate }}
+                        Gerer les membres
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
-                    <ul class="today8 mm-collapse">
+                    <ul class="today1 mm-collapse">
                         <li>
-                            <a href="javascript:void(0);" (click)="activeMenu.menu8=0;"
-                                class="{{ activeMenu.menu8 == 1 ? 'mm-active': ''}}">
+                            <a href="javascript:void(0);" (click)="activeMenu.menu1=0;goTo('create-user')"
+                                class="{{ activeMenu.menu1 == 1 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>...
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="mm-active">
-                    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.today8')">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
-                        {{"LeftSide.TodayTwo" | translate }}
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul class="today8 mm-collapse">
-                        <li>
-                            <a href="javascript:void(0);" (click)="activeMenu.menu8=0;"
-                                class="{{ activeMenu.menu8 == 1 ? 'mm-active': ''}}">
-                                <i class="metismenu-icon">
-                                </i>...
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="mm-active">
-                    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.today8')">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
-                        {{"LeftSide.TodayThree" | translate }}
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul class="today8 mm-collapse">
-                        <li>
-                            <a href="javascript:void(0);" (click)="activeMenu.menu8=0;"
-                                class="{{ activeMenu.menu8 == 1 ? 'mm-active': ''}}">
-                                <i class="metismenu-icon">
-                                </i>...
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="mm-active">
-                    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.today8')">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
-                        {{"LeftSide.TodayFour" | translate }}
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul class="today8 mm-collapse">
-                        <li>
-                            <a href="javascript:void(0);" (click)="activeMenu.menu8=0;"
-                                class="{{ activeMenu.menu8 == 1 ? 'mm-active': ''}}">
-                                <i class="metismenu-icon">
-                                </i>...
+                                </i>Ajouter un nouvel employé
                             </a>
                         </li>
                     </ul>

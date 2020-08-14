@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RandomNumberComponent } from './containers/random-number/random-number.component';
 import { IndexComponent } from './containers/index/index.component';
+import { CreateUserComponent } from './containers/create-user/create-user.component';
+import { RandomNumberComponent } from './containers/random-number/random-number.component';
+
 
 const routes: Routes = [
   {
@@ -12,6 +14,10 @@ const routes: Routes = [
         path: 'random-number',
         component: RandomNumberComponent,
       },
+      {
+        path: 'create-user',
+        component: CreateUserComponent,
+      }
     ]
   }
 ];

@@ -1,0 +1,228 @@
+<div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+        <div class="row">
+            <div class="app-page-title" style="margin: 0%; width: 100%;">
+                <div class="page-title-wrapper">
+                    <div class="page-title-heading">
+                        <div class="page-title-icon">
+                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            </i>
+                        </div>
+                        <div><span class="text-success"><h4>Création des utilisateurs internes au système</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                            <div class="page-title-subheading">
+                                A partir de cette interface vous pouvez créer les utilisateurs internes au système.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="d-md-flex d-sm-block bg-white justify-content-center col-md-12 col-lg-7 fst-column">
+                <div class="mx-auto app-login-box col-sm-12 col-md-12 col-lg-12">
+                    <div>
+                        <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                            <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                            <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div *ngIf="isSuccess" class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                            <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                            <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form (submit)="onSubmit()" [formGroup]="registerForm" class="pt-4">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.Nom' | translate }} <span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.NomPlaceHolder' | translate }}"
+                                            type="text" formControlName="first_name"
+                                            class="form-control {{ form.first_name.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.first_name">
+                                            {{ handleError?.first_name }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label
+                                            class="">{{ 'SignUp.Prenom' | translate }} <span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.PrenomPlaceHolder' | translate }}"
+                                            type="text" formControlName="last_name"
+                                            class="form-control {{ form.last_name.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.last_name">
+                                            {{ handleError?.last_name }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.AdresseEmail' | translate }}<span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.AdresseEmailPlaceHolder' | translate }}"
+                                            type="email" formControlName="email"
+                                            class="form-control {{ form.email.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.email">
+                                            {{ handleError?.email }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class=""> {{ 'SignUp.ChoixGendre' | translate }}<span style="color: red;">*</span> :</label>
+                                        <select formControlName="gender"
+                                            class="form-control {{ form.gender.errors && isSubmitted ? 'invalid': '' }}">
+                                            <option value="" disabled selected hidden>
+                                                {{ 'SignUp.ChoixGendre' | translate }}</option>
+                                            <option value="F">{{ 'SignUp.FemaleGenderOptionPlaceHolder' | translate }}
+                                            </option>
+                                            <option value="M">{{ 'SignUp.MaleGenderOptionPlaceHolder' | translate }}</option>
+                                        </select>
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.gender">
+                                            {{ handleError?.gender }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="">{{ 'SignUp.DateNais' | translate }}:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-calendar-alt"></i>
+                                            </div>
+                                        </div>
+                                        <input type="date" formControlName="birth_date"
+                                            class="form-control input-mask-trigger {{ form.birth_date.errors && isSubmitted ? 'invalid': '' }}"
+                                            data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy"
+                                            im-insert="false">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.birth_date">
+                                            {{ handleError?.birth_date }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label
+                                            class="">{{ 'SignUp.LieuNais' | translate }} :</label>
+                                        <input placeholder="{{ 'SignUp.LieuNaisPlaceHolder' | translate }} "
+                                            type="text"
+                                            formControlName="birth_place"
+                                            class="form-control {{ form.birth_place.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.birth_place">
+                                            {{ handleError?.birth_place }}
+                                        </small>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.NumTel' | translate }}:</label>
+                                        <input
+                                            placeholder="{{ 'SignUp.NumTelPlaceHolder' | translate }}"
+                                            type="tel" formControlName="tel"
+                                            class="form-control {{ form.tel.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.tel">
+                                            {{ handleError?.tel }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.Langue' | translate }} :</label>
+                                        <select formControlName="language"
+                                            class="form-control {{ form.language.errors && isSubmitted ? 'invalid': '' }}">
+                                            <option value="" disabled selected hidden>
+                                                {{ 'SignUp.Langue' | translate }}</option>
+                                            <option value="en">{{ 'SignUp.EnglishLanguageOptionPlaceHolder' | translate }}
+                                            <option value="fr">{{ 'SignUp.FrenchLanguageOptionPlaceHolder' | translate }}
+                                            </option>
+                                        </select>
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.language">
+                                            {{ handleError?.language }}
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">Choisissez le poste de l'utilisateur que vous desirez créer : <span style="color: red;">*</span></label>
+                                        <select formControlName="job"
+                                            class="form-control {{ form.job.errors && isSubmitted ? 'invalid': '' }}">
+                                            <option value="" disabled selected hidden>Choisir le poste de cet utilisateur</option>
+                                            <option value="ADMINISTRATOR">Administrateur de service</option>
+                                            <option value="EMPLOYEE">Employee de service</option>
+                                        </select>
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.job">
+                                            {{ handleError?.job }}
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">Choisissez le service de l'utilisateur que vous desirez créer : <span style="color: red;">*</span></label>
+                                        <select formControlName="service_id"
+                                            class="form-control {{ form.service_id.errors && isSubmitted ? 'invalid': '' }}">
+                                            <option value="" disabled selected hidden>Choisir le service de cet utilisateur</option>
+                                            <option *ngFor="let item of services" value="{{ item.id }}">{{ item.name }}</option>
+                                        </select>
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.service_id">
+                                            {{ handleError?.service_id }}
+                                        </small>
+                                    </div>
+                                </div>        
+
+                            </div>
+                            <div class="mt-3 mb-4 d-flex align-items-center row">
+                                <div class="text-center col-md-12" style="width: 100%;">
+                                    <button [disabled]="isLoading"
+                                        class="btn-wide btn-shadow btn-hover-shine btn btn-success"
+                                        style="width: 100%; justify-content: center; align-items: center; flex: 1;">
+                                        <p *ngIf="!isLoading" style="font-size: medium; padding: 0px; margin: 5px;">
+                                            {{ 'SignUp.CreeCompte' | translate }} </p>
+                                        <div *ngIf="isLoading" style="padding: 15px; margin-left: 50%;">
+                                            <div class="ball-scale-multiple">
+                                                <div style="background-color: white;"></div>
+                                                <div style="background-color: white;"></div>
+                                                <div style="background-color: white;"></div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="d-md-flex d-xs-none col-lg-5">
+                <div class="slider-light">
+                    <div class="slick-slider slick-initialized">
+                        <div>
+                            <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark" tabindex="-1">
+                                <div class="slide-img-bg" style="background-image: url('assets/images/sidebar/abstract9.jpg'); background-size: cover; background-position: center;"></div>
+                                <div class="slider-content"><h3>Collaboration,Sécurité</h3>
+                                    <p>Easily exclude the components you don't require. Lightweight, consistent Bootstrap based styles across all elements and components</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
