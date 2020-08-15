@@ -178,7 +178,7 @@ export class UpdateInfoComponent implements OnInit {
     if (this.user.language) {
       if (this.user.language === 'fr') {
         return 'Francais';
-      } else if (this.user.infos.language === 'en') {
+      } else if (this.user.language === 'en') {
         return 'Anglais';
       } else {
         return 'Langue inconnue';
