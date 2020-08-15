@@ -332,18 +332,10 @@
 	},
 	"AdminUpdateInfo": {
 		"Welcome": "Bienvenue",
-		"Workspace": "A partir de cette interface vous pouvez suivre l'evolution des documents que vous avez soumis et consulter l'historique des documents soumis dans le passe",
-		"ViewAllFoldersInterface": "  A partir de cette interface vous pouvez visualiser l'ensemble des dossiers que vous avez rejétés pour une raison ou une autre",
+		"Workspace": "Ceci est votre espace de travail",
+		"editProfile": "  A partir de cette interface vous pouvez mettre a jour votre profil",
 		"NoteSecurite1": "Note sur la sécurité:",
-		"NoteSecurite2": "les documents qui vous sont soumis sont d'une importance capitale.vous devez donc etre méticuleux et efficace lors de leur prise en charge",
-		"RejectedFolders": "Dossiers rejétés",
-		"Name": "Nom",
-		"Description": "Description",
-		"JointFiles": "Pièces jointes",
-		"SubmissionDate": "Date de soumission",
-		"Actions": "Actions",
-		"PleaseWait": "Patientez svp...",
-		"EmptyList": "Liste vide"
+		"NoteSecurite2": "toutes vos donnees sont securisees et nous vous garantissions leur access en toute securite"
 		
 	}
 

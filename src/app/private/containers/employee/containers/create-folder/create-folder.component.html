@@ -1,0 +1,221 @@
+<div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+        <div class="row">
+            <div class="app-page-title" style="margin: 0%; width: 100%;">
+                <div class="page-title-wrapper">
+                    <div class="page-title-heading">
+                        <div class="page-title-icon">
+                            <i class="pe-7s-shield icon-gradient bg-warning"></i>
+                        </div>
+                        <div><span class="text-success"><h4>{{"CreateFolder.Welcome" | translate}}</h4></span> <strong><h5>{{"CreateFolder.WorkSpace" | translate}}</h5></strong>
+                            <div class="page-title-subheading text-justify">
+                                {{"CreateFolder.RegisterView" | translate}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card d-md-flex d-sm-block bg-white justify-content-center align-items-center col-md-12 col-lg-8 fst-column">
+                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-9 pt-4">
+
+                    <h6 class="mb-3">
+                        <strong>{{"CreateFolder.FillForm" | translate}}<span class="text-success"> {{"CreateFolder.Folder" | translate}} </span>{{"CreateFolder.OnGepad" | translate}}</strong>
+                    </h6>
+                    <div>
+                        <div class="alert alert-info fade show text-justify" role="alert">
+                            <strong><u>{{"CreateFolder.Note" | translate}}</u> </strong> {{"CreateFolder.FileSelection" | translate}}<i class="pe-7s-angle-right-circle"></i>
+                        </div>
+                        <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show text-justify" role="alert">
+                            <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                            <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div *ngIf="isSuccess" class="alert alert-success alert-dismissible fade show text-justify" role="alert">
+                            <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                            <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        
+                        <form (submit)="onSubmit()" [formGroup]="form">
+                            <div class="form-row">
+
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{"CreateFolder.Select" | translate}}<span style="color: red;">*</span> :</label>
+                                    <select class="form-control" formControlName='folder_type' (change)="onSelectFolderType($event)">
+                                            <option value="default" disabled selected hidden>{{"CreateFolder.SelectFolderType" | translate}}</option>
+                                            <option *ngFor="let item of folderTypes" value="{{ item.id }}">{{ item.name }}</option></select>
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.folder_type">
+                                            {{ handleError?.folder_type }}
+                                        </small>
+                                    </div>
+                                </div>
+                            
+                                <div formGroupName="files">
+                                    <div class="col-md-12 mb-4" *ngIf="canDisplayFiles()">
+                                        <div class="row">
+                                            <div class="col-md-3 files" *ngFor="let item of selectedFolderType.file_types" > 
+                                                <div>
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" [id]="formatCkeckBoxId(item.id)" class="custom-control-input" [checked]="item.checked" disabled>
+                                                        <label class="custom-control-label" [for]="formatCkeckBoxId(item.id)">&nbsp;</label>
+                                                    </div>
+                                                    <span style="font-weight: bold; width: 100%; display: flex;" class="{{ item.isError ? 'text-danger' : '' }} {{ item.isSuccess ? 'text-success' : '' }}">{{ display(item.name) }}</span>
+                                                    <div class="font-icon-wrapper font-icon-lg {{ item.isError ? 'bg-danger' : '' }} {{ item.isSuccess ? 'bg-success' : '' }}" style="cursor: pointer;" title="cliquer selectioner une pièce jointe">
+                                                        <i class="pe-7s-paperclip icon-gradient bg-plum-plate" (click)="chooseFile(item.id)"></i>
+                                                    </div>
+                                                </div>
+                                                <input 
+                                                    class="form-control hidden"
+                                                    type="file" 
+                                                    [accept]="getValidator(item)" 
+                                                    [id]="formatId(item.id)" 
+                                                    (change)="onSelectFile($event, item.id)"
+                                                    style="display: none"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="widget-content card">
+                                        <div class="widget-content-outer">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <div class="widget-numbers fsize-3 text-muted">{{ buildingFolderPoucentage }}%</div>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <div class="text-muted opacity-6">
+                                                        <span *ngIf="buildingFolderPoucentage < 100">
+                                                            {{"CreateFolder.ConstitutionFolder" | translate}} 
+                                                            ({{ filesList.length}}/
+                                                            <span class="text-danger">{{ fileTypesNumber }} </span> {{"CreateFolder.PieceJointes" | translate}} 
+                                                        </span>
+                                                        <span *ngIf="buildingFolderPoucentage >= 100">{{"CreateFolder.DossierPret" | translate}}  
+                                                            <span>(<span class="text-success">{{ filesList.length}}</span>  {{"CreateFolder.PieceJointes" | translate}})</span>
+                                                            <button class="border-0 btn btn-outline-success" disabled>
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
+                                                        </span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-progress-wrapper mt-1">
+                                                <div class="progress-bar-md progress-bar-animated-alt progress">
+                                                    <div class="progress-bar {{ computeBgProgressBar() }}" role="progressbar" ([aria-valuenow])="buildingFolderPoucentage" aria-valuemin="0" aria-valuemax="100" [style.width]="buildingFolderPoucentage + '%'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group mt-3">
+                                        <label class="">{{"CreateFolder.DescriptionDossier" | translate}} <span style="color: red;">*</span> :</label>
+                                        <textarea 
+                                            class="form-control" 
+                                            formControlName='description' 
+                                            placeholder="{{'CreateFolder.PlaceholderDescription'| translate}}"
+                                            rows="4"></textarea>
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.description">
+                                            {{ handleError?.description }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group mt-1">
+                                        <label class="">{{"CreateFolder.UserEmailAddr" | translate}}<span style="color: red;">*</span> :</label>
+                                        <div class="alert alert-warning fade show mt-1 text-justify" role="alert">
+                                            <strong><u>NB:</u> </strong> 
+                                            {{"CreateFolder.NoteUserEmailAddr" | translate}}  
+                                        </div>
+                                        <input 
+                                            type="email"
+                                            class="form-control" 
+                                            formControlName='user_email' 
+                                            placeholder="{{'CreateFolder.PlaceHolderUserEmail' | translate}}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.user_email">
+                                            {{ handleError?.user_email }}
+                                        </small>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center col-md-6" style="width: 100%;">
+                                    <button
+                                        type="reset"
+                                        class="btn-wide btn-md btn-shadow btn-hover-shine btn btn-danger"
+                                        style="font-size: medium; padding: 8px;"
+                                        (click)="reinitialiseForm()">
+                                        {{"CreateFolder.Cancel" | translate}} 
+                                    </button>
+                                </div>
+                                <div class="text-center col-md-6 mb-4" style="width: 100%;">
+                                    <button [disabled]="isSubmitted"
+                                        type="submit"
+                                        class="btn-wide btn-shadow btn-hover-shine btn btn-md btn-success"
+                                        style="justify-content: center; align-items: center; flex: 1;">
+                                        <p *ngIf="!isSubmitted" style="font-size: medium; padding: 0px; margin: 2px;">
+                                            {{"CreateFolder.Create" | translate}} </p>
+                                        <div *ngIf="isSubmitted" style="padding: 15px; margin-left: 50%;">
+                                            <div class="ball-scale-multiple">
+                                                <div style="background-color: white;"></div>
+                                                <div style="background-color: white;"></div>
+                                                <div style="background-color: white;"></div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+            <div class="card d-md-flex d-xs-none col-lg-4" style="width: 90%;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div *ngIf="info" class="alert alert-info fade show" role="alert">
+                            <span class="pr-2">
+                                <i class="fa fa-question-circle"></i>
+                            </span>
+                            <strong class="mb-2">{{ info?.title }} : </strong><span class="text-justify">{{ info?.content }}</span>
+                            <p class="text-justify">
+                                {{ info?.description }} 
+                            </p>
+                            <p class="text-justify">
+                                <strong>NB: </strong> {{"CreateFolder.AssociatedFolders" | translate}} <span class="text-danger">{{ info?.file_number }}</span> {{"CreateFolder.PieceJointes" | translate}}
+                                <span class="text-success">NB: </span> {{"CreateFolder.InfoFileSize" | translate}}
+                                {{"CreateFolder.Is" | translate}} <span class="text-danger">{{ info?.max_file_size }}</span>
+                            </p>
+                            <p class="text-justify"><strong>{{"CreateFolder.Caracteristics" | translate}}</strong> {{"CreateFolder.AssociatedFiles" | translate}} </p>
+
+                            <u class="todo-list-wrapper list-group list-group-flush">
+                                <li class="list-group-item" *ngFor="let item of selectedFolderType.file_types">
+                                    <div class="todo-indicator bg-info"></div>
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-2">
+                                                <strong class="mr-2">{{"CreateFolder.Name" | translate}} </strong><span class="text-secondary">{{ item?.name }}</span><br>
+                                                <strong class="mr-2">{{"CreateFolder.Format" | translate}} </strong><span class="text-secondary">{{ item?.file_type }}</span><br>
+                                                <strong class="mr-1">{{"CreateFolder.MaxFileSize" | translate}} </strong><span class="text-secondary">{{ computeSize(item?.max_size) }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>  
+                            </u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

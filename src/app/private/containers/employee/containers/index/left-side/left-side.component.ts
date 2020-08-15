@@ -55,8 +55,8 @@ export class LeftSideComponent implements OnInit {
     console.log('change language !');
   }
 
-  goTo(component) {
-    this.router.navigate(['/private/superadmins/' + component]);
+  goTo(url) {
+    this.router.navigate(['/private/employees/' + url]);
   }
 
 }

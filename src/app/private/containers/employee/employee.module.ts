@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RandomNumberComponent } from './containers/random-number/random-number.component';
+import { UpdateInfoComponent } from './containers/update-infos/update-info.component';
+import { CreateFolderComponent } from './containers/create-folder/create-folder.component';
 import { EmployeeRoutingModule } from './employee.routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NavBarComponent } from './containers/index/nav-bar/nav-bar.component';
@@ -12,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     IndexComponent,
     RandomNumberComponent,
+    UpdateInfoComponent,
+    CreateFolderComponent,
     NavBarComponent,
     LeftSideComponent
   ],

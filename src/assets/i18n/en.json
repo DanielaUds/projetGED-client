@@ -311,5 +311,13 @@
 		"PleaseWait": "Please wait ...",
 		"EmptyList": "Empty list"
 		
+	},
+	"AdminUpdateInfo": {
+		"Welcome": "Welcome",
+		"Workspace": "This is your workspace",
+		"editProfile": " This interface permits you to update your profile",
+		"NoteSecurite1": "Security note:",
+		"NoteSecurite2": "all your data are secure and we guarantee their and access in complete security"
+		
 	}
 }

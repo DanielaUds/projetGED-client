@@ -1,0 +1,38 @@
+.container-details div {
+  margin-top: 4%;
+}
+.invalid {
+  border: 1px solid red;
+}
+.form-control {
+  border: 2px solid grey;
+}
+.info-error-danger {
+  color: red !important;
+}
+.form-title-box {
+  padding: 10px;
+  border-radius: 5%;
+}
+.page-column {
+  height: 710px;
+}
+#my_file {
+    display: none;
+}
+#get_file {
+    cursor: pointer;
+}
+.bg-dark {
+  height: 80px;
+  width: 200px;
+  border: 1px solid brown;
+  border-radius: 10%;
+}
+u {
+  text-decoration: none;
+}
+.col-md-3 {
+  flex: 0 0 25%;
+  max-width: 90%;
+}
