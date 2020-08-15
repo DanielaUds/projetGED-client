@@ -7,7 +7,6 @@ import { AcceptedDocumentsComponent } from './containers/documents/accepted-docu
 import { ArchivedDocumentsComponent } from './containers/documents/archived-documents/archived-documents.component';
 import { RejectedDocumentsComponent } from './containers/documents/rejected-documents/rejected-documents.component';
 import { IndexComponent } from './containers/index/index.component';
-import { CreateFolderComponent } from './containers/create-folder/create-folder.component';
 import { AdministratorHomeComponent } from './containers/admin-home/admin-home.component';
 
 const routes: Routes = [
@@ -31,10 +30,6 @@ const routes: Routes = [
       {
         path: 'random-number',
         component: RandomNumberComponent,
-      },
-      {
-        path: 'create-folder',
-        component: CreateFolderComponent,
       },
       {
         path: 'documents',
