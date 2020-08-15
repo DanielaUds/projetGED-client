@@ -8,9 +8,9 @@
                             <i class="pe-7s-phone icon-gradient bg-premium-dark">
                             </i>
                         </div>
-                        <div><span class="text-success"><h4>{{ 'ArchivedDocument.ArchivedFiles' | translate }}</h4></span> <strong><h5>{{ 'AcceptedDocument.Workspace' | translate }}</h5></strong>
+                        <div><span class="text-success"><h4>{{ 'AdminArchivedDocument.ArchivedFiles' | translate }}</h4></span> <strong><h5>{{ 'AcceptedDocument.Workspace' | translate }}</h5></strong>
                             <div class="page-title-subheading">
-                                {{ 'ArchivedDocument.ViewAllFoldersInterface' | translate }}
+                                {{ 'AdminArchivedDocument.ViewAllFoldersInterface' | translate }}
                             </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                     <span class="font-icon-wrapper font-icon-md mr-2">
                         <i class="pe-7s-shield" size="medium"> </i>
                     </span>
-                    <strong><u>{{ 'ArchivedDocument.NoteSecurite1' | translate}}</u> </strong> {{ 'ArchivedDocument.NoteSecurite2' | translate}}
+                    <strong><u>{{ 'AdminArchivedDocument.NoteSecurite1' | translate}}</u> </strong> {{ 'AdminArchivedDocument.NoteSecurite2' | translate}}
                 </div>
 
                 <!---->
@@ -31,7 +31,7 @@
                     <div class="main-card mb-3 card">
                         <div class="card-header">
                             <i class="header-icon pe-7s-shield icon-gradient bg-love-kiss"> </i>
-                            {{ 'ArchivedDocument.ArchivedFolders' | translate}}
+                            {{ 'AdminArchivedDocument.ArchivedFolders' | translate}}
                         </div>
                         <div class="card-body">
                 
@@ -40,18 +40,18 @@
                                     <tr>
                                         <th>#</th>
                                         <th>badge</th>
-                                        <th>{{ 'ArchivedDocument.Name' | translate}}</th>
-                                        <th>{{ 'ArchivedDocument.Description' | translate}}</th>
-                                        <th>{{ 'ArchivedDocument.JointFiles' | translate}}</th>
-                                        <th>{{ 'ArchivedDocument.SubmissionDate' | translate}}</th>
-                                        <th>{{ 'ArchivedDocument.Actions' | translate}}</th>
+                                        <th>{{ 'AdminArchivedDocument.Name' | translate}}</th>
+                                        <th>{{ 'AdminArchivedDocument.Description' | translate}}</th>
+                                        <th>{{ 'AdminArchivedDocument.JointFiles' | translate}}</th>
+                                        <th>{{ 'AdminArchivedDocument.SubmissionDate' | translate}}</th>
+                                        <th>{{ 'AdminArchivedDocument.Actions' | translate}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let item of data,let i = index" id="tr{{ item.id }}">
                                         <td>{{ i+1 }}</td>
                                         <td class="text-center">
-                                            <span class="badge badge-info">arch</span>
+                                            <span class="badge badge-success">arch</span>
                                         </td>
                                         <td>{{ display(item?.name) }}</td>
                                         <td>{{ display(item?.description) }}</td>
@@ -68,13 +68,13 @@
                                 <tfoot *ngIf="loading && (!data || !data.length)">
                                     <td colspan="7" class="text-center">
                                         <div class="spinner-border spinner-sm">
-                                            <span class="sr-only">{{ 'ArchivedDocument.PleaseWait' | translate}}</span>
+                                            <span class="sr-only">{{ 'AdminArchivedDocument.PleaseWait' | translate}}</span>
                                         </div>
                                     </td>
                                 </tfoot>
                                 <tfoot *ngIf="!loading && (!data || !data.length)">
                                     <td colspan="7" class="text-center">
-                                        {{ 'ArchivedDocument.EmptyList' | translate}}
+                                        {{ 'AdminArchivedDocument.EmptyList' | translate}}
                                     </td>
                                 </tfoot>
                             </table>

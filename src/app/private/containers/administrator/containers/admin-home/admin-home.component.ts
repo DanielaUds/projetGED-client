@@ -6,15 +6,15 @@ import { FormGroup } from '@angular/forms';
 import { NotificationService } from '../../../../../services/notification.service';
 import { Lang } from '../../../../../services/config/lang';
 import { InternationalizationService } from '../../../../../services/features/internationalization.service';
-import { FolderService } from './../../services/folder.service';
-import { UserService } from './../../../../../services/person/user.service'
+import { FolderService } from '../../services/folder.service';
+import { UserService } from '../../../../../services/person/user.service'
 
 @Component({
-  selector: 'app-visitor-home',
-  templateUrl: './visitor-home.component.html',
-  styleUrls: ['./visitor-home.component.css']
+  selector: 'app-admin-home',
+  templateUrl: './admin-home.component.html',
+  styleUrls: ['./admin-home.component.css']
 })
-export class VisitorHomeComponent implements OnInit {
+export class AdministratorHomeComponent implements OnInit {
 
   user = null;
   avatarPath = '';

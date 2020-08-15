@@ -55,12 +55,12 @@
 	},
 
 	"VisitorHome": {
-		"ArchivedFolders": "Archived Folders",
+		"ArchivedFolders": "Archived Files",
 		"ServerUnavailable": "Server unavailable please check your internet connection",
-		"WaitingFolders": "Pending Folders",
+		"WaitingFolders": "Pending Files",
 		"onWorkingFolders": "Files being processed",
-		"rejectedFolders": "Rejected Folders",
-		"editProfile": "Edit my profil",
+		"rejectedFolders": "Rejected Files",
+		"editProfile": "Edit my profile",
 		"Name": "Name",
 		"Surname": "Surname",
 		"PhoneNumber": "Phone Number",
@@ -176,7 +176,7 @@
 		"TodayFour": "Today 4"
 	},
 	"VisitorLeftSide": {
-		"MyFiles": "My Files",
+		"MyFiles": "File Management",
 		"FollowEvolution": "Track Evolution",
 		"filesInTreatment": "Folders in processing",
 		"PendingFiles": "Pending Folders",
@@ -215,6 +215,101 @@
 		"SuccessMessage": "We were able to find your folder, you can now consult its progress and follow its evolution",
 		"ErrorMessage": "We have not been able to find your folder. This may be because the folder number is incorrect or a problem with the internet connection. Please check these settings then try again ",
 		"Languages": "Unknown language"
-	}
+	},
 
+	"AdminHome": {
+		"ArchivedFolders": "Archived Folders",
+		"ServerUnavailable": "Server unavailable please check your internet connection",
+		"WaitingFolders": "Pending Files",
+		"onWorkingFolders": "Files being processed",
+		"rejectedFolders": "Rejected Files",
+		"editProfile": "Edit my profile",
+		"Name": "Name",
+		"Surname": "Surname",
+		"PhoneNumber": "Phone Number",
+		"BirthDate": "Date of birth",
+		"BirthPlace": "Place of birth",
+		"SpokenLang": "Spoken language",
+		"allRejectedFolders": "Total files rejected",
+		"allSubmittedFolders": "Total files ",
+		"allOnWorkingFolders": "Total files being processed",
+		"ActivityStat": "Statistics on your activities",
+		"IntroDescription": "From this interface you can process files sent to you and view the history of files handled in the past.",
+		"Welcome": "Welcome",
+		"WorkSpace": "This is your workspace",
+		"CompleteProfile": "Complete your profile"
+
+	},
+	"AdminAcceptedDocument": {
+		"Foldersintreatment": "Files being processed",
+		"Workspace": "This is your workspace",
+		"ViewAllFoldersInterface": "From this interface you can view all of your files that are being processed",
+		"NoteSecurite1": "Security Note:",
+		"NoteSecurite2": "The documents that are submitted to you are of the utmost importance, so you must be meticulous and efficient when handling them",
+		"Name": "Name",
+		"JointFiles": "Attachments",
+		"SubmissionDate": "Date of submission",
+		"Percentage": "Percentage",
+		"PleaseWait": "Please wait ...",
+		"EmptyList": "Empty list"
+		
+	},
+	"AdminLeftSide": {
+		"MyFiles": "File Management",
+		"FollowEvolution": "Track Evolution",
+		"filesInTreatment": "Folders in processing",
+		"PendingFiles": "Pending Folders",
+		"RejectedFiles": "Rejected Folders",
+		"ArchivedFiles": "Archived Folders",
+		"Profile": "Profile",
+		"ModifyProfile": "Edit my info"
+	},
+	"AdminArchivedDocument": {
+		"ArchivedFiles": "Processed and archived files",
+		"Workspace": "This is your workspace",
+		"ViewAllFoldersInterface": "From this interface you can view all of the files you have processed",
+		"NoteSecurite1": "Security Note:",
+		"NoteSecurite2": "The documents that are submitted to you are of the utmost importance, so you must be meticulous and efficient when handling them",
+		"ArchivedFolders": "Archived files",
+		"Name": "Name",
+		"Description": "Description",
+		"JointFiles": "Attachments",
+		"SubmissionDate": "Date of submission",
+		"Actions": "Actions",
+		"PleaseWait": "Please wait ...",
+		"EmptyList": "Empty list"
+		
+	},
+	"AdminPendingDocument": {
+		"PendingFiles": "Files awaiting treatment",
+		"Workspace": "This is your workspace",
+		"ViewAllFoldersInterface": "From this interface you can view all the files that are awaiting processing.",
+		"NoteSecurite1": "Security Note:",
+		"NoteSecurite2": "The documents that are submitted to you are of the utmost importance, so you must be meticulous and efficient when handling them",
+		"PendingFolders": "Files awaiting processing",
+		"Name": "Name",
+		"Description": "Description",
+		"JointFiles": "Attachment(s)",
+		"SubmissionDate": "Date of submission",
+		"Actions": "Actions",
+		"PleaseWait": "Please wait ...",
+		"EmptyList": "Empty list"
+		
+	},
+	"AdminRejectedDocument": {
+		"RejectedFiles": "Rejected files",
+		"Workspace": "This is your workspace",
+		"ViewAllFoldersInterface": "From this interface you can view all the files which you have rejected for one reason or another",
+		"NoteSecurite1": "Security Note:",
+		"NoteSecurite2": "The documents that are submitted to you are of the utmost importance, so you must be meticulous and efficient when handling them",
+		"RejectedFolders": "Rejected files",
+		"Name": "Name",
+		"Description": "Description",
+		"JointFiles": "Attachment(s)",
+		"SubmissionDate": "Date of submission",
+		"Actions": "Actions",
+		"PleaseWait": "Please wait ...",
+		"EmptyList": "Empty list"
+		
+	}
 }

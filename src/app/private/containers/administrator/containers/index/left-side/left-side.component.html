@@ -35,17 +35,55 @@
             <ul class="vertical-nav-menu metismenu">
                 <li class="app-sidebar__heading">Menu</li>
                 <li class="mm-active">
-                    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.today1')">
+                    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.dossiers')">
                         <i class="metismenu-icon pe-7s-rocket"></i>
-                        Dossiers
+                        {{ "AdminLeftSide.MyFiles" | translate }}
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
-                    <ul class="today1 mm-collapse">
+                    <ul class="dossiers mm-collapse">
                         <li>
-                            <a href="javascript:void(0);" (click)="activeMenu.menu1=0;goTo('/create-folder')"
+                            <a href="javascript:void(0);" (click)="activeMenu.menu0=1;goTo('/documents/pending-documents')"
+                                class="{{ activeMenu.menu0 == 1 ? 'mm-active': ''}}">
+                                <i class="metismenu-icon">
+                                </i>{{ "AdminLeftSide.PendingFiles" | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" (click)="activeMenu.menu0=2;goTo('/documents/accepted-documents')"
+                                class="{{ activeMenu.menu0 == 2 ? 'mm-active': ''}}">
+                                <i class="metismenu-icon">
+                                </i>{{ "AdminLeftSide.filesInTreatment" | translate }}
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="javascript:void(0);" (click)="activeMenu.menu0=3;goTo('/documents/rejected-documents')"
+                                class="{{ activeMenu.menu0 == 3 ? 'mm-active': ''}}">
+                                <i class="metismenu-icon">
+                                </i>{{ "AdminLeftSide.RejectedFiles" | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" (click)="activeMenu.menu0=4;goTo('/documents/archived-documents')"
+                                class="{{ activeMenu.menu0 == 4 ? 'mm-active': ''}}">
+                                <i class="metismenu-icon">
+                                </i>{{ "AdminLeftSide.ArchivedFiles" | translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mm-active">
+                    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.profil')">
+                        <i class="metismenu-icon pe-7s-rocket"></i>
+                        {{ "AdminLeftSide.Profile" | translate }}
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul class="profil mm-collapse">
+                        <li>
+                            <a href="javascript:void(0);" (click)="activeMenu.menu1=1;goTo('/profil/modify-my-informations')"
                                 class="{{ activeMenu.menu1 == 1 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>Creer un dossier
+                                </i>{{ "AdminLeftSide.ModifyProfile" | translate }}
                             </a>
                         </li>
                     </ul>
@@ -60,3 +98,19 @@
         </div>
     </div>
 </div>
+<li class="mm-active">
+    <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.today1')">
+        <i class="metismenu-icon pe-7s-rocket"></i>
+        Dossiers
+        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+    </a>
+    <ul class="today1 mm-collapse">
+        <li>
+            <a href="javascript:void(0);" (click)="activeMenu.menu1=0;goTo('/create-folder')"
+                class="{{ activeMenu.menu1 == 1 ? 'mm-active': ''}}">
+                <i class="metismenu-icon">
+                </i>Creer un dossier
+            </a>
+        </li>
+    </ul>
+</li>

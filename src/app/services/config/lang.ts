@@ -1,3 +1,3 @@
 export class Lang {
-    public static currentLang = 'fr';
+    public static currentLang = 'en';
 }

@@ -1,0 +1,304 @@
+<div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+        <div class="row">
+            <div class="app-page-title" style="margin: 0%; width: 100%;">
+                <div class="page-title-wrapper">
+                    <div class="page-title-heading">
+                        <div class="page-title-icon">
+                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            </i>
+                        </div>
+                        <div><span class="text-success"><h4>{{ 'AdminHome.Welcome' | translate }}</h4></span> <strong><h5>{{ 'AdminHome.WorkSpace' | translate }}</h5></strong>
+                            <div class="page-title-subheading">
+                                {{ 'AdminHome.IntroDescription' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card d-md-flex d-sm-block bg-white align-items-center col-sm-12 col-md-10 col-lg-9 page-column">
+    
+                <div class="mb-3 mt-3 card" style="width: 100%;">
+                    <div class="card-header-tab card-header">
+                        <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                            <i class="header-icon lnr-charts icon-gradient bg-happy-green"> </i>
+                            {{ 'AdminHome.ActivityStat' | translate }}
+                        </div>
+                    </div>
+                    <div class="no-gutters row">
+                        <div class="col-sm-6 col-md-4 col-xl-4">
+                            <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
+                                <div class="icon-wrapper rounded-circle">
+                                    <div class="icon-wrapper-bg opacity-10 bg-primary"></div>
+                                    <i class="lnr-laptop-phone text-dark opacity-8"></i>
+                                </div>
+                                <div class="widget-chart-content">
+                                    <div class="widget-subheading">{{ 'AdminHome.allOnWorkingFolders' | translate }}</div>
+                                    <div class="widget-numbers text-primary">{{ onWorkingFolders ? onWorkingFolders.length : 0 }}</div>
+                                </div>
+                            </div>
+                            <div class="divider m-0 d-md-none d-sm-block"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-xl-4">
+                            <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
+                                <div class="icon-wrapper rounded-circle">
+                                    <div class="icon-wrapper-bg opacity-9 bg-secondary"></div>
+                                    <i class="lnr-screen text-white"></i></div>
+                                <div class="widget-chart-content">
+                                    <div class="widget-subheading">{{ 'AdminHome.allSubmittedFolders' | translate }}</div>
+                                    <div class="widget-numbers text-secondary">{{ allFolders ? allFolders.length : 0 }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-4">
+                            <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
+                                <div class="icon-wrapper rounded-circle">
+                                    <div class="icon-wrapper-bg opacity-9 bg-danger"></div>
+                                    <i class="lnr-trash text-white"></i></div>
+                                <div class="widget-chart-content">
+                                    <div class="widget-subheading">{{ 'AdminHome.allRejectedFolders' | translate }}</div>
+                                    <div class="widget-numbers">{{ rejectedFolders ? rejectedFolders.length : 0 }}</div>
+                                </div>
+                            </div>
+                            <div class="divider m-0 d-md-none d-sm-block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="width: 100%;">
+                    <div class="col-md-6 col-lg-3">
+                        <a href="javascript:void(0)" (click)="gotToDoc('/accepted-documents')" style="cursor: pointer;">
+                            <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-primary border-primary card">
+                                <div class="widget-chat-wrapper-outer">
+                                    <div class="widget-chart-content">
+                                        <div class="widget-title opacity-5 text-uppercase">{{ 'AdminHome.onWorkingFolders' | translate }}({{ onWorkingFolders ? onWorkingFolders.length : 0 }})</div>
+                                        <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
+                                            <div class="widget-chart-flex align-items-center">
+                                                <div>
+                                                    <span class="opacity-10 text-primary pr-2">
+                                                        <i class="fa fa-angle-up"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="javascript:void(0)" (click)="gotToDoc('/pending-documents')" style="cursor: pointer;">
+                            <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-warning border-warning card">
+                                <div class="widget-chat-wrapper-outer">
+                                    <div class="widget-chart-content">
+                                        <div class="widget-title opacity-5 text-uppercase">{{ 'AdminHome.WaitingFolders' | translate }}({{ pendingFolders ? pendingFolders.length : 0 }})</div>
+                                        <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
+                                            <div class="widget-chart-flex align-items-center">
+                                                <div>
+                                                    <span class="opacity-10 text-warning pr-2">
+                                                        <i class="fa fa-angle-up"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="javascript:void(0)" (click)="gotToDoc('/archived-documents')" style="cursor: pointer;">
+                            <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-success border-success card">
+                                <div class="widget-chat-wrapper-outer">
+                                    <div class="widget-chart-content">
+                                        <div class="widget-title opacity-5 text-uppercase">{{ 'AdminHome.ArchivedFolders' | translate }}({{ treatedFolders ? treatedFolders.length : 0 }})</div>
+                                        <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
+                                            <div class="widget-chart-flex align-items-center">
+                                                <div>
+                                                    <span class="opacity-10 text-success pr-2">
+                                                        <i class="fa fa-angle-up"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="javascript:void(0)" (click)="gotToDoc('/rejected-documents')" style="cursor: pointer;">
+                            <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-danger border-danger card">
+                                <div class="widget-chat-wrapper-outer">
+                                    <div class="widget-chart-content">
+                                        <div class="widget-title opacity-5 text-uppercase">{{ 'AdminHome.rejectedFolders' | translate }}({{ rejectedFolders ? rejectedFolders.length : 0 }})</div>
+                                        <div class="widget-numbers mt-2 fsize-4 mb-0 w-100">
+                                            <div class="widget-chart-flex align-items-center">
+                                                <div>
+                                                    <span class="opacity-10 text-danger pr-2">
+                                                        <i class="fa fa-angle-up"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card d-md-flex d-sm-block bg-white col-sm-12 col-md-2 col-lg-3 text-dark" style="padding: 5px;">
+        
+                <div class="card card-shadow-dark card-border" style="width: 100%;">
+                    <div class="dropdown-menu-header justify-content-center align-items-center">
+                        <div class="dropdown-menu-header-inner bg-premium-dark" style="height: 200px;">
+                            <div class="menu-header-image"
+                                style="background-image: url('assets/images/dropdown-header/city2.jpg'); height: 200px;">
+                            </div>
+                            <div class="menu-header-content">
+                                <div class="avatar-icon-wrapper avatar-icon-lg">
+                                    <div class="avatar-icon rounded btn-hover-shine">
+                                        <img [src]="avatarPath" alt="Avatar">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="menu-header-title">
+                                        {{ user.first_name ? user.first_name : '' }}
+                                        {{ user.last_name ? user.last_name : '' }}</h5>
+                                    <h6 class="menu-header-subtitle"> </h6>
+                                </div>
+                                <div class="menu-header-btn-pane mt-3">
+                                    <button class="btn-wide btn-shadow btn-pill btn btn-danger mr-auto" (click)="goTo('/private/visitors/profil/modify-my-informations')">
+                                        {{ 'AdminHome.editProfile' | translate }} 
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ps ps--active-y">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-smile text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    {{ 'AdminHome.Name' | translate }}</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-heading">
+                                                    {{ user.first_name ? user.first_name : ('AdminHome.CompleteProfile' | translate) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-smile text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    {{ 'AdminHome.Surname' | translate }}</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.last_name ? user.last_name : ('AdminHome.CompleteProfile' | translate) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-mail text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Email</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.email ? user.email : ('AdminHome.CompleteProfile' | translate) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-call text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    {{ 'AdminHome.PhoneNumber' | translate }}</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.tel ? user.tel : ('AdminHome.CompleteProfile' | translate) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-note2 text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    {{ 'AdminHome.BirthDate' | translate }}</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.birth_date ? user.birth_date : ('AdminHome.CompleteProfile' | translate) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-home text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    {{ 'AdminHome.BirthPlace' | translate }}</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.birth_place ? user.birth_place : ('AdminHome.CompleteProfile' | translate) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-pen text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    {{ 'AdminHome.SpokenLang' | translate }}</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                               {{ displayUserLanguage()}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="ps__rail-x" style="left: 0px; bottom: -9px;">
+                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps__rail-y" style="top: 9px; height: 200px; right: 0px;">
+                                <div class="ps__thumb-y" tabindex="0" style="top: 5px; height: 121px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.container-details div {
+  margin-top: 4%;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+.form-control {
+  border: 2px solid grey;
+}
+
+.info-error-danger {
+  color: red !important;
+}
+
+button {
+  right: 10px;
+  position: absolute;
+}
+
+p {
+  font-size: 30px;
+  top: 40%;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.number {
+  font-weight: bold;
+  color: darkblue;
+}
+
+#my_file {
+  display: none;
+}
+
+#get_file {
+  cursor: pointer;
+}
+
+.bg-dark {
+  height: 80px;
+  width: 200px;
+  border: 1px solid brown;
+  border-radius: 10%;
+}
+

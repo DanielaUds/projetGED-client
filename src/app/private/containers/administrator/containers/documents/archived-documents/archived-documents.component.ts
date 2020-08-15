@@ -36,7 +36,7 @@ export class ArchivedDocumentsComponent implements OnInit {
     private folderService: FolderService) {}
 
   ngOnInit() {
-    this.changeLanguage(this.currentLanguage);
+    this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
     this.user = this.authService.getUserInfos();
     this.initAvatar();
     this.getFolders();

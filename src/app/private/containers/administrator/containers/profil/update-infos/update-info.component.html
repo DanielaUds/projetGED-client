@@ -1,0 +1,401 @@
+<div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+        <div class="row">
+            <div class="app-page-title" style="margin: 0%; width: 100%;">
+                <div class="page-title-wrapper">
+                    <div class="page-title-heading">
+                        <div class="page-title-icon">
+                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            </i>
+                        </div>
+                        <div><span class="text-success"><h4>{{ 'AdminUpdateInfo.Welcome' | translate}}</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                            <div class="page-title-subheading">
+                                {{ 'AdminUpdateInfo.Workspace' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card d-md-flex d-sm-block bg-white col-sm-12 col-md-10 col-lg-9 page-column">
+                <div class="alert alert-warning fade show mt-3" role="alert" style="text-align: justify;">
+                    <span class="font-icon-wrapper font-icon-md mr-2">
+                        <i class="pe-7s-shield" size="medium"> </i>
+                    </span>
+                    <strong><u>Note sur la securite:</u> </strong>  toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite
+                </div>
+                <div class="mx-auto app-login-box col-sm-12 col-md-11 col-lg-11 pl-2 pr-2" style="width: 100%;">
+                    <div>
+                        <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                            <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div *ngIf="isSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                            <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form (submit)="onSubmit()" [formGroup]="registerForm">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.Nom' | translate }} <span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.NomPlaceHolder' | translate }}"
+                                            type="text" formControlName="first_name"
+                                            class="form-control {{ form.first_name.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.first_name">
+                                            {{ handleError?.first_name }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label
+                                            class="">{{ 'SignUp.Prenom' | translate }} <span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.PrenomPlaceHolder' | translate }}"
+                                            type="text" formControlName="last_name"
+                                            class="form-control {{ form.last_name.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.last_name">
+                                            {{ handleError?.last_name }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.AdresseEmail' | translate }}<span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.AdresseEmailPlaceHolder' | translate }}"
+                                            type="email" formControlName="email"
+                                            class="form-control {{ form.email.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.email">
+                                            {{ handleError?.email }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class=""> {{ 'SignUp.ChoixGendre' | translate }}<span style="color: red;">*</span> :</label>
+                                        <select formControlName="gender"
+                                            class="form-control {{ form.gender.errors && isSubmitted ? 'invalid': '' }}">
+                                            <option value="" disabled selected hidden>
+                                                {{ 'SignUp.ChoixGendre' | translate }}</option>
+                                            <option value="F">{{ 'SignUp.FemaleGenderOptionPlaceHolder' | translate }}
+                                            </option>
+                                            <option value="M">{{ 'SignUp.MaleGenderOptionPlaceHolder' | translate }}</option>
+                                        </select>
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.gender">
+                                            {{ handleError?.gender }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="">{{ 'SignUp.DateNais' | translate }}:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-calendar-alt"></i>
+                                            </div>
+                                        </div>
+                                        <input type="date" formControlName="birth_date"
+                                            class="form-control input-mask-trigger {{ form.birth_date.errors && isSubmitted ? 'invalid': '' }}"
+                                            data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy"
+                                            im-insert="false">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.birth_date">
+                                            {{ handleError?.birth_date }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label
+                                            class="">{{ 'SignUp.LieuNais' | translate }} :</label>
+                                        <input placeholder="{{ 'SignUp.LieuNaisPlaceHolder' | translate }} "
+                                            type="text"
+                                            formControlName="birth_place"
+                                            class="form-control {{ form.birth_place.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.birth_place">
+                                            {{ handleError?.birth_place }}
+                                        </small>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.NumTel' | translate }}:</label>
+                                        <input
+                                            placeholder="{{ 'SignUp.NumTelPlaceHolder' | translate }}"
+                                            type="tel" formControlName="tel"
+                                            class="form-control {{ form.tel.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.tel">
+                                            {{ handleError?.tel }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.Langue' | translate }} :</label>
+                                        <select formControlName="language"
+                                            class="form-control {{ form.language.errors && isSubmitted ? 'invalid': '' }}">
+                                            <option value="" disabled selected hidden>
+                                                {{ 'SignUp.Langue' | translate }}</option>
+                                            <option value="en">{{ 'SignUp.EnglishLanguageOptionPlaceHolder' | translate }}
+                                            <option value="fr">{{ 'SignUp.FrenchLanguageOptionPlaceHolder' | translate }}
+                                            </option>
+                                        </select>
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.language">
+                                            {{ handleError?.language }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group text-center">
+                                        <button (click)="chooseFile()"
+                                            class="mb-2 mt-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-outline-focus"
+                                            type="button"
+                                            title="{{ 'UpdatePersonnalInfo.ChooseFileTitle' | translate }}"
+                                            data-placement="top" id="get_file">
+                                            <i class="pe-7s-upload btn-icon-wrapper"> </i>
+                                            {{ 'SignUp.PhotoProfil' | translate }}
+                                        </button>
+                                        <input formControlName="files" type="file" accept=".png, .jpg, .jpeg"
+                                            (change)="onSelectfile($event)" id="my_file" class="form-control"
+                                            name="file"
+                                            placeholder="{{ 'UpdatePersonnalInfo.FileField' | translate }}" />
+                                    </div>
+                                </div>
+
+                                <div *ngIf="avatarPreviewPath !== null" class="col-md-6 text-center bg-dark justify-content-center align-items-center mb-4">
+                                    <div class="avatar-icon-wrapper btn-hover-shine mb-2 avatar-icon-xl mt-2">
+                                        <div class="avatar-icon rounded">
+                                            <!--<div [style.background-image]="'url(' + avatarPreviewPath + ')'"></div>-->
+                                            <img [src]="avatarPreviewPath" alt="Avatar">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label class="">{{ 'SignUp.Login' | translate }}<span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.LoginPlaceHolder' | translate }}"
+                                            type="text" formControlName="login"
+                                            class="form-control {{ form.login.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.login">
+                                            {{ handleError?.login }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label
+                                            class="">{{ 'SignUp.Password' | translate }} <span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.PasswordPlaceHolder' | translate }}"
+                                            type="password" formControlName="password"
+                                            class="form-control {{ form.password.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.password">
+                                            {{ handleError?.password }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label
+                                            class="">{{ 'SignUp.ConfirmPwd' | translate }}  <span style="color: red;">*</span> :</label>
+                                        <input placeholder="{{ 'SignUp.ConfirmPasswordPlaceHolder' | translate }}"
+                                            type="password" formControlName="confirm_password"
+                                            class="form-control {{ form.confirm_password.errors && isSubmitted ? 'invalid': '' }}">
+                                        <small class="form-text text-muted info-error info-error-danger"
+                                            *ngIf="handleError?.confirm_password">
+                                            {{ handleError?.confirm_password }}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 d-flex align-items-center col-md-12" style="margin-bottom: 70px;">
+                                    <button [disabled]="isLoading"
+                                        class="btn-wide btn-shadow btn-hover-shine btn btn-md btn-pill btn-danger mb-4"
+                                        style="width: 47.5%; justify-content: center; align-items: center; margin-top: inherit;">
+                                        <p *ngIf="!isLoading" style="font-size: medium; padding: 0px; margin: 5px; position: relative;">
+                                            Mettre a jour </p>
+                                        <div *ngIf="isLoading" style="padding: 15px; margin-left: 50%;">
+                                            <div class="ball-scale-multiple">
+                                                <div style="background-color: white;"></div>
+                                                <div style="background-color: white;"></div>
+                                                <div style="background-color: white;"></div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card d-md-flex d-sm-block bg-white col-sm-12 col-md-2 col-lg-3 text-dark" style="padding: 5px;">
+        
+                <div class="card card-shadow-dark card-border" style="width: 100%;">
+                    <div class="dropdown-menu-header justify-content-center align-items-center">
+                        <div class="dropdown-menu-header-inner bg-premium-dark" style="height: 200px;">
+                            <div class="menu-header-image"
+                                style="background-image: url('assets/images/dropdown-header/city2.jpg'); height: 200px;">
+                            </div>
+                            <div class="menu-header-content mt-4">
+                                <div class="avatar-icon-wrapper avatar-icon-lg">
+                                    <div class="avatar-icon rounded btn-hover-shine">
+                                        <img [src]="avatarPath" alt="Avatar">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="menu-header-title">
+                                        {{ user.first_name ? user.first_name : '' }}
+                                        {{ user.last_name ? user.last_name : '' }}</h5>
+                                    <h6 class="menu-header-subtitle"> </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ps ps--active-y">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-smile text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Nom</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-heading">
+                                                    {{ user.first_name ? user.first_name : 'Completer votre profil' }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-smile text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Prenom</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.last_name ? user.last_name : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-mail text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Email</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.email ? user.email : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-call text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                Numero de telephone</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.tel ? user.tel : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-note2 text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    date de naissance</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.birth_date ? user.birth_date : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-home text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Lieu de naissance</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                {{ user.birth_place ? user.birth_place : 'Completer votre profil' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left center-elem mr-2"><i
+                                                    class="pe-7s-pen text-muted fsize-2"></i></div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">
+                                                    Langue parlee</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                               {{ displayUserLanguage()}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="ps__rail-x" style="left: 0px; bottom: -9px;">
+                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps__rail-y" style="top: 9px; height: 200px; right: 0px;">
+                                <div class="ps__thumb-y" tabindex="0" style="top: 5px; height: 121px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

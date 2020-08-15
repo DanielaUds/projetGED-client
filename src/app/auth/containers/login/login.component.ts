@@ -72,6 +72,13 @@ export class LoginComponent implements OnInit {
         };
         const user = this.authService.getUserInfos();
         if (success) {
+          if(user.language === 'fr') {
+            Lang.currentLang = 'fr';
+          } else if(user.language === 'en') {
+            Lang.currentLang = 'en';
+          } else {
+            Lang.currentLang = 'fr';
+          }
           this.message.title = 'Success'
           this.message.content = this.translations.Login.ConnectedWithSuccess;
           this.isSuccess = true;

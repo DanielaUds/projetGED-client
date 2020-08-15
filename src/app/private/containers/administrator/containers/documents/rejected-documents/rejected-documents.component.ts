@@ -10,11 +10,11 @@ import { FolderService } from '../../../services/folder.service';
 import { parseDate } from 'src/app/helpers/date.parser';
 
 @Component({
-  selector: 'app-archived-documents',
-  templateUrl: './archived-documents.component.html',
-  styleUrls: ['./archived-documents.component.css']
+  selector: 'app-rejected-documents',
+  templateUrl: './rejected-documents.component.html',
+  styleUrls: ['./rejected-documents.component.css']
 })
-export class ArchivedDocumentsComponent implements OnInit {
+export class RejectedDocumentsComponent implements OnInit {
 
   user = null;
   avatarPath = '';
@@ -36,7 +36,7 @@ export class ArchivedDocumentsComponent implements OnInit {
     private folderService: FolderService) {}
 
   ngOnInit() {
-    this.changeLanguage(this.currentLanguage);
+    this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
     this.user = this.authService.getUserInfos();
     this.initAvatar();
     this.getFolders();
@@ -50,14 +50,12 @@ export class ArchivedDocumentsComponent implements OnInit {
     let user_id = this.user ? this.user.id : null;
     if(user_id) {
       this.loading = true;
-      this.folderService.getUserArchivedFolders(user_id)
+      this.folderService.getUserRejectedFolders(user_id)
       .then((resp) => {
         this.data = resp;
-        console.log(resp);
       })
       .catch((err) => {
-        console.log(err);
-        this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
+        this.notificationService.danger("Serveur indisponibles veuillez verifier votre connexion a internet");
       })
       .finally( () => {
         this.loading = false;

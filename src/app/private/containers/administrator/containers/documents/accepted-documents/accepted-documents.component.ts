@@ -10,11 +10,11 @@ import { FolderService } from '../../../services/folder.service';
 import { parseDate } from 'src/app/helpers/date.parser';
 
 @Component({
-  selector: 'app-archived-documents',
-  templateUrl: './archived-documents.component.html',
-  styleUrls: ['./archived-documents.component.css']
+  selector: 'app-accepted-documents',
+  templateUrl: './accepted-documents.component.html',
+  styleUrls: ['./accepted-documents.component.css']
 })
-export class ArchivedDocumentsComponent implements OnInit {
+export class AcceptedDocumentsComponent implements OnInit {
 
   user = null;
   avatarPath = '';
@@ -36,7 +36,7 @@ export class ArchivedDocumentsComponent implements OnInit {
     private folderService: FolderService) {}
 
   ngOnInit() {
-    this.changeLanguage(this.currentLanguage);
+    this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
     this.user = this.authService.getUserInfos();
     this.initAvatar();
     this.getFolders();
@@ -50,7 +50,7 @@ export class ArchivedDocumentsComponent implements OnInit {
     let user_id = this.user ? this.user.id : null;
     if(user_id) {
       this.loading = true;
-      this.folderService.getUserArchivedFolders(user_id)
+      this.folderService.getUserAcceptedFolders(user_id)
       .then((resp) => {
         this.data = resp;
         console.log(resp);
