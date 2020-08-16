@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 import { AuthService } from '../../../../../../auth/services/auth.service';
-import { MessageService } from '../../../../../../services/message.service';
-import { NotificationService } from '../../../../../../services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 import { InternationalizationService } from '../../../../../../services/features/internationalization.service';
 declare var $;
@@ -22,7 +19,6 @@ export class NavBarComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private authService: AuthService,
-    private notificationService: NotificationService,
     private internationalizationService: InternationalizationService,
     private router: Router) { }
 
@@ -52,6 +48,10 @@ export class NavBarComponent implements OnInit {
 
   showUserFirstAndLastName() {
     return this.user.first_name.split(' ')[0] + ' ' + this.user.last_name.split(' ')[0];
+  }
+
+  gotToHome() {
+    this.router.navigate(['/private/employees/']);
   }
 
   /* Reactive translation */

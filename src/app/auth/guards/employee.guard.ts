@@ -7,6 +7,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class EmployeeGuard implements CanActivate, CanLoad {
 
+  private user = this.authService.getUserInfos();
   constructor(private authService: AuthService, private router: Router) { }
 
   canActivate() {
@@ -17,6 +18,19 @@ export class EmployeeGuard implements CanActivate, CanLoad {
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/private/login']);
     }
+    if (!this.isRole()) {
+      const ui = {
+        VISITOR: 'visitors',
+        EMPLOYEE: 'employees',
+        ADMINISTRATOR: 'administrators',
+        SUPERADMIN: 'superadmins'
+      };
+      this.router.navigate(['/private/' + ui[this.user.job]]);
+    }
     return this.authService.isLoggedIn();
+  }
+
+  isRole() {
+    return this.user.job === 'EMPLOYEE';
   }
 }

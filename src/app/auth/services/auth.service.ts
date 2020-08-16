@@ -29,6 +29,7 @@ export class AuthService {
   }
 
   logout() {
+    this.http.delete(`${config.apiUrl}/auth/token`).toPromise();
     this.doLogoutUser();
     return of(true);
   }
