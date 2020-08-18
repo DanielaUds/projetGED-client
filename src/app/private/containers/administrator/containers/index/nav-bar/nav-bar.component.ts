@@ -55,7 +55,7 @@ export class NavBarComponent implements OnInit {
   }
 
   gotToHome() {
-    this.router.navigate(['/private/administrators/']);
+    this.router.navigate(['/private/administrators/workspace']);
   }
 
   /* Reactive translation */

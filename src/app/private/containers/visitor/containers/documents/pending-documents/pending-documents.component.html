@@ -5,7 +5,7 @@
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
                         <div class="page-title-icon">
-                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            <i class="pe-7s-home icon-gradient bg-premium-dark">
                             </i>
                         </div>
                         <div><span class="text-success"><h4>{{ 'PendingDocument.PendingFiles' | translate }}</h4></span> <strong><h5>{{ 'PendingDocument.Workspace' | translate }}</h5></strong>
@@ -23,14 +23,14 @@
                     <span class="font-icon-wrapper font-icon-md mr-2">
                         <i class="pe-7s-shield" size="medium"> </i>
                     </span>
-                    <strong><u>{{ 'PendingDocument.NoteSecurite1' | translate}}</u> </strong> {{ 'PendingDocumentt.NoteSecurite2' | translate}}
+                    <strong><u>{{ 'PendingDocument.NoteSecurite1' | translate}}</u> </strong> {{ 'PendingDocument.NoteSecurite2' | translate}}
                 </div>
 
                 <!---->
                 <div>
                     <div class="main-card mb-3 card">
                         <div class="card-header">
-                            <i class="header-icon pe-7s-shield icon-gradient bg-love-kiss"> </i>
+                            <i class="header-icon pe-7s-loop icon-gradient bg-love-kiss"> </i>
                             {{ 'PendingDocument.PendingFolders' | translate}}
                         </div>
                         <div class="card-body">
@@ -55,11 +55,11 @@
                                         </td>
                                         <td>{{ display(item?.name) }}</td>
                                         <td>{{ display(item?.description) }}</td>
-                                        <td>{{ item?.file_number }} piece(s) jointe</td>
+                                        <td>{{ item?.file_number }} {{ 'PendingDocument.JointFiles' | translate}}</td>
                                         <td>{{ parser(item?.created_at) }}</td>
                                         <td class="text-center">
                                             <div role="group" class="btn-group-sm btn-group">
-                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)" title="cliquer pour voir les details"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
+                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)" title="{{ 'PendingDocument.Info' | translate}}"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
                                             </div>
                                         </td>
                                     </tr>

@@ -5,7 +5,7 @@
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
                         <div class="page-title-icon">
-                            <i class="pe-7s-shield icon-gradient bg-warning"></i>
+                            <i class="pe-7s-home icon-gradient bg-warning"></i>
                         </div>
                         <div><span class="text-success"><h4>{{"CreateFolder.Welcome" | translate}}</h4></span> <strong><h5>{{"CreateFolder.WorkSpace" | translate}}</h5></strong>
                             <div class="page-title-subheading text-justify">
@@ -93,11 +93,11 @@
                                                     <div class="text-muted opacity-6">
                                                         <span *ngIf="buildingFolderPoucentage < 100">
                                                             {{"CreateFolder.ConstitutionFolder" | translate}} 
-                                                            ({{ filesList.length}}/
+                                                            {{ filesList.length}}/
                                                             <span class="text-danger">{{ fileTypesNumber }} </span> {{"CreateFolder.PieceJointes" | translate}} 
                                                         </span>
                                                         <span *ngIf="buildingFolderPoucentage >= 100">{{"CreateFolder.DossierPret" | translate}}  
-                                                            <span>(<span class="text-success">{{ filesList.length}}</span>  {{"CreateFolder.PieceJointes" | translate}})</span>
+                                                            <span>(<span class="text-success">{{ filesList.length}}</span>  {{"CreateFolder.PieceJointes" | translate}}</span>
                                                             <button class="border-0 btn btn-outline-success" disabled>
                                                                 <i class="fa fa-check"></i>
                                                             </button>

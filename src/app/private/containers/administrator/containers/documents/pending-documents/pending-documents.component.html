@@ -5,7 +5,7 @@
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
                         <div class="page-title-icon">
-                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            <i class="pe-7s-home icon-gradient bg-premium-dark">
                             </i>
                         </div>
                         <div><span class="text-success"><h4>{{ 'AdminPendingDocument.PendingFiles' | translate }}</h4></span> <strong><h5>{{ 'AdminPendingDocument.Workspace' | translate }}</h5></strong>
@@ -25,12 +25,23 @@
                     </span>
                     <strong><u>{{ 'AdminPendingDocument.NoteSecurite1' | translate}}</u> </strong> {{ 'AdminPendingDocument.NoteSecurite2' | translate}}
                 </div>
-
+                <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                    <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div *ngIf="isSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ message?.title }}: </strong>{{ message?.content }}
+                    <button type="button" (click)="cancel()" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <!---->
                 <div>
                     <div class="main-card mb-3 card">
                         <div class="card-header">
-                            <i class="header-icon pe-7s-shield icon-gradient bg-love-kiss"> </i>
+                            <i class="header-icon pe-7s-loop icon-gradient bg-love-kiss"> </i>
                             {{ 'AdminPendingDocument.PendingFolders' | translate}}
                         </div>
                         <div class="card-body">
@@ -59,7 +70,8 @@
                                         <td>{{ parser(item?.created_at) }}</td>
                                         <td class="text-center">
                                             <div role="group" class="btn-group-sm btn-group">
-                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)" title="cliquer pour voir les details"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
+                                                <button class="mr-2 btn-icon btn-icon-only btn btn-secondary" (click)="details(item)" title="{{ 'PendingDocument.Info' | translate}}"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
+                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="acceptedForTreatementFolder(item)" title="prendre le dossier pour traitement"><i class="pe-7s-id btn-icon-wrapper"> </i></button>
                                             </div>
                                         </td>
                                     </tr>

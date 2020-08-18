@@ -53,7 +53,7 @@ export class AdministratorHomeComponent implements OnInit {
   getUserFolders() {
     let user_id = this.user ? this.user.id : null;
     if(user_id) {
-      this.folderService.getUserFolders(user_id)
+      this.folderService.getListFoldersByService(this.user.service.id)
       .then((resp) => {
         this.allFolders = resp;
         if(this.allFolders && this.allFolders.length > 0) 

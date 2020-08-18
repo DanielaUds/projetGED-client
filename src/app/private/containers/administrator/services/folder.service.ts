@@ -47,9 +47,48 @@ export class FolderService {
     return this.http.get<any>(`${config.apiUrl}/folders/user/status/archived/${user_id}`).toPromise();
   }
 
+  public getListFoldersPending(service_id: number) {
+    return this.http.get<any>(`${config.apiUrl}/services/listFoldersPending/${service_id}`).toPromise(); 
+  }
+
+  public getListFoldersByService(service_id: number) {
+    return this.http.get<any>(`${config.apiUrl}/services/listFoldersByService/${service_id}`).toPromise(); 
+  }
+
+  public getListFoldersFinish(service_id: number, admin_id: number) {
+    return this.http.get<any>(`${config.apiUrl}/services/listFoldersFinish/${service_id}/${admin_id}`).toPromise();
+  }
+
+  public getListFoldersRejected(service_id: number, admin_id: number) {
+    return this.http.get<any>(`${config.apiUrl}/services/listFoldersRejected/${service_id}/${admin_id}`).toPromise();
+  } 
+
+  public getListFoldersAcceptedByService(service_id: number) {
+    console.log(service_id);
+    return this.http.get<any>(`${config.apiUrl}/services/listFoldersAcceptedByService/${service_id}`).toPromise();
+  } 
+
+  public approuvedFolderByService(current_activity_instance_id: number) {
+    console.log(current_activity_instance_id);
+    return this.http.get<any>(`${config.apiUrl}/activity_instances/create_next_activity/${current_activity_instance_id}`).toPromise();
+  } 
+
+  public rejectFolderByService(activity_instance_id: number) {
+    console.log(activity_instance_id);
+    return this.http.get<any>(`${config.apiUrl}/activity_instances/reject_folder/${activity_instance_id}`).toPromise();
+  }
+  
+  public acceptedForTreatementFolder(current_activity_instance_id: number) {
+    return this.http.get<any>(`${config.apiUrl}/activity_instances/onTakeForTreatementFolder/${current_activity_instance_id}`).toPromise();
+  } 
+
   post(formData): Promise<any> {
     return this.http.post(`${config.apiUrl}/folders`, formData).toPromise();
   }
+
+  public detailsPageFolder(id: number) {
+    return this.http.get<any>(`${config.apiUrl}/folders/${id}/files`).toPromise();
+  } 
 
   public put(id: number, formData): Promise<any> {
     return this.http.post(`${config.apiUrl}/folders`, formData,

@@ -36,8 +36,8 @@
                 <li class="app-sidebar__heading">Menu</li>
                 <li class="mm-active">
                     <a href="javascript:void(0);" aria-expanded="false" (click)="showChildren('.today1')">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
-                        Gerer les membres
+                        <i class="metismenu-icon pe-7s-drawer"></i>
+                        {{ 'SuperAdminCreateUser.Management' | translate}}
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
                     <ul class="today1 mm-collapse">
@@ -45,7 +45,12 @@
                             <a href="javascript:void(0);" (click)="activeMenu.menu1=0;goTo('create-user')"
                                 class="{{ activeMenu.menu1 == 1 ? 'mm-active': ''}}">
                                 <i class="metismenu-icon">
-                                </i>Ajouter un nouvel employé
+                                </i>{{ 'SuperAdminCreateUser.AddUser1' | translate}}
+                            </a>
+                            <a href="javascript:void(0);" (click)="activeMenu.menu1=0;goTo('create-user')"
+                                class="{{ activeMenu.menu1 == 1 ? 'mm-active': ''}}">
+                                <i class="metismenu-icon">
+                                </i>{{ 'SuperAdminCreateUser.AddUser2' | translate}}
                             </a>
                         </li>
                     </ul>

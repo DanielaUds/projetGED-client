@@ -5,12 +5,12 @@
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
                         <div class="page-title-icon">
-                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            <i class="pe-7s-home icon-gradient bg-premium-dark">
                             </i>
                         </div>
-                        <div><span class="text-success"><h4>{{ 'AdminArchivedDocument.ArchivedFiles' | translate }}</h4></span> <strong><h5>{{ 'AcceptedDocument.Workspace' | translate }}</h5></strong>
+                        <div><span class="text-success"><h4>{{ 'AdminTreatedDocument.ArchivedFiles' | translate }}</h4></span> <strong><h5>{{ 'AcceptedDocument.Workspace' | translate }}</h5></strong>
                             <div class="page-title-subheading">
-                                {{ 'AdminArchivedDocument.ViewAllFoldersInterface' | translate }}
+                                {{ 'AdminTreatedDocument.ViewAllFoldersInterface' | translate }}
                             </div>
                         </div>
                     </div>
@@ -23,15 +23,15 @@
                     <span class="font-icon-wrapper font-icon-md mr-2">
                         <i class="pe-7s-shield" size="medium"> </i>
                     </span>
-                    <strong><u>{{ 'AdminArchivedDocument.NoteSecurite1' | translate}}</u> </strong> {{ 'AdminArchivedDocument.NoteSecurite2' | translate}}
+                    <strong><u>{{ 'AdminTreatedDocument.NoteSecurite1' | translate}}</u> </strong> {{ 'AdminTreatedDocument.NoteSecurite2' | translate}}
                 </div>
 
                 <!---->
                 <div class="tabs-animation">
                     <div class="main-card mb-3 card">
                         <div class="card-header">
-                            <i class="header-icon pe-7s-shield icon-gradient bg-love-kiss"> </i>
-                            {{ 'AdminArchivedDocument.ArchivedFolders' | translate}}
+                            <i class="header-icon pe-7s-box1 icon-gradient bg-love-kiss"> </i>
+                            {{ 'AdminTreatedDocument.ArchivedFolders' | translate}}
                         </div>
                         <div class="card-body">
                 
@@ -40,11 +40,11 @@
                                     <tr>
                                         <th>#</th>
                                         <th>badge</th>
-                                        <th>{{ 'AdminArchivedDocument.Name' | translate}}</th>
-                                        <th>{{ 'AdminArchivedDocument.Description' | translate}}</th>
-                                        <th>{{ 'AdminArchivedDocument.JointFiles' | translate}}</th>
-                                        <th>{{ 'AdminArchivedDocument.SubmissionDate' | translate}}</th>
-                                        <th>{{ 'AdminArchivedDocument.Actions' | translate}}</th>
+                                        <th>{{ 'AdminTreatedDocument.Name' | translate}}</th>
+                                        <th>{{ 'AdminTreatedDocument.Description' | translate}}</th>
+                                        <th>{{ 'AdminTreatedDocument.JointFiles' | translate}}</th>
+                                        <th>{{ 'AdminTreatedDocument.SubmissionDate' | translate}}</th>
+                                        <th>{{ 'AdminTreatedDocument.Actions' | translate}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,8 +59,7 @@
                                         <td>{{ parser(item?.created_at) }}</td>
                                         <td class="text-center">
                                             <div role="group" class="btn-group-sm btn-group">
-                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)" title="cliquer pour voir les details"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
-                                                <button class="mr-2 btn-icon btn-icon-only btn btn-danger" (click)="delete(item)" title="cliquer pour supprimer"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                                                <button class="mr-2 btn-icon btn-icon-only btn btn-success" (click)="details(item)" title="{{ 'PendingDocument.Info' | translate}}"><i class="pe-7s-info btn-icon-wrapper"> </i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -68,13 +67,13 @@
                                 <tfoot *ngIf="loading && (!data || !data.length)">
                                     <td colspan="7" class="text-center">
                                         <div class="spinner-border spinner-sm">
-                                            <span class="sr-only">{{ 'AdminArchivedDocument.PleaseWait' | translate}}</span>
+                                            <span class="sr-only">{{ 'AdminTreatedDocument.PleaseWait' | translate}}</span>
                                         </div>
                                     </td>
                                 </tfoot>
                                 <tfoot *ngIf="!loading && (!data || !data.length)">
                                     <td colspan="7" class="text-center">
-                                        {{ 'AdminArchivedDocument.EmptyList' | translate}}
+                                        {{ 'AdminTreatedDocument.EmptyList' | translate}}
                                     </td>
                                 </tfoot>
                             </table>

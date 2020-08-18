@@ -13,7 +13,12 @@
 		"WelcomeBack": "Welcome to GEPAD",
 		"ConnectedWithSuccess": "Connected with success",
 		"AllFieldsAreRequired": "All fields are required",
-		"ErrorIncorrectLoginOrPwd": "Incorrect login or password"
+		"ErrorIncorrectLoginOrPwd": "Incorrect login or password",
+		"Motto": "The electronic management application for administrative processes and documents",
+		"Terms1": "Safety, Traceability",
+		"Terms2": "Your application that guarantees security and traceability!",
+		"Terms3": "Organised storage",
+		"Terms4": "Find your files processed in real time!"
 	},
 	"SignUp":{
 		"WelcomeBack": "Welcome,",
@@ -45,7 +50,18 @@
 		"FrenchLanguageOptionPlaceHolder": "French",
 		"LoginPlaceHolder": "Please enter your login",
 		"PasswordPlaceHolder": "Please enter your password",
-		"ConfirmPasswordPlaceHolder": "Confirm password"
+		"ConfirmPasswordPlaceHolder": "Confirm password",
+		"Title": "Creation of internal users of the system",
+		"Workspace": "Here is your workspace",
+		"Description": "From this interface you can create users internal to the system.",
+		"ChoosePosition": "Choose the position of the user you want to create",
+		"ChooseDepartment": "Choose the department of the user you want to create:",
+		"SelectPost": "Choose the position of this user",
+		"SelectDepartment": "Choose the department of this user",
+		"ChooseAdmin": "Administrator ",
+		"ChooseEmployee": "Employee of the departement ",
+		"Update": "Update"
+
 	},
 	"Forgotpwd": {
 		"Forgotpassword": "Forgot your Password?",
@@ -68,22 +84,26 @@
 		"BirthDate": "Date of birth",
 		"BirthPlace": "Place of birth",
 		"SpokenLang": "Spoken language",
-		"allRejectedFolders": "Total folders rejected",
-		"allSubmittedFolders": "Total folders submitted",
-		"allOnWorkingFolders": "Total folders being processed",
+		"allRejectedFolders": "Total files rejected",
+		"allSubmittedFolders": "Total files submitted",
+		"allOnWorkingFolders": "Total files being processed",
 		"ActivityStat": "Statistics on your activities",
 		"IntroDescription": "From this interface you can follow the progress of the documents you have submitted and consult the history of the documents submitted in the past.",
 		"Welcome": "Welcome",
 		"WorkSpace": "This is your workspace",
 		"CompleteProfile": "Complete your profile"
-
+	},
+	"VisitorHomeJS": {
+		"Language1": "French",
+		"Language2": "English",
+		"Language3": "Unknown language"
 	},
 	"AcceptedDocument": {
 		"Foldersintreatment": "Files being processed",
 		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all of your files that are being processed",
 		"NoteSecurite1": "Security Note:",
-		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
+		"NoteSecurite2": "All your data are secure and we guarantee their monitoring and safe access",
 		"Name": "Name",
 		"JointFiles": "Attachments",
 		"SubmissionDate": "Date of submission",
@@ -97,11 +117,11 @@
 		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all of your files that are being processed",
 		"NoteSecurite1": "Security Note:",
-		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
+		"NoteSecurite2": "All your data are secure and we guarantee their monitoring and safe access",
 		"ArchivedFolders": "Archived files",
 		"Name": "Name",
 		"Description": "Description",
-		"JointFiles": "Attachments",
+		"JointFiles": "Attachment(s)",
 		"SubmissionDate": "Date of submission",
 		"Actions": "Actions",
 		"PleaseWait": "Please wait ...",
@@ -113,11 +133,12 @@
 		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all the files you have submitted but which are awaiting processing.",
 		"NoteSecurite1": "Security Note:",
-		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
+		"NoteSecurite2": "All your data are secure and we guarantee their monitoring and safe access",
 		"PendingFolders": "Files awaiting processing",
 		"Name": "Name",
+		"Info": "see details",
 		"Description": "Description",
-		"JointFiles": "Attachments",
+		"JointFiles": "Attachment(s)",
 		"SubmissionDate": "Date of submission",
 		"Actions": "Actions",
 		"PleaseWait": "Please wait ...",
@@ -129,11 +150,11 @@
 		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all the files you have submitted but which have been rejected for one reason or another",
 		"NoteSecurite1": "Security Note:",
-		"NoteSecurite2": "all your data are secure and we guarantee their monitoring and safe access",
+		"NoteSecurite2": "All your data are secure and we guarantee their monitoring and safe access",
 		"RejectedFolders": "Rejected files",
 		"Name": "Name",
 		"Description": "Description",
-		"JointFiles": "Attachments",
+		"JointFiles": "Attachment(s)",
 		"SubmissionDate": "Date of submission",
 		"Actions": "Actions",
 		"PleaseWait": "Please wait ...",
@@ -157,7 +178,7 @@
 		"DescriptionDossier": "Enter the description of the contents of the folder",
 		"PlaceholderDescription": "Please write a precise description of the contents of this folder",
 		"UserEmailAddr": "Enter the email address of the concerned user",
-		"NoteUserEmailAddr": "You must enter the email address which this user has choose when creating his account, so we can automatically generate a code allowing him to follow the progress of the folder thus created.",
+		"NoteUserEmailAddr": "You must enter the email address which this user used when creating his account, so we can automatically generate a code allowing him to follow the progress of the folder thus created.",
 		"PlaceHolderUserEmail": "example: toto@gmail.com",
 		"Cancel": "Cancel",
 		"Create": "Create the folder",
@@ -179,10 +200,10 @@
 	"VisitorLeftSide": {
 		"MyFiles": "File Management",
 		"FollowEvolution": "Track Evolution",
-		"filesInTreatment": "Folders in processing",
-		"PendingFiles": "Pending Folders",
-		"RejectedFiles": "Rejected Folders",
-		"ArchivedFiles": "Archived Folders",
+		"filesInTreatment": "Files in processing",
+		"PendingFiles": "Pending Files",
+		"RejectedFiles": "Rejected Files",
+		"ArchivedFiles": "Archived Files",
 		"Profile": "Profile",
 		"ModifyProfile": "Edit my info"
 	},
@@ -192,15 +213,21 @@
 		"Profile": "Profile",
 		"SignOut": "Sign Out"
 	},
+	"NavBar": {
+		"ChooseLanguage": "Choose language",
+		"Languages": "Langues",
+		"Profile": "Profil",
+		"SignOut": "Sign Out"
+	},
 	"FolderTracking": {
-		"FolderFollowUp": "Folder follow-up",
+		"FolderFollowUp": "File follow-up",
 		"WorkSpace": "This is your workspace",
-		"FolderFollowUpView": "From this interface you can follow the evolution of a folder that you have submitted",
+		"FolderFollowUpView": "From this interface you can follow the evolution of a file that you have submitted",
 		"SecurityNote": "Security note:",
-		"allDataSecured": "all your data are secure and we guarantee their monitoring and access in complete security",
-		"toCheckStatus": "To consult the progress of one of your folders, you must enter its number",
-		"typeFolderId": "Enter the folder number just below",
-		"typeFolderNumber": "Enter your folder number here",
+		"allDataSecured": "All your data are secure and we guarantee their monitoring and access in complete security",
+		"toCheckStatus": "To consult the progress of one of your folders, you must enter its track number",
+		"typeFolderId": "Enter the file track number just below",
+		"typeFolderNumber": "Enter your file track number here",
 		"seeFolderProgression": "See folder's progress",
 		"percentageProgress": "FOLDER'S PERCENTAGE EVOLUTION",
 		"folderState": "Current state"
@@ -258,20 +285,20 @@
 	"AdminLeftSide": {
 		"MyFiles": "File Management",
 		"FollowEvolution": "Track Evolution",
-		"filesInTreatment": "Folders in processing",
-		"PendingFiles": "Pending Folders",
-		"RejectedFiles": "Rejected Folders",
-		"ArchivedFiles": "Archived Folders",
+		"filesInTreatment": "Files in processing",
+		"PendingFiles": "Files awaiting processing",
+		"RejectedFiles": "Rejected Files",
+		"ArchivedFiles": "Treated Files",
 		"Profile": "Profile",
 		"ModifyProfile": "Edit my info"
 	},
-	"AdminArchivedDocument": {
-		"ArchivedFiles": "Processed and archived files",
+	"AdminTreatedDocument": {
+		"ArchivedFiles": "Processed files",
 		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all of the files you have processed",
 		"NoteSecurite1": "Security Note:",
 		"NoteSecurite2": "The documents that are submitted to you are of the utmost importance, so you must be meticulous and efficient when handling them",
-		"ArchivedFolders": "Archived files",
+		"ArchivedFolders": "Treated files",
 		"Name": "Name",
 		"Description": "Description",
 		"JointFiles": "Attachments",
@@ -286,7 +313,7 @@
 		"Workspace": "This is your workspace",
 		"ViewAllFoldersInterface": "From this interface you can view all the files that are awaiting processing.",
 		"NoteSecurite1": "Security Note:",
-		"NoteSecurite2": "The documents that are submitted to you are of the utmost importance, so you must be meticulous and efficient when handling them",
+		"NoteSecurite2": "The documents which are submitted to you are of the utmost importance, so you must be meticulous and efficient when handling them",
 		"PendingFolders": "Files awaiting processing",
 		"Name": "Name",
 		"Description": "Description",
@@ -316,9 +343,32 @@
 	"AdminUpdateInfo": {
 		"Welcome": "Welcome",
 		"Workspace": "This is your workspace",
-		"editProfile": " This interface permits you to update your profile",
+		"editProfile": "This interface permits you to update your profile",
 		"NoteSecurite1": "Security note:",
-		"NoteSecurite2": "all your data are secure and we guarantee their and access in complete security"
+		"NoteSecurite2": "All your data are secure and we guarantee their and access in complete security"
+		
+	},
+	"VisitorUpdateInfo": {
+		"Welcome": "Welcome",
+		"WorkSpace": "This is your workspace",
+		"Intro": "This interface permits you to update your profile",
+		"NoteSecurite1": "Security note::",
+		"NoteSecurite2": "All your data are secure and we guarantee their and access in complete security",
+		"Nom": "Name",
+		"Prenom": "Surname",
+		"AdresseEmail": "e-mail adress",
+		"DateNais": "Date of birth",
+		"LieuNais": "Place of birth",
+		"NumTel": "Telephone number",
+		"Langue": "Spoken language",
+		"Update": "Update"
+	},
+	"SuperAdminCreateUser": {
+		"Management": "Manage members",
+		"AddUser1": "Add a new employee",
+		"AddUser2": "Add an Administrator",
+		"Message": "easily manage documents in security",
+		"Alert": "Easy to use, Secure"
 		
 	}
 }

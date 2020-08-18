@@ -1,0 +1,42 @@
+<div _ngcontent-fed-c63="" class="row">
+    <div _ngcontent-fed-c63="" class="app-page-title" style="margin: 0%; width: 100%;">
+        <div _ngcontent-fed-c63="" class="page-title-wrapper">
+            <div _ngcontent-fed-c63="" class="page-title-heading">
+                <div _ngcontent-fed-c63="">
+                    <span _ngcontent-fed-c63="" class="text-success">
+                        <h4 _ngcontent-fed-c63="">{{folder.folder_type.name}}</h4>
+                    </span>
+                    <div _ngcontent-fed-c63="" class="page-title-subheading">
+                        {{folder.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div><h4>Liste des documents constituants le dossier</h4></div>
+<div class="col-lg-12 col-xl-6">
+    <div class="main-card mb-3 card">
+        <div class="grid-menu grid-menu-2col">
+            <div class="no-gutters row">
+                <div class="col-sm-6" *ngFor="let item of folder.files">
+                    <div class="widget-chart widget-chart-hover" >
+                        <div class="icon-wrapper rounded-circle">
+                            <div> <img src="{{item.path}} " alt="" srcset=""></div>
+                        </div>
+
+                        <div class="widget-subheading">{{item.filetype.name}}</div>
+                        <br><div class="widget-subheading"> Nature document: {{item.filetype.file_type}}</div>
+                        <div><a href="{{item.path}}" rel="external" target="_blank">Visualiser le document </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div role="group" class="btn-group-sm btn-group test-center">
+    <h5>Visualiser le document et retourner donner votre decision</h5>
+</div>
+<br><br>
+<button class="mr-2 btn-icon btn-icon-only btn btn-primary" (click)="back()"  title="approuver le traitement du dossier"> Retour </button>

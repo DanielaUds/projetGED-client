@@ -10,11 +10,11 @@ import { FolderService } from '../../../services/folder.service';
 import { parseDate } from 'src/app/helpers/date.parser';
 
 @Component({
-  selector: 'app-archived-documents',
-  templateUrl: './archived-documents.component.html',
-  styleUrls: ['./archived-documents.component.css']
+  selector: 'app-treated-documents',
+  templateUrl: './treated-documents.component.html',
+  styleUrls: ['./treated-documents.component.css']
 })
-export class ArchivedDocumentsComponent implements OnInit {
+export class TreatedDocumentsComponent implements OnInit {
 
   user = null;
   avatarPath = '';
@@ -39,33 +39,24 @@ export class ArchivedDocumentsComponent implements OnInit {
     this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
     this.user = this.authService.getUserInfos();
     this.initAvatar();
-    this.getFolders();
+    this.getService();
   }
 
   initAvatar() {
     this.avatarPath = this.user.avatar ? config.apiUrl + '/' + this.user.avatar : '';
   }
 
-  getFolders() {
-    let user_id = this.user ? this.user.id : null;
-    if(user_id) {
-      this.loading = true;
-      this.folderService.getUserArchivedFolders(user_id)
+  getService() {
+    this.folderService.getListFoldersFinish(this.user.service.id, this.user)
       .then((resp) => {
         this.data = resp;
-        console.log(resp);
+        console.log('treated folders: ', resp);
       })
       .catch((err) => {
         console.log(err);
         this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
       })
-      .finally( () => {
-        this.loading = false;
-      });
-    } else {
-      this.notificationService.danger("Votre session a expiree veuillez vous connecter");
-      this.router.navigate(['/private/login']);
-    }
+
   }
 
   cancel() {
@@ -79,7 +70,7 @@ export class ArchivedDocumentsComponent implements OnInit {
   }
 
   public details(item: any) {
-    return;
+    this.router.navigate(['/private/administrators/documents/details-page/' + item.id]);
   }
 
   public delete(item: any) {

@@ -8,8 +8,9 @@ import { LeftSideComponent } from './containers/index/left-side/left-side.compon
 import { UpdateInfoComponent } from './containers/profil/update-infos/update-info.component';
 import { PendingDocumentsComponent } from './containers/documents/pending-documents/pending-documents.component';
 import { AcceptedDocumentsComponent } from './containers/documents/accepted-documents/accepted-documents.component';
-import { ArchivedDocumentsComponent } from './containers/documents/archived-documents/archived-documents.component';
+import { TreatedDocumentsComponent } from './containers/documents/treated-documents/treated-documents.component';
 import { RejectedDocumentsComponent } from './containers/documents/rejected-documents/rejected-documents.component';
+import { DetailsPageComponent } from './containers/documents/details-page/details-page.component';
 import { IndexComponent } from './containers/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdministratorHomeComponent } from './containers/admin-home/admin-home.component';
@@ -21,8 +22,9 @@ import { AdministratorHomeComponent } from './containers/admin-home/admin-home.c
     UpdateInfoComponent,
     PendingDocumentsComponent,
     AcceptedDocumentsComponent,
-    ArchivedDocumentsComponent,
+    TreatedDocumentsComponent,
     RejectedDocumentsComponent,
+    DetailsPageComponent,
     NavBarComponent,
     LeftSideComponent,
     AdministratorHomeComponent,

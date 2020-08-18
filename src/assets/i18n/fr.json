@@ -23,7 +23,12 @@
 		"WelcomeBack": "Bienvenue sur GEPAD",
 		"ConnectedWithSuccess": "Connecté avec succès",
 		"AllFieldsAreRequired": "Tous les champs sont requis",
-		"ErrorIncorrectLoginOrPwd": "Login ou mot de passe incorrect"
+		"ErrorIncorrectLoginOrPwd": "Login ou mot de passe incorrect",
+		"Motto": "L'application de gestion électronique des proces administratifs et documents",
+		"Terms1": "Sécurité, Traçabilité",
+		"Terms2": "Votre application qui vous garantie la sécurité et la traçabilité!v",
+		"Terms3": "Stockage organisé",
+		"Terms4": "Retrouvez vos dossiers traités en tempds réel!"
 	},
 	"SignUp":{
 		"WelcomeBack": "Bienvenue,",
@@ -55,7 +60,17 @@
 		"FrenchLanguageOptionPlaceHolder": "Francais",
 		"LoginPlaceHolder": "Votre login",
 		"PasswordPlaceHolder": "Veuillez saisir le mot de passe de votre compte",
-		"ConfirmPasswordPlaceHolder": "Saisir a nouveau le mot de passe"
+		"ConfirmPasswordPlaceHolder": "Saisir a nouveau le mot de passe",
+		"Title": "Création des utilisateurs internes au système",
+		"Workspace": "Ceci est votre espace de travail",
+		"Description": "  A partir de cette interface vous pouvez créer les utilisateurs internes au système.",
+		"ChoosePosition": "Choisissez le poste de l'utilisateur que vous desirez créer : ",
+		"ChooseDepartment": "Choisissez le service de l'utilisateur que vous desirez créer : ",
+		"SelectPost": "Choisir le poste de cet utilisateur",
+		"SelectDepartment":"Choisir le service de cet utilisateur",
+		"ChooseAdmin": "Administrateur de service",
+		"ChooseEmployee":"Employee de service",
+		"Update": "Mettre a jour"
 	},
 	"Forgotpwd": {
 		"Forgotpassword": "Mot de passe oublié?",
@@ -66,7 +81,7 @@
 	},
 	"VisitorHome": {
 		"ArchivedFolders": "Dossiers Archivés",
-		"ServerUnavailable": "Serveur indisponible veuillez vérifier votre connexion a internet",
+		"ServerUnavailable": "Serveur indisponible veuillez vérifier votre connexion a internet.",
 		"WaitingFolders": "Dossiers en Attente",
 		"onWorkingFolders": "Dossiers en Traitements",
 		"rejectedFolders": "Dossiers rejetés",
@@ -81,20 +96,24 @@
 		"allSubmittedFolders": "Total dossiers soumis",
 		"allOnWorkingFolders": "Total dossiers en traitement",
 		"ActivityStat": "Statistiques sur vos activités",
-		"IntroDescription": "A partir de cette interface vous pouvez suivre l'évolution des documents que vous avez soumis et consulter l'historique des documents soumis dans le passé",
+		"IntroDescription": "A partir de cette interface vous pouvez suivre l'évolution des documents que vous avez soumis et consulter l'historique des documents soumis dans le passé.",
 		"Welcome": "Bienvenue",
 		"WorkSpace": "Ceci est votre espace de travail",
 		"CompleteProfile": "Compléter votre profil"
-
+	},
+	"VisitorHomeJS": {
+		"Language1": "Francais",
+		"Language2": "Anglais",
+		"Language3": "Langue inconnue"
 	},
 	"AcceptedDocument": {
 		"Foldersintreatment": "Dossiers en cours de traitement",
 		"Workspace": "Ceci est votre espace de travail",
 		"ViewAllFoldersInterface": "A partir de cette interface vous pouvez visualiser l'ensemble de vos dossiers qui sont en cours de traitement",
 		"NoteSecurite1": "Note sur la sécurite:",
-		"NoteSecurite2": "toutes vos données sont securisées et nous vous garantissions leur suivie et leur accès en toute securite",
+		"NoteSecurite2": "Toutes vos données sont securisées et nous vous garantissions leur suivie et leur accès en toute securite",
 		"Name": "Nom",
-		"JointFiles": "Pièces jointes",
+		"JointFiles": "Pièce(s) jointe(s)",
 		"SubmissionDate": "Date de soumission",
 		"Percentage": "Pourcentage",
 		"PleaseWait": "Patientez svp...",
@@ -106,11 +125,11 @@
 		"Workspace": "Ceci est votre espace de travail",
 		"ViewAllFoldersInterface": "A partir de cette interface vous pouvez visualiser l'ensemble de vos dossiers qui ont été traités",
 		"NoteSecurite1": "Note sur la sécurité:",
-		"NoteSecurite2": "toutes vos données sont securisées et nous vous garantissions leur suivie et leur access en toute sécurité",
+		"NoteSecurite2": "Toutes vos données sont securisées et nous vous garantissions leur suivie et leur access en toute sécurité",
 		"ArchivedFolders": "Dossiers archivés",
 		"Name": "Nom",
 		"Description": "Description",
-		"JointFiles": "Pièces jointes",
+		"JointFiles": "Pièce(s) jointe(s)",
 		"SubmissionDate": "Date de soumission",
 		"Actions": "Actions",
 		"PleaseWait": "Patientez svp...",
@@ -122,11 +141,12 @@
 		"Workspace": "Ceci est votre espace de travail",
 		"ViewAllFoldersInterface": " A partir de cette interface vous pouvez visualiser l'ensemble des dossiers que vous avez soumis mais qui sont en attente de traitement",
 		"NoteSecurite1": "Note sur la sécurité:",
-		"NoteSecurite2": "toutes vos donnees sont securisées et nous vous garantissions leur suivie et leur accèss en toute securite",
+		"NoteSecurite2": "Toutes vos donnees sont securisées et nous vous garantissions leur suivie et leur accèss en toute securite",
 		"PendingFolders": "Dossiers en attente de traitement",
 		"Name": "Nom",
+		"Info": "cliquer pour voir les details",
 		"Description": "Description",
-		"JointFiles": "Pièces jointes",
+		"JointFiles": "Pièce(s) jointe(s)",
 		"SubmissionDate": "Date de soumission",
 		"Actions": "Actions",
 		"PleaseWait": "Patientez svp...",
@@ -138,11 +158,11 @@
 		"Workspace": "Ceci est votre espace de travail",
 		"ViewAllFoldersInterface": "  A partir de cette interface vous pouvez visualiser l'ensemble des dossiers que vous avez soumis mais qui ont été rejétés pour une raison ou une autre",
 		"NoteSecurite1": "Note sur la sécurité:",
-		"NoteSecurite2": "toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite",
+		"NoteSecurite2": "Toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite",
 		"RejectedFolders": "Dossiers rejétés",
 		"Name": "Nom",
 		"Description": "Description",
-		"JointFiles": "Pièces jointes",
+		"JointFiles": "Pièce(s) jointe(s)",
 		"SubmissionDate": "Date de soumission",
 		"Actions": "Actions",
 		"PleaseWait": "Patientez svp...",
@@ -209,12 +229,18 @@
 		"Profile": "Profil",
 		"SignOut": "Se Déconnecter"
 	},
+	"NavBar": {
+		"ChooseLanguage": "Choisir la langue",
+		"Languages": "Langues",
+		"Profile": "Profil",
+		"SignOut": "Se Déconnecter"
+	},
 	"FolderTracking": {
 		"FolderFollowUp": "Suivie de dossier",
 		"WorkSpace": "Ceci est votre espace de travail",
-		"FolderFollowUpView": "A partir de cette interface vous pouvez suivre l'évolution d'un document que vous avez soumis",
+		"FolderFollowUpView": "A partir de cette interface vous pouvez suivre l'évolution d'un dosier que vous avez soumis",
 		"SecurityNote": "Note sur la securité:",
-		"allDataSecured": "toutes vos données sont securisées et nous vous garantissions leur suivie et leur accès en toute securité",
+		"allDataSecured": "Toutes vos données sont securisées et nous vous garantissions leur suivie et leur accès en toute securité",
 		"toCheckStatus": "Pour consulter l'état d'avancement d'un de vos dossier, vous devez saisir son numéro",
 		"typeFolderId": "Saisir le numéro du dossier juste en dessous",
 		"typeFolderNumber": "Saisir le numéro de votre dossier ici",
@@ -238,11 +264,11 @@
 	},
 	"AdminHome": {
 		"ArchivedFolders": "Dossiers Archivés",
-		"ServerUnavailable": "Serveur indisponible veuillez vérifier votre connexion a internet",
+		"ServerUnavailable": "Serveur indisponible veuillez vérifier votre connexion a internet.",
 		"WaitingFolders": "Dossiers en Attente",
 		"onWorkingFolders": "Dossiers en Traitements",
 		"rejectedFolders": "Dossiers rejetés",
-		"editProfile": "Modifier mon profile",
+		"editProfile": "Modifier mon profil",
 		"Name": "Nom",
 		"Surname": "Prénom",
 		"PhoneNumber": "Numéro de téléphone",
@@ -253,7 +279,7 @@
 		"allSubmittedFolders": "Total dossiers",
 		"allOnWorkingFolders": "Total dossiers en traitement",
 		"ActivityStat": "Statistiques sur vos activités",
-		"IntroDescription": "A partir de cette interface vous pouvez traiter des dossiers qui vous sont envoyés et consulter l'historique des dossiers traités dans le passé",
+		"IntroDescription": "A partir de cette interface vous pouvez traiter des dossiers qui vous sont envoyés et consulter l'historique des dossiers traités dans le passé.",
 		"Welcome": "Bienvenue",
 		"WorkSpace": "Ceci est votre espace de travail",
 		"CompleteProfile": "Compléter votre profil"
@@ -264,7 +290,7 @@
 		"Workspace": "Ceci est votre espace de travail",
 		"ViewAllFoldersInterface": "A partir de cette interface vous pouvez visualiser l'ensemble des dossiers qui sont en cours de traitement",
 		"NoteSecurite1": "Note sur la sécurite:",
-		"NoteSecurite2": "les documents qui vous sont soumis sont d'une importance capitale.vous devez donc etre méticuleux et efficace lors de leur prise en charge",
+		"NoteSecurite2": "Les documents qui vous sont soumis sont d'une importance capitale.vous devez donc etre méticuleux et efficace lors de leur prise en charge",
 		"Name": "Nom",
 		"JointFiles": "Pièces jointes",
 		"SubmissionDate": "Date de soumission",
@@ -279,17 +305,17 @@
 		"filesInTreatment": "Dossiers en traitement",
 		"PendingFiles": "Dossiers a traiter",
 		"RejectedFiles": "Dossiers rejétés",
-		"ArchivedFiles": "Dossiers archivés",
+		"ArchivedFiles": "Dossiers traités",
 		"Profile": "Profil",
 		"ModifyProfile": "Modifier mes infos"
 	},
-	"AdminArchivedDocument": {
-		"ArchivedFiles": "Dossiers traités et archivés",
+	"AdminTreatedDocument": {
+		"ArchivedFiles": "Dossiers traités",
 		"Workspace": "Ceci est votre espace de travail",
 		"ViewAllFoldersInterface": "A partir de cette interface vous pouvez visualiser l'ensemble des dossiers que vous avez traités",
 		"NoteSecurite1": "Note sur la sécurité:",
 		"NoteSecurite2": "les documents qui vous sont soumis sont d'une importance capitale.vous devez donc etre méticuleux et efficace lors de leur prise en charge",
-		"ArchivedFolders": "Dossiers archivés",
+		"ArchivedFolders": "Dossiers traités",
 		"Name": "Nom",
 		"Description": "Description",
 		"JointFiles": "Pièces jointes",
@@ -333,12 +359,39 @@
 	},
 	"AdminUpdateInfo": {
 		"Welcome": "Bienvenue",
-		"Workspace": "Ceci est votre espace de travail",
-		"editProfile": "  A partir de cette interface vous pouvez mettre a jour votre profil",
+		"WorkSpace": "Ceci est votre espace de travail",
+		"Update": "Mettre a jour",
+		"editProfile": "A partir de cette interface vous pouvez mettre a jour votre profil",
 		"NoteSecurite1": "Note sur la sécurité:",
-		"NoteSecurite2": "toutes vos donnees sont securisees et nous vous garantissions leur access en toute securite"
+		"NoteSecurite2": "Toutes vos donnees sont securisees et nous vous garantissions leur access en toute securite"
 		
+	},
+	"VisitorUpdateInfo": {
+		"Welcome": "Bienvenue",
+		"WorkSpace": "Ceci est votre espace de travail",
+		"Intro": "A partir de cette interface vous pouvez mettre a jour votre profil",
+		"NoteSecurite1": "Note sur la sécurité:",
+		"NoteSecurite2": "Toutes vos donnees sont securisees et nous vous garantissions leur access en toute securite",
+		"Nom": "Nom",
+		"Prenom": "Prenom",
+		"AdresseEmail": "Adresse e-mail",
+		"DateNais": "Date de naissance",
+		"LieuNais": "Lieu de naissance",
+		"NumTel": "Numéro de téléphone",
+		"Langue": "Langue parlé",
+		"Update": "Mettre a jour"
+
+		
+	},
+	"SuperAdminCreateUser": {
+		"Management": "Gerer les membres",
+		"AddUser1": "Ajouter un nouvel employé",
+		"AddUser2": "Ajouter un nouvel administrateur",
+		"Message": "Gerer les documents avec aise et en toute sécurité",
+		"Alert": "Facilité d'utilisation, Securité"
+
 	}
 
 }
+	
 	

@@ -5,14 +5,12 @@
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
                         <div class="page-title-icon">
-                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            <i class="pe-7s-home icon-gradient bg-premium-dark">
                             </i>
                         </div>
-                        <div><span class="text-success"><h4>Bienvenue</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                        <div><span class="text-success"><h4>{{ 'VisitorUpdateInfo.Welcome' | translate}}</h4></span> <strong><h5>{{ 'VisitorUpdateInfo.WorkSpace' | translate}}</h5></strong>
                             <div class="page-title-subheading">
-                                A partir de cette interface vous pouvez suivre l'evolution
-                                des documents que vous avez soumis et consulter l'historique
-                                des documents soumis dans le passe
+                                {{ 'VisitorUpdateInfo.Intro' | translate}}
                             </div>
                         </div>
                     </div>
@@ -25,7 +23,7 @@
                     <span class="font-icon-wrapper font-icon-md mr-2">
                         <i class="pe-7s-shield" size="medium"> </i>
                     </span>
-                    <strong><u>Note sur la securite:</u> </strong>  toutes vos donnees sont securisees et nous vous garantissions leur suivie et leur access en toute securite
+                    <strong><u>{{ 'VisitorUpdateInfo.NoteSecurite1' | translate}}</u> </strong>  {{ 'VisitorUpdateInfo.NoteSecurite2' | translate}}
                 </div>
                 <div class="mx-auto app-login-box col-sm-12 col-md-11 col-lg-11 pl-2 pr-2" style="width: 100%;">
                     <div>
@@ -239,7 +237,7 @@
                                         class="btn-wide btn-shadow btn-hover-shine btn btn-md btn-pill btn-danger mb-4"
                                         style="width: 47.5%; justify-content: center; align-items: center; margin-top: inherit;">
                                         <p *ngIf="!isLoading" style="font-size: medium; padding: 0px; margin: 5px; position: relative;">
-                                            Mettre a jour </p>
+                                           {{ 'VisitorUpdateInfo.Update' | translate }} </p>
                                         <div *ngIf="isLoading" style="padding: 15px; margin-left: 50%;">
                                             <div class="ball-scale-multiple">
                                                 <div style="background-color: white;"></div>
@@ -288,7 +286,7 @@
                                                     class="pe-7s-smile text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    Nom</div>
+                                                    {{ 'VisitorUpdateInfo.Nom' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
                                                 <div class="widget-heading">
@@ -304,7 +302,7 @@
                                                     class="pe-7s-smile text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    Prenom</div>
+                                                    {{ 'VisitorUpdateInfo.Prenom' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
                                                 {{ user.last_name ? user.last_name : 'Completer votre profil' }}
@@ -334,7 +332,7 @@
                                                     class="pe-7s-call text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                Numero de telephone</div>
+                                                    {{ 'VisitorUpdateInfo.NumTel' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
                                                 {{ user.tel ? user.tel : 'Completer votre profil' }}
@@ -349,7 +347,7 @@
                                                     class="pe-7s-note2 text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    date de naissance</div>
+                                                    {{ 'VisitorUpdateInfo.DateNais' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
                                                 {{ user.birth_date ? user.birth_date : 'Completer votre profil' }}
@@ -364,7 +362,7 @@
                                                     class="pe-7s-home text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    Lieu de naissance</div>
+                                                    {{ 'VisitorUpdateInfo.LieuNais' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
                                                 {{ user.birth_place ? user.birth_place : 'Completer votre profil' }}
@@ -379,7 +377,7 @@
                                                     class="pe-7s-pen text-muted fsize-2"></i></div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">
-                                                    Langue parlee</div>
+                                                    {{ 'VisitorUpdateInfo.Langue' | translate }}</div>
                                             </div>
                                             <div class="widget-content-right">
                                                {{ displayUserLanguage()}}

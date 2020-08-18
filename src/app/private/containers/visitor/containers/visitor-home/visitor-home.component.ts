@@ -94,9 +94,9 @@ export class VisitorHomeComponent implements OnInit {
       if (this.user.language === 'fr') {
         return 'Francais';
       } else if (this.user.language === 'en') {
-        return 'Anglais';
+        return 'English';
       } else {
-        return 'Langue inconnue';
+        return this.translations.VisitorHomeJS.Language3;
       }
     }
   }

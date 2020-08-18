@@ -5,12 +5,12 @@
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
                         <div class="page-title-icon">
-                            <i class="pe-7s-phone icon-gradient bg-premium-dark">
+                            <i class="pe-7s-home icon-gradient bg-premium-dark">
                             </i>
                         </div>
-                        <div><span class="text-success"><h4>Création des utilisateurs internes au système</h4></span> <strong><h5>Ceci est votre espace de travail</h5></strong>
+                        <div><span class="text-success"><h4>{{ 'SignUp.Title' | translate }}</h4></span> <strong><h5>{{ 'SignUp.Workspace' | translate }}</h5></strong>
                             <div class="page-title-subheading">
-                                A partir de cette interface vous pouvez créer les utilisateurs internes au système.
+                               {{'SignUp.Description' | translate}}
                             </div>
                         </div>
                     </div>
@@ -160,12 +160,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <label class="">Choisissez le poste de l'utilisateur que vous desirez créer : <span style="color: red;">*</span></label>
+                                        <label class="">{{'SignUp.ChoosePosition' | translate }} <span style="color: red;">*</span></label>
                                         <select formControlName="job"
                                             class="form-control {{ form.job.errors && isSubmitted ? 'invalid': '' }}">
-                                            <option value="" disabled selected hidden>Choisir le poste de cet utilisateur</option>
-                                            <option value="ADMINISTRATOR">Administrateur de service</option>
-                                            <option value="EMPLOYEE">Employee de service</option>
+                                            <option value="" disabled selected hidden>{{ 'SignUp.SelectPost' | translate }}</option>
+                                            <option value="ADMINISTRATOR">{{'SignUp.ChooseAdmin' | translate }}</option>
+                                            <option value="EMPLOYEE">{{'SignUp.ChooseEmployee' | translate }}</option>
                                         </select>
                                         <small class="form-text text-muted info-error info-error-danger"
                                             *ngIf="handleError?.job">
@@ -175,10 +175,10 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <label class="">Choisissez le service de l'utilisateur que vous desirez créer : <span style="color: red;">*</span></label>
+                                        <label class="">{{'SignUp.ChooseDepartment' | translate}} <span style="color: red;">*</span></label>
                                         <select formControlName="service_id"
                                             class="form-control {{ form.service_id.errors && isSubmitted ? 'invalid': '' }}">
-                                            <option value="" disabled selected hidden>Choisir le service de cet utilisateur</option>
+                                            <option value="" disabled selected hidden>{{ 'SignUp.SelectDepartment' | translate }}</option>
                                             <option *ngFor="let item of services" value="{{ item.id }}">{{ item.name }}</option>
                                         </select>
                                         <small class="form-text text-muted info-error info-error-danger"
@@ -216,8 +216,8 @@
                         <div>
                             <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark" tabindex="-1">
                                 <div class="slide-img-bg" style="background-image: url('assets/images/sidebar/abstract9.jpg'); background-size: cover; background-position: center;"></div>
-                                <div class="slider-content"><h3>Collaboration,Sécurité</h3>
-                                    <p>Easily exclude the components you don't require. Lightweight, consistent Bootstrap based styles across all elements and components</p></div>
+                                <div class="slider-content"><h3>{{ 'SuperAdminCreateUser.Alert' | translate }}</h3>
+                                    <p>{{ 'SuperAdminCreateUser.Message' | translate }}</p></div>
                             </div>
                         </div>
                     </div>

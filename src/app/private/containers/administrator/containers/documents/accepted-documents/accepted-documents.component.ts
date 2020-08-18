@@ -39,34 +39,55 @@ export class AcceptedDocumentsComponent implements OnInit {
     this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
     this.user = this.authService.getUserInfos();
     this.initAvatar();
-    this.getFolders();
+    this.getService();
   }
 
   initAvatar() {
     this.avatarPath = this.user.avatar ? config.apiUrl + '/' + this.user.avatar : '';
   }
 
-  getFolders() {
-    let user_id = this.user ? this.user.id : null;
-    if(user_id) {
-      this.loading = true;
-      this.folderService.getUserAcceptedFolders(user_id)
+  getService() {
+    this.folderService.getListFoldersAcceptedByService(this.user.service.id)
       .then((resp) => {
         this.data = resp;
-        console.log(resp);
+        console.log('Accepted folders: ', resp);
       })
       .catch((err) => {
         console.log(err);
         this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
       })
-      .finally( () => {
-        this.loading = false;
-      });
-    } else {
-      this.notificationService.danger("Votre session a expiree veuillez vous connecter");
-      this.router.navigate(['/private/login']);
-    }
   }
+
+  
+  rejectFolder(item: any){
+    this.folderService.rejectFolderByService(item.activity_instance_id)
+      .then((resp) => {
+        console.log('Dossier rejete',resp);
+        this.getService();
+      })
+      .catch((err) => {
+        console.log(err);
+        this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
+      })
+  }
+
+  
+  approuvedFolder(item: any){
+    this.folderService.approuvedFolderByService(item.activity_instance_id)
+      .then((resp) => {
+        console.log('Dossier Approuve',resp);
+        this.message.title = 'Succes'
+        this.message.content = 'Vous avez approuvez le dossier. La description du dossier choisi que vous venez de signer est la suivante: ' + 'item.description + a present commencer le traitement du dossier dans votre service';
+        this.notificationService.success(this.message.content);
+        this.isSuccess = true;
+        this.getService();
+      })
+      .catch((err) => {
+        console.log(err);
+        this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
+      })
+  }
+
 
   cancel() {
     this.isError = false;
@@ -79,7 +100,7 @@ export class AcceptedDocumentsComponent implements OnInit {
   }
 
   public details(item: any) {
-    return;
+    this.router.navigate(['/private/administrators/documents/details-page/' + item.id]);
   }
 
   public delete(item: any) {

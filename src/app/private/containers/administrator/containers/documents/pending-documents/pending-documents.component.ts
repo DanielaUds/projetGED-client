@@ -27,6 +27,7 @@ export class PendingDocumentsComponent implements OnInit {
   message = { title: '', content: '' };
   data: any[] = [];
   parser = parseDate;
+  service = null;
 
   constructor(
     private authService: AuthService, 
@@ -39,34 +40,42 @@ export class PendingDocumentsComponent implements OnInit {
     this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
     this.user = this.authService.getUserInfos();
     this.initAvatar();
-    this.getFolders();
+    this.getService();
   }
 
   initAvatar() {
     this.avatarPath = this.user.avatar ? config.apiUrl + '/' + this.user.avatar : '';
   }
 
-  getFolders() {
-    let user_id = this.user ? this.user.id : null;
-    if(user_id) {
-      this.loading = true;
-      this.folderService.getUserPendingFolders(user_id)
+  getService() {
+    this.folderService.getListFoldersPending(this.user.service.id)
       .then((resp) => {
         this.data = resp;
-        console.log(resp);
+        console.log('Pending folders: ', resp);
       })
       .catch((err) => {
         console.log(err);
         this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
       })
-      .finally( () => {
-        this.loading = false;
-      });
-    } else {
-      this.notificationService.danger("Votre session a expiree veuillez vous connecter");
-      this.router.navigate(['/private/login']);
-    }
+
   }
+
+  acceptedForTreatementFolder(item: any){
+    this.folderService.acceptedForTreatementFolder(item.activity_instance_id)
+      .then((resp) => {
+        console.log(resp);
+        this.message.title = 'Succes'
+        this.message.content = 'Vous pouvez a present commencer le traitement du dossier dans votre service. Vous pouvez voir les details du dossier dans le menu dossier en cours de traitement. La description du dossier choisi est la suivante: ' + item.description;
+        this.notificationService.success(this.message.content);
+        this.isSuccess = true;
+        this.getService();
+      })
+      .catch((err) => {
+        console.log(err);
+        this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
+      })
+  }
+
 
   cancel() {
     this.isError = false;
@@ -79,7 +88,11 @@ export class PendingDocumentsComponent implements OnInit {
   }
 
   public details(item: any) {
-    return;
+    this.router.navigate(['/private/administrators/documents/details-page/' + item.id]);
+  }
+
+  public back(item: any) {
+    this.router.navigate(['/private/administrators/documents/']);
   }
 
   public delete(item: any) {

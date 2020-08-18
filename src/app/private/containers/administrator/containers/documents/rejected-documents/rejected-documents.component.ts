@@ -39,31 +39,24 @@ export class RejectedDocumentsComponent implements OnInit {
     this.internationalizationService.changeLanguage(this.currentLanguage, (res) => { this.translations = res; });
     this.user = this.authService.getUserInfos();
     this.initAvatar();
-    this.getFolders();
+    this.getService();
   }
 
   initAvatar() {
     this.avatarPath = this.user.avatar ? config.apiUrl + '/' + this.user.avatar : '';
   }
 
-  getFolders() {
-    let user_id = this.user ? this.user.id : null;
-    if(user_id) {
-      this.loading = true;
-      this.folderService.getUserRejectedFolders(user_id)
+  getService() {
+    this.folderService.getListFoldersRejected(this.user.service.id, this.user.id)
       .then((resp) => {
         this.data = resp;
+        console.log('treated folders: ', resp);
       })
       .catch((err) => {
-        this.notificationService.danger("Serveur indisponibles veuillez verifier votre connexion a internet");
+        console.log(err);
+        this.notificationService.danger("Serveur indisponible veuillez verifier votre connexion a internet");
       })
-      .finally( () => {
-        this.loading = false;
-      });
-    } else {
-      this.notificationService.danger("Votre session a expiree veuillez vous connecter");
-      this.router.navigate(['/private/login']);
-    }
+
   }
 
   cancel() {
@@ -77,7 +70,7 @@ export class RejectedDocumentsComponent implements OnInit {
   }
 
   public details(item: any) {
-    return;
+    this.router.navigate(['/private/administrators/documents/details-page/' + item.id]);
   }
 
   public delete(item: any) {
