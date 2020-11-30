@@ -47,7 +47,7 @@ export class AcceptedDocumentsComponent implements OnInit {
   }
 
   getService() {
-    this.folderService.getListFoldersAcceptedByService(this.user.service.id)
+    this.folderService.getListFoldersAcceptedByService(this.user.service_id)
       .then((resp) => {
         this.data = resp;
         console.log('Accepted folders: ', resp);

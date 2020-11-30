@@ -47,7 +47,7 @@ export class RejectedDocumentsComponent implements OnInit {
   }
 
   getService() {
-    this.folderService.getListFoldersRejected(this.user.service.id, this.user.id)
+    this.folderService.getListFoldersRejected(this.user.service_id, this.user.id)
       .then((resp) => {
         this.data = resp;
         console.log('treated folders: ', resp);

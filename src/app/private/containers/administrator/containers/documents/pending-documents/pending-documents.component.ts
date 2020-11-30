@@ -48,7 +48,7 @@ export class PendingDocumentsComponent implements OnInit {
   }
 
   getService() {
-    this.folderService.getListFoldersPending(this.user.service.id)
+    this.folderService.getListFoldersPending(this.user.service_id)
       .then((resp) => {
         this.data = resp;
         console.log('Pending folders: ', resp);

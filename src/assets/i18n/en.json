@@ -207,6 +207,14 @@
 		"Profile": "Profile",
 		"ModifyProfile": "Edit my info"
 	},
+	"CreateFolderJS": {
+		"Error": "Erreur",
+		"ErrorNotif1": "Le format de fichier choisit est incorrect. Vous devez choisir un format de fichier correct pour ce type de fichier. Lisez la description a la droite de votre ecran pour plus de details",
+		"ErrorNotif21": "La taille du fichier choisi est trop grande (",
+		"ErrorNotif22": "). Vous devez choisir un fichier ayant une taille inferieure a ",
+		"WrongFill": "Formulaire mal remplit, veuillez completer les champs obligatoires",
+		"Success": "Succes"
+	},
 	"NavBarAdmin": {
 		"ChooseLanguage": "Choose your language",
 		"Languages": "Languages",

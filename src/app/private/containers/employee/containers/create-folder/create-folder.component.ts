@@ -410,7 +410,7 @@ export class CreateFolderComponent implements OnInit {
     ).catch(
       err => {
         this.message.title = 'Erreur'
-        this.message.content = 'Nous n\'avons pa pu retrouver l\'utilisateur d\'adresse email ' + this.f.user_email.value + '. Il se pourrait que l\'utilisateur associe n\'ait pas encore creer de compte dans notre systeme ou que la connexion internet a ete interrompue veuillez verifier puis reessayer !';
+        this.message.content = 'Nous n\'avons pas pu retrouver l\'utilisateur d\'adresse email ' + this.f.user_email.value + '. Il se pourrait que l\'utilisateur associe n\'ait pas encore creer de compte dans notre systeme ou que la connexion internet a ete interrompue veuillez verifier puis reessayer !';
         this.notificationService.danger(this.message.content);
         this.isError = true;
         this.isSubmitted = false;

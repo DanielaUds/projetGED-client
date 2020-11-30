@@ -47,7 +47,7 @@ export class TreatedDocumentsComponent implements OnInit {
   }
 
   getService() {
-    this.folderService.getListFoldersFinish(this.user.service.id, this.user)
+    this.folderService.getListFoldersFinish(this.user.service_id, this.user)
       .then((resp) => {
         this.data = resp;
         console.log('treated folders: ', resp);
